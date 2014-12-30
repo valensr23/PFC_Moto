@@ -3,6 +3,11 @@
 #include <Wire.h>
 #include <SoftwareSerial.h> //Librería que permite establecer comunicación serie en otros pins
 
+
+/////////////////////////////////////////////////////////////////
+//Desenchufar BT antes de programar el arduino y despues conectarlo de nuevo
+////////////////////////////////////////////////////////////////
+
 L3G gyro;
 LSM303 compass;
 
@@ -26,7 +31,7 @@ int magnetom_z;
 
 
 //Aquí conectamos los pins RXD,TDX del módulo Bluetooth.
-SoftwareSerial BT(10,11); //10 RX, 11 TX.
+SoftwareSerial BT = SoftwareSerial(2,4); //10 RX, 11 TX.
 
 
 
@@ -102,9 +107,14 @@ void Read_Compass()
 
 void setup()
 {
-  //BT.begin(9600); //Velocidad del puerto del módulo Bluetooth
-  Serial.begin(9600); //Abrimos la comunicación serie con el PC y establecemos velocidad
-  //Wire.begin(0xF5); //Inicializo el bus I2C en la direccion 0xF5
+  pinMode(0, OUTPUT);                                                    // Configure Tx as OUTPUT (Transmitter)
+  pinMode(1, INPUT);
+  BT.begin(9600);
+  Serial.begin(9600);
+  //BT.flush();
+
+  delay(500);
+  
   I2C_Init();
   gyro.init();
   compass.init();
@@ -117,20 +127,27 @@ void loop()
 {
   Read_Gyro();
   compass.read();
-  //modulo de prueba para comunicacion con el ordenador
-  int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
-  for (int i=0;i<=8;i++){
-  Serial.println(datos[i]);
-  }
-  delay(5000);
- 
-/* Comunicacion Android to Arduino
-  if(BT.available())
-  {
+  
+  
+ int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
     
-    Serial.write(BT.read());
-  }
- */
+  /* if(Serial.available()){
+    
+    BT.write(Serial.read());
+  }*/
+
+  
+    /*for (int i=0;i<=8;i++){
+  Serial.println(datos[i]);
+  }*/
+    BT.write("vamos");
+    BT.print("VAMOS");
+    //Serial.write("bien");
+    //Serial.print("BIEN");  
+     delay(5000);
+    
+  
+ 
  
  //Comunicacion BT to Android
  /*
