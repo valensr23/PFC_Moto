@@ -28,10 +28,15 @@ int magnetom_y;
 int magnetom_z;
 
 
+//modo de comunicacion ¿?
+#define KEY 7
+
+
+
 
 
 //Aquí conectamos los pins RXD,TDX del módulo Bluetooth.
-SoftwareSerial BT = SoftwareSerial(2,4); //10 RX, 11 TX.
+SoftwareSerial BT = SoftwareSerial(10, 11); //10 RX, 11 TX.
 
 
 
@@ -107,14 +112,35 @@ void Read_Compass()
 
 void setup()
 {
-  pinMode(0, OUTPUT);                                                    // Configure Tx as OUTPUT (Transmitter)
-  pinMode(1, INPUT);
+  
+  ////////////////////////////////////////////////////////////////////////////////////
+  /*
+  //Prueba de Internet
+  
+
+
+  //You may need to modify this to suit your bluetooth module
+  //This is used to initialise the bluetooth module
+
+  BT.begin(9600);   //*************
+  BT.print("\r\n+STWMOD=0\r\n"); //set the bluetooth work in slave mode
+  BT.print("\r\n+STNA=HC-06\r\n"); //set the bluetooth name as "SeeedBTSlave"
+  BT.print("\r\n+STOAUT=1\r\n"); // Permit Paired device to connect me
+  BT.print("\r\n+STAUTO=0\r\n"); // Auto-connection should be forbidden here
+  delay(2000); // This delay is required.
+  BT.print("\r\n+INQ=1\r\n"); //make the slave bluetooth inquirable 
+  delay(2000); // This delay is required.
+  BT.flush();
+
+  
+  ////////////////////////////////////////////////////////////////////////////////
+  */
+  //delay(500);
+  pinMode(10, INPUT);
+  pinMode(11, OUTPUT);
+  digitalWrite(KEY, HIGH);
   BT.begin(9600);
   Serial.begin(9600);
-  //BT.flush();
-
-  delay(500);
-  
   I2C_Init();
   gyro.init();
   compass.init();
@@ -129,33 +155,61 @@ void loop()
   compass.read();
   
   
- int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
+  int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
+    /*
+    //////////////////////////////////////////////////////////////////////////////
+    ////Prueba de angulos que medimos
     
-  /* if(Serial.available()){
+     int minVal = 405;   //valores obtenidos de una prueba anterior
+     int maxVal = 609;
     
-    BT.write(Serial.read());
-  }*/
-
+    double x;      
+    double y;  
+    double z;
+    
+    int xAng = map(datos[3], minVal, maxVal, -100, 100); 
+    int yAng = map(datos[4], minVal, maxVal, -100, 100);  
+    int zAng = map(datos[5], minVal, maxVal, -100, 100); 
+    
+    
+   y = RAD_TO_DEG * (atan2(-yAng, -zAng) + PI);  
+   x = RAD_TO_DEG * (atan2(-xAng, -zAng) + PI);  
+   z = RAD_TO_DEG * (atan2(-yAng, -xAng) + PI);
+   
+   Serial.print("x(theta): ");
+   Serial.print(x);
+   Serial.print("   y(phi): ");
+   Serial.print(y);
+   Serial.print("   z: ");
+   Serial.println(z);
+    */
+    ///////////////////////////////////////////////////////////////////////////////
+    
+  if (BT.available()){
+    Serial.write(BT.read());
+    delay(100);
+    while(1){
+      
+      compass.read();
+      
+      
+      String a = String(compass.a.x);
+      String b = String(compass.a.y);
+      String c = String(compass.a.z);
+      
+      
+    BT.print(a+"a"+b+"b"+c);
+    BT.flush();
+    delay(3000);
+    /*BT.write("2oleee\r\n");
+    BT.flush();
+    delay(2000);
+    BT.print("3hola\r\n");
+    BT.flush();
+    delay(2000);*/
+    }
+  }
+  if (Serial.available())
+    BT.print("aaaaaaa");
   
-    /*for (int i=0;i<=8;i++){
-  Serial.println(datos[i]);
-  }*/
-    BT.write("vamos");
-    BT.print("VAMOS");
-    //Serial.write("bien");
-    //Serial.print("BIEN");  
-     delay(5000);
-    
-  
- 
- 
- //Comunicacion BT to Android
- /*
-  while(Serial.available())
-  {
-     char datos[] = {gyro_x, gyro_y, gyro_z, accel_x, accel_y, accel_z, magnetom_x, magnetom_y, magnetom_z};
-     BT.write(Serial.read());
-     BT.print(datos);
-     delay(1000);
-  }*/
 }
