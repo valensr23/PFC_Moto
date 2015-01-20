@@ -93,12 +93,7 @@ public class MainActivity extends Activity {
 	lblEstado = (TextView) findViewById(R.id.LblEstado);
 	//inicializo button y fijamos la accion que queremos que desarrolle
 	buttonSMS = (Button)findViewById(R.id.buttonSMS);
-	buttonSMS.setOnClickListener(new View.OnClickListener() {
-		public void onClick(View v) {
-			sendSMS("000","Mi posicion es latitud:" );
-			
-		}
-	});
+	
 	////////////////////////////
     //btnOn = (Button) findViewById(R.id.btnOn);					// button LED ON
     //btnOff = (Button) findViewById(R.id.btnOff);				// button LED OFF
@@ -125,16 +120,124 @@ public class MainActivity extends Activity {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 //Incializar Handler
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
+
   private void inicioHandler(){
 	  puente = new Handler(){
 			@Override
 			public void handleMessage(Message msg) {
-				super.handleMessage(msg);
-				txtArduino.setText(msg.obj.toString());
+				byte[] buffer   = null;
+			    String mensaje  = null;
+			            buffer = (byte[])msg.obj;
+			            mensaje = new String(buffer, 0, msg.arg1);
+			            Log.d("algo falla aqui:",""+mensaje);
+			            txtArduino.setText("estamos leyendo");
+			            operoDatos(mensaje);
+			            
 			}
 		};
   }
+  
+
+  private void operoDatos(String leido){
+
+	  int pos1 = leido.indexOf("a");
+	  int pos2 = leido.indexOf("b", pos1);
+	  int pos3 = leido.indexOf("c", pos2);
+	  int pos4 = leido.indexOf("d", pos3);
+	  int pos5 = leido.indexOf(" ");
+	  if(pos1 !=-1 && pos2 !=-1 && pos3!=-1 && pos4!=-1){
+		  //String ax = (leido.substring(pos1+1, pos2));
+		  //String ay = (leido.substring(pos2+1, pos3));
+		  //String az = (leido.substring(pos3+1, pos4));
+		  double x = Double.valueOf(leido.substring(pos1+1, pos2));
+		  double y = Double.valueOf(leido.substring(pos2+1, pos3));
+		  double z = Double.valueOf(leido.substring(pos3+1, pos4));
+		  //Log.d("algo falla aqui x:",""+x);
+		  //Log.d("algo falla aqui y:",""+y);
+		  //Log.d("algo falla aqui z:",""+z);
+		  //lblLongitud.setText(ax);
+		  //lblPrecision.setText(ay);
+		  //lblEstado.setText(az);
+		  algoritmoEmergencia(x, y, z);
+	  }
+  }
+  
+  
+  
+  private void algoritmoEmergencia(double x, double y, double z){
+	  double theta;
+	  double phi;
+	  //constante para que pi sea 180 grados
+	  double ang = (180/3.1415);
+	  
+	  theta = Math.atan2(x, z)*ang;
+	  phi = Math.atan2(y, z);
+	  lblLatitud.setText("theta:"+theta);
+	  lblLongitud.setText("no me he caido");
+	  if(theta>55 || theta<-55){
+		  checkSpeed();
+		  lblLongitud.setText("es posible que me haya caido");
+	  }
+  }
+  
+  
+
+  private void checkSpeed(){
+	  
+	  	//Obtenemos una referencia al LocationManager
+		locManager = 
+		(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+		
+		//Obtenemos la última posición conocida
+		Location loc = 
+		locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		
+		
+		//Nos registramos para recibir actualizaciones de la posición
+		locListener = new LocationListener() {
+			public void onLocationChanged(Location location) {
+				//tomamos la ubicacion actual y medimos la velocidad a la que nos encontramos
+				lblPrecision.setText("calculando velocidad 1");
+				double latitud = location.getLatitude();
+				double longitud = location.getLongitude();
+				double precision = location.getAccuracy();
+				float speed = location.getSpeed();
+				lblPrecision.setText("calculando velocidad");
+				if(speed < 3){
+					lblPrecision.setText("me he caido :(");
+					sendSMS("112","Me encuentro en", latitud, longitud, precision);
+					
+				}
+				
+			}
+
+			@Override
+			public void onProviderDisabled(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onProviderEnabled(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		
+		locManager.requestLocationUpdates(
+		LocationManager.GPS_PROVIDER, 30, 0, locListener);
+		
+  }
+  
+  
+  
+  
   
   
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -236,86 +339,28 @@ public class MainActivity extends Activity {
 	    }).show();
 	}
   
-  
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Metodo para obtener la LOCALIZACION del dispositivo
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-private void comenzarLocalizacion()
-{
-	
-	//Obtenemos una referencia al LocationManager
-	locManager = 
-	(LocationManager)getSystemService(Context.LOCATION_SERVICE);
-	
-	//Obtenemos la última posición conocida
-	Location loc = 
-	locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-	
-	//Mostramos la última posición conocida
-	mostrarPosicion(loc);
-	
-	//Nos registramos para recibir actualizaciones de la posición
-	locListener = new LocationListener() {
-		public void onLocationChanged(Location location) {
-			mostrarPosicion(location);
-		}
-		public void onProviderDisabled(String provider){
-			lblEstado.setText("Provider OFF");
-		}
-		public void onProviderEnabled(String provider){
-			lblEstado.setText("Provider ON ");
-		}
-		//Actualizamos la posicion del GPS cada 30 segundos
-		public void onStatusChanged(String provider, int status, Bundle extras){
-		}
-	};
-	
-	locManager.requestLocationUpdates(
-	LocationManager.GPS_PROVIDER, 30, 0, locListener);
-}
-
-
-private void mostrarPosicion(Location loc) {
-/*Metodo que comprueba si la variable loc contiene información, en caso 
-* contrario nos muestra el mensaje sin datos para latitud y longitud
-* en caso contrario nos muestra la posición en la que nos encontramos
-*/
-	if(loc != null)
-		{
-		lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
-		lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
-		lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
-		}
-	else
-		{
-		lblLatitud.setText("Latitud: (sin_datos)");
-		lblLongitud.setText("Longitud: (sin_datos)");
-		lblPrecision.setText("Precision: (sin_datos)");
-		}
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Metodo envio SMS
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private void sendSMS (String phoneNumber, String message){
-SmsManager sms = SmsManager.getDefault();
-sms.sendTextMessage(phoneNumber, null, message, null, null);
+private void sendSMS (String phoneNumber, String message, double latitud, double longitud, double precision){
+	SmsManager sms = SmsManager.getDefault();
+	String latitudS = Double.toString(latitud);
+	String longitudS = Double.toString(longitud);
+	String precisionS = Double.toString(precision);
+	message = "he sufrido un accidente, me encuentro en latitud:"+latitudS+"longitud:"+longitudS+"precision:"+precisionS;
+	lblEstado.setText(message);
+	sms.sendTextMessage(phoneNumber, null, message, null, null);
 }
 
-  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
   
 @Override
 protected void onStop() {
-
-/*Cuando la actividad es destruida, se ejecuta este método.
-*/
-super.onStop();
-
-	
-
+	/*Cuando la actividad es destruida, se ejecuta este método.
+	 */
+	super.onStop();
 }
   
  
@@ -324,16 +369,12 @@ super.onStop();
   @Override
   public void onResume() {
     super.onResume();
-    
-    
     //comenzarLocalizacion();
-    
   }
  
   @Override
   public void onPause() {
     super.onPause();   
- 
   }
    
   
@@ -367,34 +408,62 @@ super.onStop();
 private class RecibirComando extends Thread{
 		
 		BluetoothSocket clientSocket;
+		private final InputStream inputStream;    // Flujo de entrada (lecturas)
+	    private final OutputStream outputStream;   // Flujo de salida (escrituras)
+	    
 		
 		public RecibirComando(BluetoothSocket client) {
 			clientSocket=client;
-		}
-		
-		@Override
-		public void run() {
-			System.out.println("recibiendo");
-			BufferedReader input;
-			while(true){
+			// Se usan variables temporales debido a que los atributos se declaran como final
+			// no seria posible asignarles valor posteriormente si fallara esta llamada
+			InputStream tmpInputStream = null;
+			OutputStream tmpOutputStream = null;
+			 
+			// Obtenemos los flujos de entrada y salida del socket.
 			try {
-				input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-				System.out.println("hebra de recepcion");
-				
-				String a= input.readLine();
-				System.out.println("hebra de recepcion final");
-				Message msg = new Message();
-				msg.obj= a;
-				puente.sendMessage(msg);
-				System.out.println(a);
-			} catch (IOException e) {
-				e.printStackTrace();
+			    tmpInputStream = client.getInputStream();
+			    tmpOutputStream = client.getOutputStream();
+			    }
+			    catch(IOException e){
+			        Log.e(TAG, "HiloConexion(): Error al obtener flujos de E/S", e);
+			    }
+			        inputStream = tmpInputStream;
+			        outputStream = tmpOutputStream;
 			}
+		
+		
+		//Metodo principal del hilo, encargado de realizar las lecturas
+		public void run()
+		{
+			byte[] buffer = new byte[1024];
+			int bytes;
+
+			// Mientras se mantenga la conexion el hilo se mantiene en espera ocupada
+			// leyendo del flujo de entrada
+			while(true)
+			{
+				try {
+					Thread.sleep(600);
+					// Leemos del flujo de entrada del socket
+					bytes = inputStream.read(buffer);
+					
+					// Enviamos la informacion a la actividad a traves del handler.
+					// El metodo handleMessage sera el encargado de recibir el mensaje
+					// y mostrar los datos recibidos en el TextView
+					puente.obtainMessage(1, bytes, -1, buffer).sendToTarget();
+				}
+				catch(IOException e) {
+					Log.e(TAG, "HiloConexion.run(): Error al realizar la lectura", e);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			
 		}
-		
-		
 	}
- 
+
 }
+		
+		
+	
+ 
