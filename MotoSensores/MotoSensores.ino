@@ -151,11 +151,11 @@ void setup()
  
 void loop()
 {
-  Read_Gyro();
-  compass.read();
+  //Read_Gyro();
+  //compass.read();
   
   
-  int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
+    //int datos[] = {gyro.g.x, gyro.g.y, gyro.g.z, compass.a.x,  compass.a.y,  compass.a.z, compass.m.x, compass.m.y, compass.m.z};
     /*
     //////////////////////////////////////////////////////////////////////////////
     ////Prueba de angulos que medimos
@@ -191,22 +191,14 @@ void loop()
     while(1){
       
       compass.read();
-      
-      
+      delay(500);
       String a = String(compass.a.x);
       String b = String(compass.a.y);
       String c = String(compass.a.z);
-      
-      
-    BT.print(a+"a"+b+"b"+c);
-    BT.flush();
-    delay(3000);
-    /*BT.write("2oleee\r\n");
-    BT.flush();
-    delay(2000);
-    BT.print("3hola\r\n");
-    BT.flush();
-    delay(2000);*/
+   
+      BT.print("a"+a+"b"+b+"c"+c+"d");
+    
+      BT.flush();
     }
   }
   if (Serial.available())
