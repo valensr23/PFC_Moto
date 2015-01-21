@@ -45,22 +45,20 @@ import android.widget.TextView;
 import android.widget.Toast;
  
 public class MainActivity extends Activity {
-  private static final String TAG = "bluetooth2";
+
    
-   
-  //Para el BT
-  TextView txtArduino;
-  BluetoothAdapter bluetooth;
-  Handler puente;
-  BluetoothSocket clientSocket;
-  BluetoothDevice myDevice = null;
-  //SPP UUID service
-  UUID uuid= UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+  	//Para el BT
+  	BluetoothAdapter bluetooth;
+  	Handler puente;
+  	BluetoothSocket clientSocket;
+  	BluetoothDevice myDevice = null;
+  	//SPP UUID service
+  	UUID uuid= UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
   
   
 
-  // MAC-address de mis dispositivo BT
-  private static String address = "98:D3:31:B1:CC:72";
+  	// MAC-address de mis dispositivo BT
+  	private static String address = "98:D3:31:B1:CC:72";
   
 
   
@@ -73,8 +71,9 @@ public class MainActivity extends Activity {
 	private LocationManager locManager;
 	private LocationListener locListener;
 	
-	//boton SMS
-	Button buttonSMS;
+	//boton encendido y apagaado de la app
+	Button buttonOn;
+	Button buttonOff;
 	
 	
    
@@ -92,25 +91,35 @@ public class MainActivity extends Activity {
 	lblPrecision = (TextView) findViewById(R.id.LblPosPrecision);
 	lblEstado = (TextView) findViewById(R.id.LblEstado);
 	//inicializo button y fijamos la accion que queremos que desarrolle
-	buttonSMS = (Button)findViewById(R.id.buttonSMS);
+	buttonOn = (Button)findViewById(R.id.buttonOn);
+	buttonOff = (Button)findViewById(R.id.buttonOff);
 	
-	////////////////////////////
-    //btnOn = (Button) findViewById(R.id.btnOn);					// button LED ON
-    //btnOff = (Button) findViewById(R.id.btnOff);				// button LED OFF
-    txtArduino = (TextView) findViewById(R.id.txtArduino);		// for display the received data from the Arduino
+	//Metodo encargado del encendido de la app
+	buttonOn.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			//get Bluetooth adapter 
+		    bluetooth = BluetoothAdapter.getDefaultAdapter();		
+		    //Comprobamos si el BT esta encendido o apagado
+		    checkBTState(); 
+		    //Comprobamos si el GPS esta encendido o apagado
+		    checkGpsState() ;
+		    
+		    //Inicializacion del Handler
+		    inicioHandler();
+		    Log.d("ConnectToServerThread", "inicializo todo");	
+		}
+	});
     
-  
+	//Metodo encargado del apagado de la app
+		buttonOff.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
     
-    //get Bluetooth adapter 
-    bluetooth = BluetoothAdapter.getDefaultAdapter();		
-    //Comprobamos si el BT esta encendido o apagado
-    checkBTState(); 
-    //Comprobamos si el GPS esta encendido o apagado
-    checkGpsState() ;
     
-    //Inicializacion del Handler
-    inicioHandler();
-    Log.d("ConnectToServerThread", "inicializo todo");
     
     
     
@@ -129,8 +138,7 @@ public class MainActivity extends Activity {
 			    String mensaje  = null;
 			            buffer = (byte[])msg.obj;
 			            mensaje = new String(buffer, 0, msg.arg1);
-			            Log.d("algo falla aqui:",""+mensaje);
-			            txtArduino.setText("estamos leyendo");
+			            Log.d("mensaje que recibimos:",""+mensaje);
 			            operoDatos(mensaje);
 			            
 			}
@@ -183,7 +191,7 @@ public class MainActivity extends Activity {
   
 
   private void checkSpeed(){
-	  
+	  lblPrecision.setText("mido velocidad");
 	  	//Obtenemos una referencia al LocationManager
 		locManager = 
 		(LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -197,14 +205,13 @@ public class MainActivity extends Activity {
 		locListener = new LocationListener() {
 			public void onLocationChanged(Location location) {
 				//tomamos la ubicacion actual y medimos la velocidad a la que nos encontramos
-				lblPrecision.setText("calculando velocidad 1");
-				double latitud = location.getLatitude();
-				double longitud = location.getLongitude();
-				double precision = location.getAccuracy();
 				float speed = location.getSpeed();
-				lblPrecision.setText("calculando velocidad");
+				
 				if(speed < 3){
 					lblPrecision.setText("me he caido :(");
+					double latitud = location.getLatitude();
+					double longitud = location.getLongitude();
+					double precision = location.getAccuracy();
 					sendSMS("112","Me encuentro en", latitud, longitud, precision);
 					
 				}
@@ -259,7 +266,8 @@ public class MainActivity extends Activity {
 			toastText = name + " : " + address;
 			
 		} else {
-			toastText = "Bluetooth disabled";
+			toastText = "Bluetooth disabled, connect it";
+			finish();
 		}
 		System.out.println(toastText);
 		Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
@@ -343,6 +351,8 @@ public class MainActivity extends Activity {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Metodo envio SMS
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+int numMensajes = 0;
 
 private void sendSMS (String phoneNumber, String message, double latitud, double longitud, double precision){
 	SmsManager sms = SmsManager.getDefault();
@@ -351,7 +361,11 @@ private void sendSMS (String phoneNumber, String message, double latitud, double
 	String precisionS = Double.toString(precision);
 	message = "he sufrido un accidente, me encuentro en latitud:"+latitudS+"longitud:"+longitudS+"precision:"+precisionS;
 	lblEstado.setText(message);
-	sms.sendTextMessage(phoneNumber, null, message, null, null);
+	if(numMensajes !=1){
+		sms.sendTextMessage(phoneNumber, null, message, null, null);
+		numMensajes=1;
+	}
+	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
@@ -425,7 +439,7 @@ private class RecibirComando extends Thread{
 			    tmpOutputStream = client.getOutputStream();
 			    }
 			    catch(IOException e){
-			        Log.e(TAG, "HiloConexion(): Error al obtener flujos de E/S", e);
+			        Log.e("Bluetooth", "HiloConexion(): Error al obtener flujos de E/S", e);
 			    }
 			        inputStream = tmpInputStream;
 			        outputStream = tmpOutputStream;
@@ -453,7 +467,7 @@ private class RecibirComando extends Thread{
 					puente.obtainMessage(1, bytes, -1, buffer).sendToTarget();
 				}
 				catch(IOException e) {
-					Log.e(TAG, "HiloConexion.run(): Error al realizar la lectura", e);
+					Log.e("Bluetooth", "HiloConexion.run(): Error al realizar la lectura", e);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
