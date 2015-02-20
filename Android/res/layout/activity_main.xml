@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" 
     android:gravity="center_vertical|center_horizontal"
+    android:background="@drawable/fondo"
 	android:orientation="vertical">
 
     <Button
