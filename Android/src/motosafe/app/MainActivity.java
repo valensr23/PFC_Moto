@@ -153,6 +153,13 @@ public class MainActivity extends Activity {
 
 		  algoritmoEmergencia(x, y, z);
 	  }
+	  //caso de perdida de señal de BT
+	  if(pos1 !=-1 && pos2 !=-1 && pos3==-1 && pos4==-1){
+		  
+			  lblLatitud.setText("perdida de BT");
+			  checkSpeed();
+		  
+	  }
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +290,7 @@ public class MainActivity extends Activity {
 			outputChannel.writeChars("\nConectado al dispositivo android E \r\n");
 			outputChannel.flush();
 			
-			new RecibirComando(clientSocket).start();
+			new RecibirComando(clientSocket, MainActivity.this).start();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -390,6 +397,8 @@ private void sendSMS (String phoneNumber, String message, double latitud, double
 				
 	}
 	
+	
+	
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	//Clase encargada de encontrar el dispositivo que queremos, conectarnos a el e inicializar 
 	//la hebra de comunicacion
@@ -400,10 +409,11 @@ private class RecibirComando extends Thread{
 		BluetoothSocket clientSocket;
 		private final InputStream inputStream;    // Flujo de entrada (lecturas)
 	    private final OutputStream outputStream;   // Flujo de salida (escrituras)
-	    MainActivity mainActivity = new MainActivity();
+	    MainActivity mainActivity;
 		
-		public RecibirComando(BluetoothSocket client) {
+		public RecibirComando(BluetoothSocket client, MainActivity main) {
 			clientSocket=client;
+			mainActivity=main;
 			// Se usan variables temporales debido a que los atributos se declaran como final
 			// no seria posible asignarles valor posteriormente si fallara esta llamada
 			InputStream tmpInputStream = null;
@@ -429,17 +439,20 @@ private class RecibirComando extends Thread{
 		{
 			byte[] buffer = new byte[1024];
 			int bytes;
-
+			int perdido;
 			// Mientras se mantenga la conexion el hilo se mantiene en espera ocupada
 			// leyendo del flujo de entrada
 			while(true)
 			{
 				try {
+					
 					if (estado ==1){
 						numPerdidas++;
 					}
 					if(numPerdidas==5){
-						mainActivity.checkSpeed();
+						
+				         perdido=8;
+				         puente.obtainMessage(1, perdido, -1, buffer).sendToTarget();
 					}
 					
 					Thread.sleep(600);
@@ -452,6 +465,8 @@ private class RecibirComando extends Thread{
 				}
 				catch(IOException e) {
 					estado = 1;
+					Intent intent = new Intent();
+					intent.putExtra("variable_integer", estado);
 					Log.e("Bluetooth", "HiloConexion.run(): Error al realizar la lectura", e);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
