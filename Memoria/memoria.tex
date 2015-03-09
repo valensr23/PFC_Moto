@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+\author{Valentín Sánchez Ramírez}
+\title{Seguridad en vehículos de dos ruedas}
+\begin{document}
+	
+	
+	\title{Seguridad en veh\'iculos de dos ruedas}
+	\author{
+		Valent\'in S\'anchez Ram\'irez\\ \\
+		\small{Proyecto Fin de Carrera Ingenier\'ia de Telecomunicaciones}\\ \\
+		\small{Dpto. de Electronica y Tecnolog\'ia de Computadores}\\
+		\small{Escuela T\'ecnica Superior de Ingenier\'ia Inform\'atica y Telecomunicaicones}\\
+		\small{ETSIIT}\\ \\
+		\small{Universidad de Granada UGR}\\
+	}
+	\date{\small{\today}}
+	\maketitle
+	
+	%segunda pagina en blanco y sin numerar
+	\newpage
+	$\ $
+	\thispagestyle{empty} 
+	
+	\chapter*{}
+	\pagenumbering{Roman} %numeracion de paginas en numeros romanos
+	
+		\textit{Dedicado a	}
+	
+	%include de indice, resumen, abstract y capítulos
+	\include{indice}
+	
+	\include{resumen}
+	
+	\include{abstract}
+	
+	\include{capitulo1}
+	
+	\include{estadoDelArte}
+	
+	\include{desarrollo}
+	
+	\include{resultados}
+	
+	\include{conclusiones}
+	
+	\include{bibliografia}
+	
+	
+\end{document}

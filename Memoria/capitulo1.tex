@@ -1,0 +1,59 @@
+\chapter{Introducci\'on}\label{cap.introduccion}
+	\pagenumbering{arabic} % para empezar la numeración con números
+		En este cap\'itulo pretendemos situar al lector en el contexto del proyecto, en que campo vamos a trabajar, motivaci\'on y los objetivos del proyecto para que se pueda entender con mayor facilidad el trabajo realizado y los objetivos a conseguir.
+		
+	\section{Motivaci\'on}
+		Desde la invenci\'on de la motocicleta por Sylvester Howard Roper en 1867, el mundo del motor ha evolucionado desde el motor de cilindros a vapor hasta los motores actuales. Diferentes tipos de motocicletas con distintas cilindradas inundan nuestras calles a d\'ia de hoy.
+		
+		Como podemos ver al salir a la calle las motocicletas no son el \'unico veh\'iculo que nos encontramos, tambi\'en podemos encontrar coches, camiones y sus variantes en forma, motor, tama\~no y n\'umero de rudas. Lo que si podemos observar es que la moticleta es el veh\'iculo menos seguro frente a los mencionados, no solo por dimensiones sino porque en caso de accidente es el cuerpo del motorista quien sufre el impacto y no la carrocer\'ia como en los otros veh\'iculos.
+		
+		Con el paso de los a\~nos la seguridad en veh\'iculos con motor ha aumentado progresivamente. Este crecimiento ha sido mayor con la introducci\'on de nuevas tecnolog\'ias, tales como sensores, dotan al veh\'iculo de cierta inteligencia.
+		
+		Hoy en d\'ia es dif\'icil encontrar una persona que no posea un smartphone, una herramienta que no solo sirve para llamar, leer la prensa o encontrar una ubicaci\'on, sino que con la posibilidad del desarrollo de apps podemos convertir nuestro smartphone en una herramienta que nos ayude en cualquier tarea, circunstancia o incluso que nos salve la vida.
+		
+		La combinaci\'on de un veh\'iculo con sensores y comunicacion Bluetooth con un smartphone es el punto clave para que este proyecto pueda ser llevado a cabo.
+		
+		Por ello podemos decir que los elementos clave para aumentar la seguridad en un veh\'iculo de dos ruedas en este proyecto ser\'ian:
+
+		\begin{itemize}
+			\item Sensores.
+			\item Bluetooth.
+			\item Smartphone.
+		\end{itemize}
+	
+	\section{Sensores}
+		En este proyecto se usar\'a una mota sensora que se compone de tres sensores:
+		\begin{itemize}
+			\item Aceler\'ometro: es el encargado de medir aceleraciones, mide la aceleraci\'on asociada con el fen\'omeno de peso experimentado por una masa de prueba que se encuentra en el marco de referencia del dispositivo.
+			
+			\item Gir\'oscopo: es el encargado de medir, mantener o cambiar la orientaci\'on en el espacio de algún aparato o veh\'iculo. Est\'a formado por un cuerpo con simetr\'ia de rotaci\'on que gira alrededor del eje de dicha simetr\'ia.
+			
+			\item Magnet\'ometro: es el encargado de medir en fuerza o direcci\'on la señal magn\'etica de una muestra. 
+		\end{itemize}
+	
+	\section{Objetivos}
+		En este proyecto, se pretende entrar en contacto con el dise\~no y programaci\'on de una placa Arduino UNO, la interpretaci\'on de los datos que proporciona el Pololu MinIMU-9 v2, establecer la comunicaci\'on Bluetooth entre la placa Arduino UNO y un dispositivo Android y la programaci\'on y dise\~no de la app m\'ovil en Android.
+	
+		Para ello conectaremos el Pololu MinIMU-9 v2 y el dispositivo Bluetooth HC-05 a la placa Arduino UNO, programaremos nuestra placa Arduino para que reciba los datos del sensor y los env\'ie mediante Bluetooth al dispositivo Android.
+		
+		Posteriormente debemos programar una app Android en nuestro Smartphone que sea capaz de conectarse al dispositivo HC-05 y leer la informaci\'on recibida, esta app ser\'a la encargada de ejecutar el algoritmo y comprobaciones pertinentes. En caso de haber sufrido un accidente se le notificara al n\'umero de emergencias 112 de nuestra ubicaci\'on via SMS.
+		
+		Para llevar a cabo este proyecto, el trabajo a realizar se divide en los siguientes objetivos:
+		
+		\begin{itemize}
+			\item Instalaci\'on de entorno Arduino y familiarizarse con dicha programaci\'on.
+			
+			\item Estudio de las bibliograf\'ia acerca de la calibrac\'on de los sensores y de los algoritmos de c\'alculo de Pitch, Roll y Yaw.
+			
+			\item Montaje de la mota sensora y HC-05.
+			
+			\item Estudio de programaci\'on Android en Eclipse. Con la correspondiente app que ejecute nuestro algoritmo.
+			
+			\item Pruebas del sistema en diferentes condiciones.
+			
+			\item Desarrollo de PCB's.
+		\end{itemize}
+		
+		
+	\newpage
+	$\ $
