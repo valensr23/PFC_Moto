@@ -1,16 +1,158 @@
 	\chapter{Estado del arte}\label{cap.estadoDelArte}
 	
-	Érase una vez...
-	\section{sección1}
-	Bla bla bla
-	\subsection{subsección1}
-	Ble ble ble
-	\subsubsection{subsubsección1}
-	Bli bli bli
-	\paragraph{párrafo1}
-	Blo blo blo
+	En este cap\'itulo vamos a realizar un estudio de la situaci\'on tecnol\'ologica actual en todo lo referente a la comunicaci\'on inal\'ambrica, sensor utilizado, plataforma electr\'onica de c\'odigo abierto, dispositivo para el que se desarrollar\'a la app, sistemas de seguridad actuales en vehiculos de dos ruedas y las tendencias futuras.
+	
+	\section{Comparaci\'on de m\'odulos inal\'ambricos}
+	
+		Buscamos un protocolo inal\'ambrico de comunicaci\'on que nos permita enviar los datos con la mayor exactitud posible, con un consumo de energ\'ia razonable y de forma segura. Para ello estudiaremos los m\'odulos Bluetooth RN-42 y HC-05.
+		
+		\subsection{Bluetooth RN-42}
+			
+			
+			
+			Este m\'odulo Bluetooth \cite{RN42} est\'a dise\~nado para reemplazar los cables de serie. Est\'a completamente encapsulado, el usuario solo ve los caracteres de serie se transmiten hacia atr\'as y adelante. Este dispositivo es usado para corto alcance, con un consumo de 26 uA en reposo. F\'acil de integrar en sistemas embebidos y de conectar a dispotivos ya existentes 
+			
+			\begin{itemize}
+				\item Soporte para: BCSP, LAN, GAP, SDP, RFCOMM y L2CAP
+				\item Velocidad UART: hasta 3 Mbps
+				\item Alcance: 15-18 m 
+			\end{itemize}
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[0cm,0cm][4cm,4cm]{imagenes/RN42.jpg}
+				\caption{M\'odulo Bluetooth RN-42}
+				\label{contexto:figura}
+			\end{figure}
 
+	
+		\subsection{Bluetooth HC-05}
+	
+			Este m\'odulo Bluetooth \cite{HC05} ofrece una mejor relaci\'on precio frente a prestaciones, es un m\'odulo maestro esclavo, no solo recibe conexiones sino que tambi\'en las genera hacia otros dispositivos Bluetooth. Posee la versi\'on V2.0+EDR, trabajando a una frecuencia de 2,4 GHz en la banda ISM, con una modulaci\'on GFSK.
+			
+			\begin{itemize}
+				\item Soporta comando AT para ser configurado
+				\item Velocidad: hasta 2,1 Mbps y S\'incrono 1Mbps/1Mbps
+				\item Alcance: 10 m 
+			\end{itemize}
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[0cm,0cm][4cm,4cm]{imagenes/HC05}
+				\caption{M\'odulo Bluetooth HC-05}
+				\label{contexto:figura}
+			\end{figure}
 
+			Estudiados ambos m\'odulos se decidi\'o usar el m\'odulo Bluetooth HC-05 no solo por ser mas econ\'onico sino porque es un dispositivo que puede seguir trabajando en un rango de temperaturas de -$20^{\circ}$C hasta $75^{\circ}$C y teniendo en cuenta que este sistema estar\'a ubicado en el interior de la moto es posible alcanzar dichas temperaturas. Adem\'as las caracter\'isticas del m\'odulo HC-05 son sufientes para la realizaci\'on de este proyecto.
+			
+					
+	\section{Mota Sensora}
+	
+		La Mota que se va a usar para la realizaci\'on de este proyecto es el Pololu minimu-9 v2 \cite{Pololu}, la cual es una unidad de medici\'on inercial (IMU), que viene equipada con un L3GD20 giroscopio de 3 ejes y un LSM303DLHC con 3 ejes para el aceler\'ometro y 3 ejes para el magnet\'ometro. El m\'odulo incluye un regulador de voltaje y un circuito de desplazamiento que permite el funcionamiento de 2,5 a 5,5 V.
+				
+		Las especificaciones de la mota son las siguientes:
+		
+		\begin{itemize}
+			\item Dimensiones: 20 x 13 x 3 mm
+			\item Peso: 0,7 g
+			\item Alimentaci\'on: 10 mA 
+			\item Gir\'oscocopo: lectura de 16 bits por eje
+			\item Aceler\'ometro: lectura de 12 bits por eje
+			\item Magnet\'ometro: lectura de 12 bits por eje
+			\item Rango de sensibilidad configurable
+		\end{itemize}
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[1cm,0cm][5cm,5cm]{imagenes/pololu.jpg}
+			\caption{Pololu minimu-9 v2}
+			\label{contexto:figura}
+		\end{figure}
+		
+	\section{Plataforma electr\'onica de c\'odigo abierto}
+	
+		La plataforma electr\'onica de c\'odigo abierto que vamos a utilizar es Arduino Uno R3 \cite{ArduinoUno}, placa electr\'onica basada en el ATmega 328. Cuenta con 14 pines digitales de entrada/salida, 6 entradas anal\'ogicas, un resonador cer\'amico de 16 MHz, una conexi\'on USB, un conector de alimentaci\'on, una cabecera ICSP y un bot\'on de reinicio. Basta con conectarlo a un ordenador con un cable USB o a una bateria para empezar.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[5cm,0cm][11cm,11cm]{imagenes/ArduinoUno.jpg}
+			\caption{Arduino Uno R3}
+			\label{contexto:figura}
+		\end{figure}
+		
+		Arduino Uno puede ser alimentado con 6 hasta 20 voltios. Si se alimenta con menos de 7 voltios, el pin encargado de suministrar 5 voltios es muy probable que suministre menos. En caso de suministrar mas de 12 voltios, el regulador de voltaje se puede sobrecalentar y da\~nar la placa. El rango de alimentaci\'on recomendado es de 7 a 12 voltios.
+		
+		Para programar Arduino Uno se puede usar el software de Arduino. Software desde el que podremos cargar nuestros programas en la placa Arduino a trav\'es de un cable USB, Arduino Uno cuenta con una memoria de 2KB de SRAM y 1 KB de EEPROM.
+	
+	
+	\section{Dispositivo para la app}
+	
+		A la hora de realizar la aplicaci\'on que procesar\'a los datos recibidos por el Bluetooth y ejecutar\'a el algoritmo de accidente estudiamos cual es la situaci\'on del mercado en lo que respecta al sistema operativo de los dispositivos en uso. 
+		
+		Seg\'un una noticia publicada por xataka en 2014 \cite{AndroidVsiOS} podemos ver los datos proporcionados por la consultora IDC, resultados que se muestran a continuaci\'on.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[5cm,0cm][8cm,8cm]{imagenes/ArduinoVsiOS.jpg}
+			\caption{Comparativa Sistema Operativos en uso}
+			\label{contexto:figura}
+		\end{figure}
+		
+		En la siguiente tabla mostramos los porcentajes de los dispositivos que usan cada uno de los sistemas operativos disponibles en el mercado.
+		
+		 \begin{table}[H]
+		 	\centering
+		 	\begin{tabular}{p{4cm} p{4cm}}
+		 		\hline
+		 		Sistema Operativo & \% Uso mundial \\
+		 		\hline \hline
+		 		Android & 84.7 \\
+		 		\hline
+		 		iOS & 11.7 \\
+		 		\hline
+		 		Windows Phone & 2.5 \\
+		 		\hline
+		 		BlackBerry & 0.5 \\
+		 		\hline
+		 		Otros & 0.6 \\
+		 		\hline
+		 	\end{tabular}
+		 	\caption{Porcentaje mundial de sistemas operativos en Smartphones}
+		 	\label{tabla:AndroidVsiOS}
+		 \end{table}
+		 
+		 Viendo estos datos se decidi\'o realizar la aplicaci\'on para un dispositivo Android.
+	
+	\section{Sistemas de seguridad actuales y tendencias futuras}
+	
+		La tecnolog\'ia comienza a subirse a la moto, la comunicaci\'on entre veh\'iculos y carreteras contribuir\'a a la prevenci\'on de accidentes y disminuci\'on de la siniestralidad de uno de los colectivos m\'as vulnerables.
+		
+		La implantaci\'on de sistemas de seguridad como el cintur\'on de seguridad, airbag, ABS, entre otros muchos han sido incorporados de forma tard\'ia en la moto. La d\'ecada en la que nos encontramos se centrar\'a en la moto, los sistemas inteligentes van a tener un papel especial.
+		
+		En materia de seguridad activa, la que ayuda a evitar accidentes hay que destacar los sistemas de ayuda en la frenada, adem\'as de la implantaci\'on de mejoras en materia de iluminaci\'on, amortiguaci\'on, estabilidad, sistemas de cambios, neum\'aticos... En prueba se encuentran algunos sistemas novedosos basados en la comunicaci\'on entre veh\'iculos y con las infraestructuras para advertir sobre situaciones peligrosas como tr\'afico, climatolog\'ia adversa...
+		
+		En los \'ultimos dos años se ha iniciado una revoluci\'on electr\'onica en la motocicleta, aportando una gran seguridad como es el ABS, control de tracci\'on. En 2017 la UE (Union Europea) trabaja para que las motos salgan con el ABS de f\'abrica.
+		
+		En materia de seguridad pasiva nos encontramos elementos como el casco, la cabeza sufre traumatismos en el 50\% de los accidentes. Un casco adecuado puede reducir estas lesiones en un 69\% y la mortalidad en un 42\%. Ademas de ropa ligera que protege en las caidas o incluso cazadoras, chalecos y cascos con airbag en caso de caida.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[3cm,0cm][7cm,7cm]{imagenes/airbag.jpg}
+			\caption{Airbag en casco y cazadora}
+			\label{contexto:figura}
+		\end{figure}
+		
+		Toda esta informaci\'on ha sido recopilada de un reportaje de la DGT \cite{Dgt}.
+		
+		Tal y como hemos podido leer todos estos sistemas en materia de seguridad activa y pasiva son para preveer accidentes o reducir los da\~nos sufridos en caso de accidente. Si el motorista ha sufrido un accidente el tiempo juega en su contra, por lo que se requiere una r\'apida intervenci\'on de los servicios sanitarios. 
+		
+		Un accidente puede ocurrir en un lugar concurrido y cualquier viandante que se encuentre all\'i puede realizar dicha llamada a emergencias, el inconveniente ser\'ia que el accidente ocurra en una via poco transitada y el conductor no pueda realizar dicha llamada, esperar a que otro conductor circule por esa misma via puede llevar demasiado tiempo.
+		
+		Como consecuencia nace la realizaci\'on de este proyecto, cuya app he llamado MotoSafe. Consiste en que el propio smartphone del conductor pueda avisar a emergencias indic\'andoles nuestra posici\'on en caso que la app haya detectado que se ha producido un accidente a partir de los datos suministrados por el sistema electr\'onico que ubicaremos en la moto.
+		
+		En el pr\'oximo cap\'itulo se proporcionar\'an mas detalles acerca del desarrollo de este proyecto.
+	
+	
 
 	\newpage
 	$\ $

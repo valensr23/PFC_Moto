@@ -1,29 +1,35 @@
 \select@language {spanish}
-\contentsline {chapter}{\'Indice de figuras}{III}
-\contentsline {chapter}{\'Indice de cuadros}{V}
-\contentsline {chapter}{Resumen}{VII}
-\contentsline {chapter}{Abstract}{IX}
+\contentsline {chapter}{\'Indice de figuras}{IV}
+\contentsline {chapter}{\'Indice de cuadros}{VI}
+\contentsline {chapter}{Resumen}{VIII}
+\contentsline {chapter}{Abstract}{X}
 \contentsline {chapter}{\numberline {1}Introducci\'on}{1}
 \contentsline {section}{\numberline {1.1}Motivaci\'on}{1}
 \contentsline {section}{\numberline {1.2}Sensores}{2}
 \contentsline {section}{\numberline {1.3}Objetivos}{2}
-\contentsline {chapter}{\numberline {2}Estado del arte}{4}
-\contentsline {section}{\numberline {2.1}sección1}{4}
-\contentsline {subsection}{\numberline {2.1.1}subsección1}{4}
-\contentsline {subsubsection}{subsubsección1}{4}
-\contentsline {paragraph}{párrafo1}{4}
-\contentsline {chapter}{\numberline {3}Desarrollo del Proyecto}{6}
-\contentsline {section}{\numberline {3.1}sección1}{6}
-\contentsline {subsection}{\numberline {3.1.1}subsección1}{6}
-\contentsline {subsubsection}{subsubsección1}{6}
-\contentsline {paragraph}{párrafo1}{6}
-\contentsline {chapter}{\numberline {4}Resultados}{8}
-\contentsline {section}{\numberline {4.1}sección1}{8}
-\contentsline {subsection}{\numberline {4.1.1}subsección1}{8}
-\contentsline {subsubsection}{subsubsección1}{8}
-\contentsline {paragraph}{párrafo1}{8}
-\contentsline {chapter}{\numberline {5}Conclusiones}{10}
-\contentsline {section}{\numberline {5.1}sección1}{10}
-\contentsline {subsection}{\numberline {5.1.1}subsección1}{10}
-\contentsline {subsubsection}{subsubsección1}{10}
-\contentsline {paragraph}{párrafo1}{10}
+\contentsline {chapter}{\numberline {2}Estado del arte}{5}
+\contentsline {section}{\numberline {2.1}Comparaci\'on de m\'odulos inal\'ambricos}{5}
+\contentsline {subsection}{\numberline {2.1.1}Bluetooth RN-42}{5}
+\contentsline {subsection}{\numberline {2.1.2}Bluetooth HC-05}{6}
+\contentsline {section}{\numberline {2.2}Mota Sensora}{6}
+\contentsline {section}{\numberline {2.3}Plataforma electr\'onica de c\'odigo abierto}{7}
+\contentsline {section}{\numberline {2.4}Dispositivo para la app}{8}
+\contentsline {section}{\numberline {2.5}Sistemas de seguridad actuales y tendencias futuras}{9}
+\contentsline {chapter}{\numberline {3}Desarrollo del Proyecto}{12}
+\contentsline {section}{\numberline {3.1}Hardware}{12}
+\contentsline {subsection}{\numberline {3.1.1}Arduino Uno R3}{12}
+\contentsline {subsection}{\numberline {3.1.2}Pololu minimu 9 v.2}{13}
+\contentsline {subsection}{\numberline {3.1.3}Bluetooth HC-05}{13}
+\contentsline {section}{\numberline {3.2}Firmware}{14}
+\contentsline {subsection}{\numberline {3.2.1}Configuraci\'on Arduino Uno y Pololu Minimu 9 V.2}{14}
+\contentsline {subsection}{\numberline {3.2.2}Configuraci\'on Arduino Uno y Bluetooth HC-05}{16}
+\contentsline {subsection}{\numberline {3.2.3}Schematic conexi\'on m\'odulos y placa Arduino}{17}
+\contentsline {section}{\numberline {3.3}Software}{17}
+\contentsline {chapter}{\numberline {4}Resultados}{19}
+\contentsline {section}{\numberline {4.1}Resultados Hardware}{19}
+\contentsline {section}{\numberline {4.2}Resultados Software}{19}
+\contentsline {section}{\numberline {4.3}Resultados App Android}{19}
+\contentsline {section}{\numberline {4.4}Prototipo}{19}
+\contentsline {chapter}{\numberline {5}Conclusiones}{21}
+\contentsline {chapter}{Bibliografía}{23}
+\contentsline {chapter}{Anexo 1}{25}

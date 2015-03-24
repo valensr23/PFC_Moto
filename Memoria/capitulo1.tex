@@ -1,8 +1,10 @@
 \chapter{Introducci\'on}\label{cap.introduccion}
 	\pagenumbering{arabic} % para empezar la numeración con números
+	
 		En este cap\'itulo pretendemos situar al lector en el contexto del proyecto, en que campo vamos a trabajar, motivaci\'on y los objetivos del proyecto para que se pueda entender con mayor facilidad el trabajo realizado y los objetivos a conseguir.
 		
 	\section{Motivaci\'on}
+	
 		Desde la invenci\'on de la motocicleta por Sylvester Howard Roper en 1867, el mundo del motor ha evolucionado desde el motor de cilindros a vapor hasta los motores actuales. Diferentes tipos de motocicletas con distintas cilindradas inundan nuestras calles a d\'ia de hoy.
 		
 		Como podemos ver al salir a la calle las motocicletas no son el \'unico veh\'iculo que nos encontramos, tambi\'en podemos encontrar coches, camiones y sus variantes en forma, motor, tama\~no y n\'umero de rudas. Lo que si podemos observar es que la moticleta es el veh\'iculo menos seguro frente a los mencionados, no solo por dimensiones sino porque en caso de accidente es el cuerpo del motorista quien sufre el impacto y no la carrocer\'ia como en los otros veh\'iculos.
@@ -22,7 +24,9 @@
 		\end{itemize}
 	
 	\section{Sensores}
-		En este proyecto se usar\'a una mota sensora que se compone de tres sensores:
+	
+		En este proyecto se usar\'a una mota sensora Pololu MinIMU-9 v2 que se compone de tres sensores:
+		
 		\begin{itemize}
 			\item Aceler\'ometro: es el encargado de medir aceleraciones, mide la aceleraci\'on asociada con el fen\'omeno de peso experimentado por una masa de prueba que se encuentra en el marco de referencia del dispositivo.
 			
@@ -32,6 +36,7 @@
 		\end{itemize}
 	
 	\section{Objetivos}
+	
 		En este proyecto, se pretende entrar en contacto con el dise\~no y programaci\'on de una placa Arduino UNO, la interpretaci\'on de los datos que proporciona el Pololu MinIMU-9 v2, establecer la comunicaci\'on Bluetooth entre la placa Arduino UNO y un dispositivo Android y la programaci\'on y dise\~no de la app m\'ovil en Android.
 	
 		Para ello conectaremos el Pololu MinIMU-9 v2 y el dispositivo Bluetooth HC-05 a la placa Arduino UNO, programaremos nuestra placa Arduino para que reciba los datos del sensor y los env\'ie mediante Bluetooth al dispositivo Android.
@@ -41,17 +46,17 @@
 		Para llevar a cabo este proyecto, el trabajo a realizar se divide en los siguientes objetivos:
 		
 		\begin{itemize}
-			\item Instalaci\'on de entorno Arduino y familiarizarse con dicha programaci\'on.
+			\item Instalaci\'on de entorno Arduino y familiarizarse con dicha programaci\'on. Estudio de la programaci\'on Arduino para leer los datos recibidos de la mota sensora y enviarlos via Bluetooth.
 			
-			\item Estudio de las bibliograf\'ia acerca de la calibrac\'on de los sensores y de los algoritmos de c\'alculo de Pitch, Roll y Yaw.
+			\item Estudio de las bibliograf\'ia acerca de la calibrac\'on de los sensores y de los algoritmos de c\'alculo de Pitch, Roll y Yaw. Se estudiar\'a el funcionamiento de las motas y como deben ser programadas.
 			
-			\item Montaje de la mota sensora y HC-05.
+			\item Montaje de la mota sensora y HC-05. Montar la mota sensora y el m\'odulo HC-05 y tenerlos listos para su uso, realizaci\'on de programas b\'asicos de prueba y verificaci\'on de que funcionan correctamente.
 			
-			\item Estudio de programaci\'on Android en Eclipse. Con la correspondiente app que ejecute nuestro algoritmo.
+			\item Estudio de programaci\'on Android en Eclipse. Con la correspondiente app que ejecute nuestro algoritmo de detecci\'on de accidente y en caso necesario enviar la ubicaci\'on actual a Emergencias 112 via SMS.
 			
-			\item Pruebas del sistema en diferentes condiciones.
+			\item Pruebas del sistema en diferentes condiciones. Realizaci\'on de las pertinentes pruebas para comprobar el correcto funcionamiento del sistema desarrollado.
 			
-			\item Desarrollo de PCB's.
+			\item Desarrollo de PCB's. Desarrollo de una placa PCB para evitar el uso de cables en el proyecto y hacerlo mas compacto.
 		\end{itemize}
 		
 		

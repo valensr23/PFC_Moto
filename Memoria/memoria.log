@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2015.3.5)  9 MAR 2015 13:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2015.3.5)  24 MAR 2015 16:57
 entering extended mode
 **memoria.tex
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.tex
@@ -127,12 +127,39 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\makeidx.sty"
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks20
+\float@box=\box28
+\@float@everytoks=\toks21
+\@floatcapt=\box29
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks22
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -144,10 +171,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: dvips.def on input line 91.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-))
+)
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
@@ -168,9 +192,9 @@ Package ifvtex Info: VTeX not detected.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count103
-\Gm@cntv=\count104
-\c@Gm@tempcnt=\count105
+\Gm@cnth=\count104
+\Gm@cntv=\count105
+\c@Gm@tempcnt=\count106
 \Gm@bindingoffset=\dimen115
 \Gm@wd@mp=\dimen116
 \Gm@odd@mp=\dimen117
@@ -179,7 +203,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen120
 \Gm@layouthoffset=\dimen121
 \Gm@layoutvoffset=\dimen122
-\Gm@dimlist=\toks21
+\Gm@dimlist=\toks23
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.aux
@@ -188,25 +212,62 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\abstract.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\capitulo1.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\estadoDelArte.au
-x)
-(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\desarrollo.aux)
-(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resultados.aux)
+x
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\desarrollo.aux
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `tabla:LibreriasMota' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resultados.aux
+)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.aux
 )
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.aux
-))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -242,11 +303,11 @@ LaTeX Font Info:    ... okay on input line 12.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 25.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -257,41 +318,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.tex
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.toc
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ³ in font cmr12!
-)
-\tf@toc=\write3
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no ­ in font cmbx12!
 
 [2
 
 
-] (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.lof)
+])
+\tf@toc=\write3
+ [3]
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.lof)
 \tf@lof=\write4
-[3
+
+[4
 
 
-] [4]
+] [5]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.lot)
 \tf@lot=\write5
 
-[5
+[6
 
 
-]) [6]
+]) [7]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resumen.tex
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ³ in font cmr12!
@@ -332,11 +381,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--19
 
  []
 
-[7
+[8
 
 
 
-]) [8]
+]) [9]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\abstract.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--20
 
@@ -372,11 +421,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--20
 
  []
 
-[9
+[10
 
 
 
-]) [10]
+]) [11]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\capitulo1.tex
 Cap\'{\i }tulo 1.
 [1
@@ -388,79 +437,114 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no º in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ± in font cmr12!
- [2]) [3]
+ [2] [3]) [4]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\estadoDelArte.te
 x
 Cap\'{\i }tulo 2.
+File: imagenes/RN42.jpg Graphic file (type eps)
+<imagenes/RN42.jpg> [5
+
+
+
+]
+File: imagenes/HC05.jpg Graphic file (type eps)
+ <imagenes/HC05.jpg>
+File: imagenes/pololu.jpg Graphic file (type eps)
+ <imagenes/pololu.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6]
+File: imagenes/ArduinoUno.jpg Graphic file (type eps)
+ <imagenes/ArduinoUno.jpg> [7]
+File: imagenes/ArduinoVsiOS.jpg Graphic file (type eps)
+ <imagenes/ArduinoVsiOS.jpg> [8]
 Missing character: There is no Ã in font cmr12!
-Missing character: There is no ‰ in font cmr12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ¡ in font cmbx12!
-[4
+Missing character: There is no ± in font cmr12!
+File: imagenes/airbag.jpg Graphic file (type eps)
 
-
-
-]) [5]
+<imagenes/airbag.jpg> [9] [10]) [11]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\desarrollo.tex
 Cap\'{\i }tulo 3.
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ‰ in font cmr12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ¡ in font cmbx12!
-[6
+File: imagenes/ArduinoUno1.jpg Graphic file (type eps)
+<imagenes/ArduinoUno1.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12
 
 
 
-]) [7]
+]
+File: imagenes/pololuSchematic.png Graphic file (type eps)
+ <imagenes/pololuSchematic.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: imagenes/HC05Schematic.jpg Graphic file (type eps)
+<imagenes/HC05Schematic.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] [14]
+File: imagenes/ConfMota.jpg Graphic file (type eps)
+ <imagenes/ConfMota.jpg> [15] [16]
+File: imagenes/Schematic.jpg Graphic file (type eps)
+ <imagenes/Schematic.jpg>
+File: imagenes/implementacion.jpg Graphic file (type eps)
+
+<imagenes/implementacion.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17]) [18]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resultados.tex
 Cap\'{\i }tulo 4.
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ‰ in font cmr12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ¡ in font cmbx12!
-[8
+[19
 
 
 
-]) [9]
+]) [20]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.tex
 Cap\'{\i }tulo 5.
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ‰ in font cmr12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ³ in font cmbx12!
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ¡ in font cmbx12!
-[10
+[21
 
 
 
-]) [11]
+]) [22]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.tex
-) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.aux
-(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.aux)
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.bbl
+Overfull \hbox (47.7954pt too wide) in paragraph at lines 18--21
+[][]\OT1/cmr/m/sc/12 Electronica 60 Nor-te\OT1/cmr/m/n/12 .  \OT1/cmtt/m/n/12 h
+ttp://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf\OT1/cmr/m/n/12 . 
+ []
+
+
+Overfull \hbox (64.984pt too wide) in paragraph at lines 27--31
+[][]\OT1/cmr/m/sc/12 Roving Net-works\OT1/cmr/m/n/12 .  \OT1/cmtt/m/n/12 https:
+//www.sparkfun.com/datasheets/Wireless/Bluetooth/rn-42-ds.pdf\OT1/cmr/m/n/12 ,
+ []
+
+
+Overfull \hbox (120.20607pt too wide) in paragraph at lines 33--37
+[][]\OT1/cmr/m/sc/12 Xataka\OT1/cmr/m/n/12 .  \OT1/cmtt/m/n/12 http://www.xatak
+a.com/moviles/idc-android-e-ios-ya-estan-en-el-96-4-de-los-smartphones\OT1/cmr/
+m/n/12 ,
+ []
+
+) [23
+
+
+
+
+]) [24]
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.tex)
+[25
+
+
+
+] (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.aux (C
+:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resumen.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\abstract.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\capitulo1.aux)
@@ -471,14 +555,18 @@ x)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.aux
 )
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.aux
-)) ) 
-Here is how much of TeX's memory you used:
- 2670 strings out of 493922
- 37598 string characters out of 3144900
- 98241 words of memory out of 3000000
- 5879 multiletter control sequences out of 15000+200000
- 13656 words of font info for 52 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 27i,7n,27p,520b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux))
 
-Output written on memoria.dvi (23 pages, 25904 bytes).
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3055 strings out of 493922
+ 43797 string characters out of 3144900
+ 102934 words of memory out of 3000000
+ 6221 multiletter control sequences out of 15000+200000
+ 14126 words of font info for 54 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,11n,27p,869b,333s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on memoria.dvi (38 pages, 76272 bytes).

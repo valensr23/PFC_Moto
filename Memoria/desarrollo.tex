@@ -1,15 +1,158 @@
 	\chapter{Desarrollo del Proyecto}\label{cap.desarrollo}
 	
-	Érase una vez...
-	\section{sección1}
-	Bla bla bla
-	\subsection{subsección1}
-	Ble ble ble
-	\subsubsection{subsubsección1}
-	Bli bli bli
-	\paragraph{párrafo1}
-	Blo blo blo
-
+	En este cap\'itulo se va a explicar de forma m\'as detallada las caracter\'isticas y el funcionamiento de todos los elementos de los que se har\'a uso para llevar a cabo el desarrollo de este proyecto. Adem\'as se detallar\'a el desarrollo hardware, firmware y software, explicando con detalle la configuraci\'on electr\'onica y se presentar\'a la soluci\'on software implementada.
+	
+	\section{Hardware}
+	
+		Los dispositivos hardware que vamos a usar y sus configuraciones son los siguientes.
+		
+		\subsection{Arduino Uno R3}
+		
+			Arduino Uno R3 \cite{ArduinoUno}, placa electr\'onica basada en el microcontrolador ATmega 328. Cuenta con 14 pines digitales de entrada/salida, 6 entradas anal\'ogicas, un resonador cer\'amico de 16 MHz, una conexi\'on USB, un conector de alimentaci\'on, una cabecera ICSP y un bot\'on de reinicio. Basta con conectarlo a un ordenador con un cable USB o a una bateria para empezar.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][11cm,11cm]{imagenes/ArduinoUno1.jpg}
+				\caption{ATmega328 en Arduino Uno R3}
+				\label{contexto:figura}
+			\end{figure}
+			
+			Arduino Uno puede ser alimentado con 6 hasta 20 voltios. Si se alimenta con menos de 7 voltios, el pin encargado de suministrar 5 voltios es muy probable que suministre menos. En caso de suministrar mas de 12 voltios, el regulador de voltaje se puede sobrecalentar y da\~nar la placa. El rango de alimentaci\'on recomendado es de 7 a 12 voltios.
+			
+			Para programar Arduino Uno se puede usar el software de Arduino. Software desde el que podremos cargar nuestros programas en la placa Arduino a trav\'es de un cable USB, Arduino Uno cuenta con una memoria de 2KB de SRAM y 1 KB de EEPROM.
+			
+			ATmega328 \cite{ATmega328} es un microcontrolador creado por Atmel y que pertenece a la serie megaAVR. ATmega328 es un circuito integrado de alto rendimiento que est\'a basado en un microcontrolador RISC, combinando 32 KB ISP flash de memoria con la capacidad de leer y escribir, 1 KB de memoria EEPROM, 2 KB de SRAM, 23 l\'ineas de E/S de prop\'osito general, 32 registros de proceso general, tres temporizadores contadores con modo de comparaci\'on, interrupciones internas y externas, programador de modo USART, una interfaz serial orientada a byte de 2 cables, SPI puerto serial, 6 canales 10 bit conversor A/D y cinco modos de ahorro de energ\'ia seleccionables por software. Opera entre 1,8 y 5,5 voltios. Este dispositivo alcanza una respuesta de 1 MIPS, balanceando consumo de energ\'ia y velocidad de proceso.
+		
+		\subsection{Pololu minimu 9 v.2}
+		
+			Pololu minimu-9 v2 \cite{Pololu}, la cual es una unidad de medici\'on inercial (IMU), que viene equipada con un L3GD20 giroscopio de 3 ejes y un LSM303DLHC con 3 ejes para el aceler\'ometro y 3 ejes para el magnet\'ometro. El m\'odulo incluye un regulador de voltaje y un circuito de desplazamiento que permite el funcionamiento de 2,5 a 5,5 V.
+			
+			Cuyo Schematic se puede ver la figura 3.2.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[6cm,0cm][11cm,17cm]{imagenes/pololuSchematic.png}
+				\caption{Schematic Pololu Minimu 9 V.2}
+				\label{contexto:figura}
+			\end{figure}
+			
+		\subsection{Bluetooth HC-05}
+		
+			Este m\'odulo Bluetooth \cite{HC05} ofrece una mejor relaci\'on precio frente a prestaciones, es un m\'odulo maestro esclavo, no solo recibe conexiones sino que tambi\'en las genera hacia otros dispositivos Bluetooth. Posee la versi\'on V2.0+EDR, trabajando a una frecuencia de 2,4 GHz en la banda ISM, con una modulaci\'on GFSK.
+			
+			\begin{itemize}
+				\item Soporta comando AT para ser configurado
+				\item Velocidad: hasta 2,1 Mbps y S\'incrono 1Mbps/1Mbps
+				\item Alcance: 10 metros 
+			\end{itemize}
+			
+			El alcance te\'orico es de 10 metros, pero el alcance pr\'actico es de 8,5 metros aproximadamente, medidos en un espacio abierto sin inclemencias meteorol\'ogicas.
+			
+			El Schematic del dispositivo HC-05 podemos verlo en la figura 3.3.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[3cm,0cm][11cm,17cm]{imagenes/HC05Schematic.jpg}
+				\caption{Schematic Bluetooth HC-05}
+				\label{contexto:figura}
+			\end{figure}
+			
+		
+	\section{Firmware}
+	
+		En los que respecta al firmware vamos a detallar como hemos configurado cada uno de los dispositivos hardware y conectado entre s\'i. Mostrando al final un Schematic con todos los componentes conectados y su implementaci\'on sobre una protoboax.
+		
+		\subsection{Configuraci\'on Arduino Uno y Pololu Minimu 9 V.2}
+		
+			El uso de este sensor en la placa Arduino requer\'ia a\~nadir dos librer\'ias en el software que posteriormente cargar\'iamos en la placa arduino.
+			
+			Las dos librer\'ias usadas son:
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{p{4cm} p{4cm}}
+					\hline
+					\#include & L3G.h \\
+					\hline
+					\#include & LSM303.h \\
+					\hline
+				\end{tabular}
+				\caption{Liberias cargadas en Arduino para usar la motasensora}
+				\label{tabla:LibreriasMota}
+			\end{table}
+			
+			Adem\'as hemos usado la librer\'ia \#include SoftwareSerial.h, que permite la comunicaci\'on entre los pines de la motasensora y de la placa Arduino.
+			
+			Una vez cargadas dichas librer\'ias inicializamos todas las variables a usar en el c\'odigo adem\'as de los pertinentes m\'etodos para tomar los valores medidos de cada sensor en los 3 ejes. En lo que respecta al c\'odigo Arduino siempre tendremos dos m\'etodos a usar, como son setup() el encargado de configurar la placa e inicializar los m\'etodos y el m\'etodo loop(), el cual ejecutar\'a las acciones que le ordenemos de forma reiterativa.
+			
+			En lo que respecta a las conexiones, conectamos la patilla SDA y SCL con la patilla A4 y A5 respecticamente de la placa Arduino, adem\'as de VCC y GND entre la motasensora y la placa.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[6cm,0cm][7cm,10cm]{imagenes/ConfMota.jpg}
+				\caption{Conexiones Motasonra y Arduino}
+				\label{contexto:figura}
+			\end{figure}
+			
+			
+			En lo que respecta a la configuraci\'on de la mota sensora, debemos fijarle una posici\'on inicial. Que ser\'a con respecto a la cual calculemos los \'angulos de inclinaci\'on con respecto a la vertical de la moto. Al encender este sistema electr\'onico se produce un calibrado de los angulos iniciales. 
+			
+		
+		\subsection{Configuraci\'on Arduino Uno y Bluetooth HC-05}
+	
+			El uso del dispositibo bluetooth HC-05 en la placa Arduino requer\'ia a\~nadir dos librer\'ias en el software que posteriormente cargar\'iamos en la placa arduino.
+			
+			Las librer\'ias usadas son:
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{p{4cm} p{4cm}}
+					\hline
+					\#include & SoftwareSerial.h \\
+					\hline 
+					\#include & wire.h \\
+					\hline 
+				\end{tabular}
+				\caption{Liberias cargadas en Arduino para usar Bluetooth HC-05}
+				\label{tabla:LibreriasMota}
+			\end{table}
+			
+			En nuestro c\'odigo Arduino debemos dejar indicado que el pin RXD es el 10 y el pin TDX es el 11 con el siguiente comando:
+			
+			SoftwareSerial BT = SoftwareSerial(10, 11); //10 RX, 11 TX.
+			
+			Adem\'as debemos configurar el Arduino para que el pin 10 sea de entrada y el pin 11 de salida, indicando en el PinMode si es InPut o OutPut respectivamente. Ambos componentes se deben comunicar a 9600 baudios, velocidad por defecto de funcionamiento del bluetooth HC-05, una configuraci\'on a una velocidad diferente provoca que no haya comunicaci\'on entre el dispositivo bluetooth y la placa Arduino.
+			
+			En lo que respecta a las conexiones, la patilla RXD y TXD del m\'odulo bluetooth se conectar\'an a las patillas 11 y 12 respectivamente de la placa Arduino, adem\'as de VCC y GND entre el m\'odulo bluetooth y la placa.
+			
+			En los que respecta al m\'etodo loop() de nuestro c\'odigo Arduino lo que haremos ser\'a comprobar que el m\'odulo bluetooth HC-05 se encuentra conectado a un dispositivo m\'ovil, si la respuesta es negativa permaneceremos a la espera de conexi\'on, en caso de ser afirmativa la respuesta enviaremos por dicho canal de comunicaci\'on los datos medidos en la motasensora.
+			
+			Dichos datos ser\'an enviados cada 500 milisegundos, periodo de env\'io que he establecido para no saturar al receptor.
+			
+		\subsection{Schematic conexi\'on m\'odulos y placa Arduino}
+		
+			En el Schematic que se mostrar\'a a continuaci\'on podemos ver de forma f\'acil y r\'apida todas las conexiones que se han implementado.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[6cm,0cm][7cm,9cm]{imagenes/Schematic.jpg}
+				\caption{Schematic m\'odulos y Arduino conectados}
+				\label{contexto:figura}
+			\end{figure}
+			
+			El m\'odulo del centro representa a la placa Arduino, mientras que el m\'odulo a la izquiera de la imagen representa la morasensora y el m\'odulo de la derecha al dispositivo bluetooth HC-05.
+			
+			Una vez esto ha sido implemetado y conectado en la placa Arduino con la ayuda de una protoboax, obtenemos el siguiente resultado mostrado en la figura 3.6.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[6cm,0cm][7cm,11cm]{imagenes/implementacion.jpg}
+				\caption{Resultado conexi\'on todos los componentes}
+				\label{contexto:figura}
+			\end{figure}
+		
+	\section{Software}
+	
 
 
 	\newpage

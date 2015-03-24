@@ -1,0 +1,28 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: memoria.aux
+A level-1 auxiliary file: indice.aux
+A level-1 auxiliary file: resumen.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: capitulo1.aux
+A level-1 auxiliary file: estadoDelArte.aux
+A level-1 auxiliary file: desarrollo.aux
+A level-1 auxiliary file: resultados.aux
+A level-1 auxiliary file: conclusiones.aux
+A level-1 auxiliary file: bibliografia.aux
+The style file: acm.bst
+A level-1 auxiliary file: anexo1.aux
+Database file #1: biblio.bib
+Warning--entry type for "RN42" isn't style-file defined
+--line 1 of file biblio.bib
+Warning--entry type for "HC05" isn't style-file defined
+--line 7 of file biblio.bib
+Warning--entry type for "Pololu" isn't style-file defined
+--line 12 of file biblio.bib
+Warning--entry type for "ArduinoUno" isn't style-file defined
+--line 17 of file biblio.bib
+Warning--entry type for "AndroidVsiOS" isn't style-file defined
+--line 23 of file biblio.bib
+Warning--entry type for "Dgt" isn't style-file defined
+--line 29 of file biblio.bib
+Warning--entry type for "ATmega328" isn't style-file defined
+--line 35 of file biblio.bib
+(There were 7 warnings)

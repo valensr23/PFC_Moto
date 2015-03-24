@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{ArduinoUno}
+{\sc {Arduino}}.
+\newblock \texttt{http://www.arduino.cc/en/Main/arduinoBoardUno}, 2012.
+
+\bibitem{ATmega328}
+{\sc {ATMEL}}.
+\newblock \texttt{http://www.atmel.com/images/doc8161.pdf}.
+
+\bibitem{Dgt}
+{\sc {DGT}}.
+\newblock
+  \texttt{http://www.dgt.es/revista/num213/reportaje-tecnologia-moto.html},
+  2012.
+
+\bibitem{HC05}
+{\sc {Electronica 60 Norte}}.
+\newblock
+  \texttt{http://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf}.
+
+\bibitem{Pololu}
+{\sc {Pololu Robotic and Electronics}}.
+\newblock \texttt{https://www.pololu.com/product/1268}.
+
+\bibitem{RN42}
+{\sc {Roving Networks}}.
+\newblock
+  \texttt{https://www.sparkfun.com/datasheets/Wireless/Bluetooth/rn-42-ds.pdf},
+  12 de {J}unio de 2010.
+
+\bibitem{AndroidVsiOS}
+{\sc {Xataka}}.
+\newblock
+  \texttt{http://www.xataka.com/moviles/idc-android-e-ios-ya-estan-en-el-96-4-de-los-smartphones},
+  15 de {A}gosto de 2014.
+
+\end{thebibliography}
