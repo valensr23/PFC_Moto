@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2015.3.5)  24 MAR 2015 16:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2015.3.5)  5 APR 2015 22:37
 entering extended mode
 **memoria.tex
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.tex
@@ -250,12 +250,34 @@ LaTeX Warning: Label `contexto:figura' multiply defined.
 
 LaTeX Warning: Label `contexto:figura' multiply defined.
 
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
 ) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resultados.aux
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
+
+LaTeX Warning: Label `contexto:figura' multiply defined.
+
 )
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.aux
 )
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.aux
-) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux))
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux)
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo2.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
@@ -318,13 +340,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.tex
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.toc
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ­ in font cmbx12!
-
 [2
 
 
-])
+]
+Missing character: There is no Ã in font cmbx12!
+Missing character: There is no ­ in font cmbx12!
+)
 \tf@toc=\write3
  [3]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.lof)
@@ -497,21 +519,62 @@ File: imagenes/implementacion.jpg Graphic file (type eps)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17]) [18]
+[17]
+File: imagenes/main.JPG Graphic file (type eps)
+ <imagenes/main.JPG>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18]
+File: imagenes/DiagramaEstados.png Graphic file (type eps)
+ <imagenes/DiagramaEstados.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (3.20348pt too wide) in paragraph at lines 196--197
+[][]\OT1/cmr/m/n/12 Una vez to-do esta ac-ti-va-do, la app esta lis-ta pa-ra 
+fun-cio-nar, pa-ra ello lo pri-me-ro que hara sera leer
+ []
+
+[19] [20]
+File: imagenes/interfaz.png Graphic file (type eps)
+ <imagenes/interfaz.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21] [22]) [23]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resultados.tex
 Cap\'{\i }tulo 4.
-[19
+File: imagenes/theta0.jpg Graphic file (type eps)
+<imagenes/theta0.jpg> [24
 
 
 
-]) [20]
+]
+File: imagenes/theta90.jpg Graphic file (type eps)
+ <imagenes/theta90.jpg>
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ± in font cmr12!
+ [25]
+File: imagenes/PCB.jpg Graphic file (type eps)
+ <imagenes/PCB.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: imagenes/prototipo.jpg Graphic file (type eps)
+<imagenes/prototipo.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[26]) [27] [28]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.tex
 Cap\'{\i }tulo 5.
-[21
+[29
 
 
 
-]) [22]
+]) [30]
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.tex
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.bbl
 Overfull \hbox (47.7954pt too wide) in paragraph at lines 18--21
@@ -532,19 +595,26 @@ a.com/moviles/idc-android-e-ios-ya-estan-en-el-96-4-de-los-smartphones\OT1/cmr/
 m/n/12 ,
  []
 
-) [23
+) [31
 
 
 
 
-]) [24]
-(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.tex)
-[25
+]) [32]
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.tex
+[33
 
 
 
-] (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.aux (C
-:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.aux)
+]) [34]
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo2.tex
+[35
+
+
+
+]) [36]
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\memoria.aux
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\indice.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\resumen.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\abstract.aux)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\capitulo1.aux)
@@ -555,18 +625,19 @@ x)
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\conclusiones.aux
 )
 (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\bibliografia.aux
-) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux))
+) (C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo1.aux)
+(C:\Users\Valen\TELECOMUNICACIONES\PFC\PROGRAMAS\Latex\Memoria\anexo2.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3055 strings out of 493922
- 43797 string characters out of 3144900
- 102934 words of memory out of 3000000
- 6221 multiletter control sequences out of 15000+200000
+ 3079 strings out of 493922
+ 44484 string characters out of 3144900
+ 104222 words of memory out of 3000000
+ 6230 multiletter control sequences out of 15000+200000
  14126 words of font info for 54 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,11n,27p,869b,333s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,27p,893b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on memoria.dvi (38 pages, 76272 bytes).
+Output written on memoria.dvi (49 pages, 100936 bytes).

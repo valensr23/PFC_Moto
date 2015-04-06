@@ -153,7 +153,70 @@
 		
 	\section{Software}
 	
+		En esta secci\'on proceder\'e a explicar en detalle el desarrollo de la app Android, as\'i como el diagrama de estados del algoritmo implementado y la interfaz eventual para comprobar el funcionamiento correcto de la app.
+		
+		\subsection{Android}
+		
+			Para el desarrollo de \'esta app hemos descargado el programa Eclipse ADT de Android Developer. Programa que he usado para el desarrollo \'integro de la app MotoSafe. Se debe prestar atenci\'on a partir de que versi\'on de Android deseamos implementar la app, escog\'i la versi\'on Android 4.4 ya que es la que actualmente posee mi smartphone, para una posterior comercializaci\'on debo hacer \'esta app disponible a partir de la version Android 2.3 ya que la mayor\'ia de los smartphones poseen \'esta versi\'on.
+			
+			En su implementaci\'on se ha usado una \'unica clase, que es la clase main, por defecto invocada al ejecutarse el programa y que contiene el bucle que realiza todas las acciones necesarias para que el programa funcione correctamente,  tal y como se muestra en la figura 3.7. 
+			
+			Aqui debo destacar que en el fichero main no solo contengo la clase main, sino tambi\'en la clase RecibirComando, que es la encargada de enviar por el Handler toda la informaci\'on recibida del bluetooth.
+		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][4cm,10cm]{imagenes/main.JPG}
+				\caption{Estructura app Android}
+				\label{contexto:figura}
+			\end{figure}
+			
+			En resumen, la clase main ser\'a la encargada de gestionar todos los datos recibidos por el Handler, comprobar el estado del GPS, Bluetooth y si ambos dispositivos se encuentran conectados o se pierde la conexi\'on. Adem\'as ser\'a la clase encargada de ejecutar el algoritmo y en caso necesario registrar la ubicaci\'on para posteriormente enviarsela v\'ia SMS a emergencias.
+			
+			En los pr\'oximos apartados se explicar\'a con mas detalle el funcionamiento de la app y se mostrar\'a el diagrama de estados.
+		
+		\subsection{Diagrama estados}
+		
+			En este subapartado se va a explicar el funcionamiento de la app adem\'as de un diagrama de estados representativo.
+			
+			A la hora de empezar a usar la app MotoSafe debemos entrar en la configuraci\'on del bluetooth de nuestro smartphone y emparejarlo con el dispositivo HC-05, la clave por defecto para su emparejamiento es ''1234''. Para poder realizar dicha emparejamiento debemos tener en cuenta que el m\'odulo bluetooth se debe encontrar encendido, para ello la motocicleta se debe encontrar arrancada o con el contacto encendido. Una vez hemos realizado dicho proceso ya podemos abrir esta app y comenzar a usarla.
+			
+			Al abrir la app MotoSafe encontraremos la interfaz que mostramos en la figura 3.9. Si pulsamos sobre el bot\'on OFF la aplicaci\'on se cerrar\'a y no continuar\'a ejecut\'andose en segundo plano, es decir, mata este proceso. Si por el contrario pulsamos el bot\'on ON, se iniciar\'an una serie de procesos que har\'an funcionar correctamente la app.
+			
+			Lo primero que har\'a ser\'a comprobar el estado del bluetooth de nuestro smartphone, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la app se cerrar\'a autom\'aticamente. El siguiente paso es comprobar el estado del GPS, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la app se cerrar\'a autom\'aticamente.
+			
+			Posteriormente y de forma autom\'atica se crear\'a un Handler que ser\'a el encargado de conectar la app con el bluetooth y poder interpretar todos los datos que recibe. En el caso de no estar emparejado el dispositivo no recibiremos datos y por tanto la app no ejecutar\'a el algoritmo implementado.
+		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[8cm,0cm][10cm,15cm]{imagenes/DiagramaEstados.png}
+				\caption{Diagrama de Estados}
+				\label{contexto:figura}
+			\end{figure}
+			
+			Una vez todo est\'a activado, la app est\'a lista para funcionar, para ello lo primero que har\'a ser\'a leer los datos recibidos por el Handler e interpretarlos. Nuestro algoritmo recibir\'a los datos ya interpretados, con ellos proceder\'a a calcular el \'angulo de inclinaci\'on de la motocicleta. Si este \'angulo es inferior a 55 grados volvemos a hacer los c\'alculos con los siguientes datos recibidos. Este proceso se realiza de forma peri\'odica cada 550 milisegundos. En el caso de que \'este \'angulo sea superior a 55 grados procedemos a comprobar la velocidad de la motocicleta.
+			
+			Para comprobar la velocidad de la motocicleta se usar\'a el GPS del smartphone, por lo que en este momento se proceder\'a al uso del GPS, para ahorrar bater\'ia no lo tendremos encendido durante todo el transcurso del desplazamiento. Si la velocidad medida es mayor a 3 metros por segundo, volvemos al principio del algoritmo y volvemos a calcular el \'angulo de inclinaci\'on de la motocicleta, en caso de que la velicidad sea menor a 3 metros por segundo procedemos a tomar a la ubicaci\'on seg\'un las coordenadas de latitud, longitud y precisi\'on.
+			
+			Estos datos obtenidos por el GPS ser\'an los que enviemos via SMS al n\'umero de emergencias, indic\'andoles la posici\'on actual en latitud, longitud y la precisi\'on con que mide el GPS del smartphone.
+			
+			En el caso de perder la se\~nal y no recibir datos, el sistema entrar\'a en un proceso de espera temporal, si no se recupera la recepci\'on de datos transcurriendo este tiempo se proceder\'a a calcular la velocidad y seguir con el disgrama de estados seg\'un la velocidad. Si durante el transcurso de ese tiempo de espera se pulta el bot\'on OFF la aplicaci\'on se cerrar\'a completamente.
+				
+		
+		\subsection{Interfaz App}
+		
+			La interfaz eventual de nuestra app es la mostrada en la figura 3.9. En la cual se pueden apreciar dos botones, uno de encendido ON y otro de apagado OFF. Adem\'as disponemos de 4 TextView, los cuales usaremos para comprobar el estado actual de la app.
+			
+			El primer TextView muestra el \'angulo theta de inclinaci\'on, siendo su valor entre -90 y 90 grados con respecto a la vertical, dependiendo si estamos inclinados hacia la derecha o hacia la izquierda. El segundo TextView mostrar\'a dos mensajes, uno de ellos ''no me he caido'' y el otro ''es posible que me haya caido'', si el mensaje mostrado es el segundo el tercer TextView mostrar\'a ''comprobando velocidad''. Bas\'andose en el algoritmo implementado, si se ha sufrido un accidente el cuarto y \'ultimo TextView mostrar\'a el siguiente mensaje ''He sufrido un accidente y mi ubicaci\'on es: latitud 'x' longitud 'y' precisi\'on 'z' '' \'este ser\'a el mensaje que se enviar\'a v\'ia SMS a emergencias, mostrando las coordenadas calculadas con el GPS. En caso de no haber sufrido accidente no se mostrar\'a nada en este \'ultimo TextView. 
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][7cm,17cm]{imagenes/interfaz.png}
+				\caption{Interfaz app Android}
+				\label{contexto:figura}
+			\end{figure}
 
-
+	\newpage
+	$\ $
+	
 	\newpage
 	$\ $

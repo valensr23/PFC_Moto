@@ -1,13 +1,81 @@
 	\chapter{Resultados}\label{cap.resultados}
 	
-	Resultados
+	En este cap\'itulo vamos a analizar los datos obtenidos de este proyecto, adem\'as de proporcionar una comparaci\'on entre los datos te\'oricos ofrecidos por el fabricante y los datos obtenidos tras su implementaci\'on.
+	
 	\section{Resultados Hardware}
-	Bla bla bla
+	
+	Dentro de Hardaware debemos distinguir los dos componentes mas importantes que poseemos como son el dispositivo bluetooth HC-05 y la mota sensora.
+	
+	En lo que respecta al dispositivo bluetooth HC-05 \cite{HC05} como pude estudiar su alcance era de 10 metros, pero en un entorno abierto he podido comprobar que su alcance se reduce a unos 8 metros aproximadamente, a pesar de evitar el apantallamiento con el plano masa dise\~nado en la PCB.
+	
+
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[5cm,0cm][7cm,9.5cm]{imagenes/theta0.jpg}
+		\caption{Theta te\'orico 0}
+		\label{contexto:figura}
+	\end{figure}
+	
+	Comprobamos el funcionamiento de la mota sensora, para ellos partimos de dos angulos iniciales y comprobamos la tendencia de las medidas del sensor transcurridos 30 minutos y sin variar la posici\'on del dispositivo.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[5cm,0cm][7cm,10cm]{imagenes/theta90.jpg}
+		\caption{Theta te\'orico 90}
+		\label{contexto:figura}
+	\end{figure}
+	
+	Tal y como podemos observar en las fuguras 4.1 y 4.2 transcurridos 30 minutos el sensor tiende a variar 0.1 grados con respecto al \'angulo inicial de partida. He de destacar que los \'angulos te\'oricos y pr\'acticos difieren debido al desnivel involuntario que pos\'ee la mesa donde realic\'e las pruebas.
+	
 	\section{Resultados Software}
 	
 	\section{Resultados App Android}
 	
+		
+		
+		\subsection{Bluetooth desactivado}
+		
+		
+		
+		\subsection{GPS desactivado}
+		
+		
+		
+		\subsection{No se detecta accidente}
+		
+		
+		
+		\subsection{Posibilidad de accidente}
+		
+		
+		
+		\subsection{Accidente y aviso a emergencias}
+		
+		
+	
 	\section{Prototipo}
+	
+	En un diseño previo como se pudo ver en algunas figuras anteriores me apoyaba sobre una protoboax y cables para la conexi\'on entre los diferentes dispositivos. Lo cual se decidi\'o evitar con el dise\~no de una placa PCB, la cual se muestra en la siguiente figura.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[5cm,0cm][7cm,14cm]{imagenes/PCB.jpg}
+		\caption{Dise\~no PCB}
+		\label{contexto:figura}
+	\end{figure}
+	
+	La descripci\'on de la realizaci\'on de la PCB se encuentra en el anexo 1.
+	
+	Tras la fabricaci\'on de la PCB proced\'i a su montaje, obteniendo el siguiente prototipo de proyecto.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[6cm,0cm][7cm,9cm]{imagenes/prototipo.jpg}
+		\caption{Prototipo proyecto}
+		\label{contexto:figura}
+	\end{figure}
+	
 
 
 	\newpage
