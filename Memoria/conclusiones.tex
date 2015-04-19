@@ -1,6 +1,29 @@
 	\chapter{Conclusiones}\label{cap.conclusiones}
 	
-	Conclusiones
+	En este cap\'itulo se lleva a cabo una reflexi\'on sobre el trabajo realizado, se proponen posibles mejoras que podr\'ian realizarse en un futuro en funci\'on de los avances tecnol\'ogicos y de cara a las necesidades que surjan si procedemos a comercializar este producto.
+	
+	\section{Conclusiones}
+	
+		En el presente proyecto se ofrece una monitorizaci\'on a distancia del sistema electr\'onico que vamos a instalar en la moto. El sistema de compone de dos dispositivos, uno de ellos ser\'a el sistema electr\'onico que se implantar\'a en la moto compuesto principalmente por la placa Arduino Uno y un smartphone con la aplicaci\'on MotoSafe que poseer\'a la persona encargada de conducir la motocicleta. A través del bluetooth ambos sistemas podr\'an interactuar, de forma que el smartphone sea el encargado de recibir la informaci\'on transmitida por la mota sensora del sistema electr\'onico implantado en la moto.
+		
+		Este sistema ha sido dise\~nado en funci\'on a unos requisitos de movilidad, independencia, tiempo real y tolerancia a errores, entre otros, el dise\~no de una PCB eficiente y \'util, la cual nos ayudar\'a a evitar el uso de cables en nuestro sistema electr\'onico. Adem\'as el smartphone ser\'a el encargado se monitorizar el sensor a trav\'es de la informaci\'on recibida y aplicar el algoritmo para detectar si ha habido un accidente.
+		
+		Cualquier persona con un smartphone podr\'a poseer la aplicaci\'on, solo necesitar\'a la implantaci\'on del sistema electr\'onico en su moto y podr\'a usar este sistema de seguridad en cualquier momento. Diariamente todas las personas llevan un smartphone encima, lo cual hace que este sistema de seguridad sea c\'omodo de llevar al estar ya acostumbrados.
+		
+		Adem\'as hay que destarcar la utilizaci\'on tanto de hardware como de software libre, Android y Arduino, que proyectan un sistema extensible por terceras personas, facilitando as\'i las l\'ienas de trabajo futuras y permitiendo la potencial mejora mediante la colaboraci\'on de todos.
+	
+	\section{L\'ineas de trabajo futuras}
+	
+		El dise\~no de este proyecto deja abierta la puerta a m\'ultiples l\'ineas de desarrollo futuras, ya sean de forma interna o a trav\'es de terceros. Algunas de estas l\'ineas se detallan a continuaci\'on:
+		
+		\begin{itemize}	
+			\item Aunque el sistema electr\'onico a implantar en la moto ocupa un espacio reducido, una l\'inea de mejora importante ser\'a la posibilidad de reducir el tama\~no de dicho sistema. Para ello se seleccionari\'an los componentes que usamos de la placa Arduino y desarrollar pos nosotros mismos una placa con dichos componentes, con la posibilidad de reducir gastos y hacer un sistema mas robusto y estable. 
+			
+			\item Una l\'inea de mejora en el desarrollo software ser\'ia la mejora del algoritmo de detecci\'on de accidente, posibilitando la variaci\'on del \'angulo de inclinaci\'on m\'aximo en funci\'on de la cilindrada, peso y dimensiones de la la propia moto.
+			
+			\item Por \'ultimo, se plantea la idea de mejorar el protocolo de comunicación mediante la integraci\'on de un sistema de recuperaci\'on o correcci\'on de errores. El m\'as simple a implementar ser\'ia el bit de paridad, pero existen otros mucho mas eficientes, aunque m\'as complejos, para la implementaci\'on de un protocolo adecuado para el manejo de informaci\'on del sistema.
+			
+		\end{itemize}
 
 
 	\newpage

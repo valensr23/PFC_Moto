@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -8,25 +9,30 @@
 \usepackage{color} 
 \usepackage{float}
 \usepackage[dvips]{graphicx}
+\usepackage{eurosym}
+\usepackage{setspace}
+\usepackage{fancyhdr}
 \DeclareGraphicsExtensions{.bmp,.png,.pdf,.jpg}
 \usepackage{parskip}
 \usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
 \author{Valentín Sánchez Ramírez}
-\title{Seguridad en vehículos de dos ruedas}
+\title{Diseño de un Sistema de Alerta M\'ovil en Accidentes de Tr\'afico}
+
+	% Define the page headers using the FancyHdr package and set up for one-sided printing
+	\fancyhead{} % Clears all page headers and footers
+	\rhead{\thepage} % Sets the right side header to show the page number
+	\lhead{} % Clears the left side page header
+	
+	\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+	
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+	
+	
 \begin{document}
 	
+	\include{portada}
 	
-	\title{Seguridad en veh\'iculos de dos ruedas}
-	\author{
-		Valent\'in S\'anchez Ram\'irez\\ \\
-		\small{Proyecto Fin de Carrera Ingenier\'ia de Telecomunicaciones}\\ \\
-		\small{Dpto. de Electronica y Tecnolog\'ia de Computadores}\\
-		\small{Escuela T\'ecnica Superior de Ingenier\'ia Inform\'atica y Telecomunicaicones}\\
-		\small{ETSIIT}\\ \\
-		\small{Universidad de Granada UGR}\\
-	}
-	\date{\small{\today}}
-	\maketitle
+	\setstretch{1.5} % Line spacing of 1.3
 	
 	%segunda pagina en blanco y sin numerar
 	\newpage
@@ -40,7 +46,7 @@
 	
 	%include de indice, resumen, abstract y capítulos
 	\include{indice}
-	
+		
 	\include{resumen}
 	
 	\include{abstract}
@@ -60,6 +66,8 @@
 	\include{anexo1}
 	
 	\include{anexo2}
+	
+	\include{anexo3}
 	
 	
 \end{document}

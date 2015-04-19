@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{MEC}
+{\sc {App Circus}}.
+\newblock \texttt{https://appcircus.com/apps/mec-mobile-emergency-call}, 2010.
+
 \bibitem{ArduinoUno}
 {\sc {Arduino}}.
 \newblock \texttt{http://www.arduino.cc/en/Main/arduinoBoardUno}, 2012.
@@ -18,6 +22,12 @@
 {\sc {Electronica 60 Norte}}.
 \newblock
   \texttt{http://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf}.
+
+\bibitem{MyAlamMe}
+{\sc {Mutua Motera}}.
+\newblock
+  \texttt{http://mutuamotera.blogspot.com.es/2012/04/nuevo-sistema-de-alerta-de-accidente-my.html},
+  2012.
 
 \bibitem{Pololu}
 {\sc {Pololu Robotic and Electronics}}.

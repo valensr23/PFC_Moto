@@ -1,6 +1,8 @@
 	\chapter{Resultados}\label{cap.resultados}
 	
-	En este cap\'itulo vamos a analizar los datos obtenidos de este proyecto, adem\'as de proporcionar una comparaci\'on entre los datos te\'oricos ofrecidos por el fabricante y los datos obtenidos tras su implementaci\'on.
+	En este cap\'itulo vamos a analizar los datos obtenidos de este proyecto, adem\'as de proporcionar una comparaci\'on entre los datos te\'oricos ofrecidos por el fabricante y los datos obtenidos tras su implementaci\'on con la realizaci\'on de pruebas de evaluaci\'on y an\'alisis de dichos resultados.
+	
+
 	
 	\section{Resultados Hardware}
 	
@@ -28,35 +30,81 @@
 	
 	Tal y como podemos observar en las fuguras 4.1 y 4.2 transcurridos 30 minutos el sensor tiende a variar 0.1 grados con respecto al \'angulo inicial de partida. He de destacar que los \'angulos te\'oricos y pr\'acticos difieren debido al desnivel involuntario que pos\'ee la mesa donde realic\'e las pruebas.
 	
-	\section{Resultados Software}
+	
 	
 	\section{Resultados App Android}
 	
+		En lo que respecta a los resultados de la app Android vamos a detallar algunas de las situaciones ya explicadas en el cap\'itulo desarrollo sobre como se comporta nuestra app en diferentes circunstancias, mostrando una captura de pantalla de la interfaz en ese instante.
 		
+		Veremos los siguientes casos:
 		
-		\subsection{Bluetooth desactivado}
+		- Si el GPS est\'a desactivado.
 		
+		- Si no se detecta accidente.
 		
+		- Posibilidad de accidente por p\'erdida de señal.
+		
+		- En caso de sufrir un accidente, como se comporta la app.	
 		
 		\subsection{GPS desactivado}
 		
+			En el caso de encontrar el sistema GPS de nuestro smartphone desactivado, nos aparecer\'a un alert, ofreciendonos la posibilidad de activarlo en ese instante. Ver figura 4.3.
 		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][7cm,18cm]{imagenes/GPSOff.png}
+				\caption{Interfaz app Android si el GPS no est\'a activado}
+				\label{contexto:figura}
+			\end{figure}
+			
+			Si pulsamos sobre ''No'' la app se cerrar\'a autom\'aticamente, en caso de pulsar sobre '' Menu de opciones GPS'' accdemos a la secci\'on de ajustes del smartphone para poder encenderlo y continuar usando la app.
+			
+			Hemos de tener en cuenta que si no activamos el GPS, ya sea desde esta opci\'on o previamente no podremos usar la app MotoSafe.
 		
 		\subsection{No se detecta accidente}
 		
+			Una vez nuestra app comienza a funcionar, mide el \'angulo de inclinaci\'on de la motocicleta. Ver figura 4.4.
 		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][7cm,18cm]{imagenes/NoAccidente.png}
+				\caption{Interfaz app Android reconociendo \'angulo de inclinaci\'on}
+				\label{contexto:figura}
+			\end{figure}
+			
+			Tal y como se puede observar en la figura 4.4, en el primer TextView, el \'angulo de inclinaci\'on medido es 0,1217 grados, lo cual indica que permanecemos sobre la vertical y nuestra inclinaci\'on es pr\'acticamente nula.
+			
+			Adem\'as el segundo TextView reconoce que no se ha sufrido una caida y nos muestra dicho mensaje para poder ver el funcionamiento de la app.
 		
-		\subsection{Posibilidad de accidente}
+		\subsection{Posibilidad de accidente por p\'erdida de se\~nal}
 		
+			Muchos son los motivos por los que se puede perder la comunicaci\'on entre el smartphone y el dispositivo que integraremos en la moto, lo cual debemos tener en cuenta para evitar el env\'io de falsos mensajes de accidente al n\'umero de emergencias. Ver figura 4.5.
 		
+			\begin{figure}[h]
+			\centering
+			\includegraphics[5cm,0cm][7cm,15cm]{imagenes/perdidaBT.png}
+			\caption{Interfaz app Android con p\'erdida de se\~nal bluetooth}
+			\label{contexto:figura}
+			\end{figure}
+			
+			Como se puede apreciar en \'esta figura, la app reconoce la p\'erdida de comunicaci\'on, mostrando el mensaje ''perdida de BT'', adem\'as seg\'un el algoritmo que he implementado reconoce como que a\'un no se ha caido como se puede apreciar en el segundo TextView, pero tal y como se pudo ver en el diagrama de estados del cap\'itulo desarrollo, el algoritmo pasa a comprobar la velocidad a la que circulamos, muestra de ello es el mensaje ''mido velocidad'' que se encuentra en el tercer TextView.
 		
 		\subsection{Accidente y aviso a emergencias}
 		
+			Una vez hemos detectado dicho que ha ocurrido un accidente, ya sea por la p\'erdida de comunicaci\'on o un \'angulo de inclinaci\'on superior a 55 grados y una velocidad menor a 3 metros por segundo, podemos ver la siguiente interfaz. Ver figura 4.6.
 		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][7cm,15cm]{imagenes/accidente.png}
+				\caption{Interfaz app Android cuando he sufrido un accidente}
+				\label{contexto:figura}
+			\end{figure}
+			
+			En el cuarto TextView se muestra el SMS que ha sido enviado al n\'umero de emergencias.
 	
 	\section{Prototipo}
 	
-	En un diseño previo como se pudo ver en algunas figuras anteriores me apoyaba sobre una protoboax y cables para la conexi\'on entre los diferentes dispositivos. Lo cual se decidi\'o evitar con el dise\~no de una placa PCB, la cual se muestra en la siguiente figura.
+	En un diseño previo como se pudo ver en algunas figuras anteriores me apoyaba sobre una protoboax y cables para la conexi\'on entre los diferentes dispositivos. Lo cual se decidi\'o evitar con el dise\~no de una placa PCB, la cual se muestra en la siguiente figura. Ver figura 4.7.
 	
 	\begin{figure}[h]
 		\centering
@@ -67,16 +115,16 @@
 	
 	La descripci\'on de la realizaci\'on de la PCB se encuentra en el anexo 1.
 	
-	Tras la fabricaci\'on de la PCB proced\'i a su montaje, obteniendo el siguiente prototipo de proyecto.
+	Tras la fabricaci\'on de la PCB proced\'i a su montaje, para ello perfor\'e la placa en los puntos de inter\'es y sold\'e con esta\~no los  diferentes conectores macho y hembra, obteniendo el siguiente prototipo de proyecto.
+	
+	He de destacar que en la imagen mostrada el m\'odulo bluetooth HC-05 se encuentra en posici\'on vertical, perpendicar a la placa, en realidad su posicionamiento debe ser en paralelo a la placa. ver figura 4.8.
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[6cm,0cm][7cm,9cm]{imagenes/prototipo.jpg}
+		\includegraphics[6cm,0cm][7cm,10cm]{imagenes/prototipo.jpg}
 		\caption{Prototipo proyecto}
 		\label{contexto:figura}
 	\end{figure}
 	
-
-
 	\newpage
 	$\ $

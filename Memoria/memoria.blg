@@ -10,6 +10,7 @@ A level-1 auxiliary file: conclusiones.aux
 A level-1 auxiliary file: bibliografia.aux
 The style file: acm.bst
 A level-1 auxiliary file: anexo1.aux
+A level-1 auxiliary file: anexo2.aux
 Database file #1: biblio.bib
 Warning--entry type for "RN42" isn't style-file defined
 --line 1 of file biblio.bib
@@ -25,4 +26,8 @@ Warning--entry type for "Dgt" isn't style-file defined
 --line 29 of file biblio.bib
 Warning--entry type for "ATmega328" isn't style-file defined
 --line 35 of file biblio.bib
-(There were 7 warnings)
+Warning--entry type for "MyAlamMe" isn't style-file defined
+--line 41 of file biblio.bib
+Warning--entry type for "MEC" isn't style-file defined
+--line 47 of file biblio.bib
+(There were 9 warnings)

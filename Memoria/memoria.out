@@ -1,0 +1,50 @@
+\BOOKMARK [0][-]{chapter*.2}{\315ndice de figuras}{}% 1
+\BOOKMARK [0][-]{chapter*.3}{\315ndice de tablas}{}% 2
+\BOOKMARK [0][-]{chapter*.5}{Resumen}{}% 3
+\BOOKMARK [0][-]{chapter*.6}{Abstract}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Motivaci\363n}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Descripci\363n del proyecto}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Objetivos}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Estado del arte}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Comparaci\363n de m\363dulos inal\341mbricos}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.1.1}{Infrarrojos}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.2}{Wi-Fi}{section.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.1.3}{ZigBee}{section.2.1}% 13
+\BOOKMARK [2][-]{subsection.2.1.4}{Bluetooth RN-42}{section.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.1.5}{Bluetooth HC-05}{section.2.1}% 15
+\BOOKMARK [2][-]{subsection.2.1.6}{Conclusi\363n}{section.2.1}% 16
+\BOOKMARK [1][-]{section.2.2}{Mota Sensora}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.3}{Plataforma electr\363nica de c\363digo abierto}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.4}{Dispositivo para la app}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.5}{Sistemas de seguridad actuales y tendencias futuras}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.5.1}{MY-ALARMME!}{section.2.5}% 21
+\BOOKMARK [2][-]{subsection.2.5.2}{MEC \205- Mobile Emergency Call}{section.2.5}% 22
+\BOOKMARK [0][-]{chapter.3}{Dise\361o}{}% 23
+\BOOKMARK [1][-]{section.3.1}{Hardware}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.1.1}{Arduino Uno R3}{section.3.1}% 25
+\BOOKMARK [2][-]{subsection.3.1.2}{Pololu minimu 9 v.2}{section.3.1}% 26
+\BOOKMARK [2][-]{subsection.3.1.3}{Bluetooth HC-05}{section.3.1}% 27
+\BOOKMARK [1][-]{section.3.2}{Firmware}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.2.1}{Configuraci\363n Arduino Uno y Pololu Minimu 9 V.2}{section.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.2.2}{Configuraci\363n Arduino Uno y Bluetooth HC-05}{section.3.2}% 30
+\BOOKMARK [2][-]{subsection.3.2.3}{Schematic conexi\363n m\363dulos y placa Arduino}{section.3.2}% 31
+\BOOKMARK [1][-]{section.3.3}{Software}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.3.1}{Android}{section.3.3}% 33
+\BOOKMARK [2][-]{subsection.3.3.2}{Diagrama estados}{section.3.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.3}{Interfaz App}{section.3.3}% 35
+\BOOKMARK [0][-]{chapter.4}{Resultados}{}% 36
+\BOOKMARK [1][-]{section.4.1}{Resultados Hardware}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.2}{Resultados App Android}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.2.1}{GPS desactivado}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.2}{No se detecta accidente}{section.4.2}% 40
+\BOOKMARK [2][-]{subsection.4.2.3}{Posibilidad de accidente por p\351rdida de se\361al}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.4}{Accidente y aviso a emergencias}{section.4.2}% 42
+\BOOKMARK [1][-]{section.4.3}{Prototipo}{chapter.4}% 43
+\BOOKMARK [0][-]{chapter.5}{Conclusiones}{}% 44
+\BOOKMARK [1][-]{section.5.1}{Conclusiones}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.2}{L\355neas de trabajo futuras}{chapter.5}% 46
+\BOOKMARK [0][-]{section.5.2}{Bibliograf\355a}{}% 47
+\BOOKMARK [0][-]{chapter*.8}{Anexo 1}{}% 48
+\BOOKMARK [0][-]{chapter*.9}{Anexo 2}{}% 49
+\BOOKMARK [0][-]{chapter*.10}{Anexo 3}{}% 50

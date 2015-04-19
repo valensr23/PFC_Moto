@@ -2,8 +2,99 @@
 	\addcontentsline{toc}{chapter}{Anexo 1} % si queremos que aparezca en el índice
 	\markboth{Anexo 1}{Anexo 1} % encabezado
 	
+		Para el dise\~no de la placa PCB se us\'o la herramienta software de c\'odigo abierto KiCad, plataforma para la creaci\'on y dise\~no de esquem\'aticos de circuitos electr\'onicos y sus correspondientes archivos de fabricaci\'on de placas de circuito impreso. El hecho de ser una plataforma de c\'odigo abierto lo hace perfecto para proyectos orientados a la creaci\'on de hardware electr\'onico.
+		
+		Kicad no tiene limitaci\'on del tama\~no de la placa y puede manejar facilmente hasta 16 capas de cobre y hasta 12 capas t\'ecnicas. Puede generar todos los ficheros necesarios para la fabricaci\'on de placas de circuito impreso, tales como: Gerber files, component locantion files...
+		
+		Podemos descargar KiCad desde http://www.kicad-pcb.org, donde se nos descargar\'a un ejecutable que instalar\'a en la ruta deseada las herramientas de KiCad.
+		
+		Una vez ha sido instalado KiCad, lo primero que debemos realizar es dise\~nar el Esquem\'atico de nuestro proyecto. Para ello detallar\'e a continuaci\'on los pasos que segu\'i y el restultado que obtuve.
+		
+		Los pasos seguidos fueron los siguientes:
+		
+		\begin{itemize}	
+			
+			\item Lo primero de todo es crear un nuevo proyecto y guardarlo con el nombre que deseemos.
+			
+			\item Una vez ha sido creado el proyecto debemos pulsar sobre EESchema para comenzar a crear el esquem\'atico del proyecto.
+			
+			\item Algunos componentes se encuentran en las librer\'ias ya instalados, otros como el de la placa Arduino lo pude descargar de Internet y posteriormente asoci\'andolo a su footprint.
+			
+			\item Creados todos los componentes proced\'i a conectarlos con cables, incluyendo las fuentes de alimentaci\'on, las tierras y definir sin conexi\'on los pines que no utilizar\'e.
+			
+			\item Una vez el esquem\'atico ha sido terminado hay que proceder a enlazar todos los componente del esquem\'atico con Cvpcb.
+			
+		\end{itemize}
+		
+		El esquem\'atico desarrollado es el siguiente:
 	
-	
+		\begin{figure}[h]
+			\centering
+			\includegraphics[9cm,0cm][10cm,10cm]{imagenes/EsquematicoPCB.jpg}
+			\caption{Esquem\'atico dise\~no PCB}
+			\label{contexto:figura}
+		\end{figure}
+		
+		Ahora podemos usar la herramienta PCBnew, en la cual dise\~naremos el boceto de nuestra PCB final.
+		
+		Los pasos a seguir son los siguientes:
+		
+		\begin{itemize}	
+			
+			\item En primer lugar debemos fijar el tama\~no de la p\'agina a A4 y tutularla con el nombre de nuestra PCB.
+			
+			\item En segundo lugar debemos fijar el tamaño el clearance, ancho de las v\'ias, separaci\'on m\'inima de las v\'ias, etc.
+			
+			\item Accedemos al NetList, para exarminarlo y leer el Netlist actual para cargar todos los footprints asociados.
+			
+			\item Una vez han sido cargados, debemos colocarlos de una forma ordenada, teniendo en cuenta donde vamos a ubicar cada componente y que no haya posibles cruces de pistas ya que solo vamos a imprimir la placa a una sola capa.
+			
+			\item Con ''Edge Cuts'' fijaremos el tama\~no de la placa, adem\'as escogeremos la capa F.Cu con la cual creamos las v\'ias que conectar\'an todos los pines.
+			
+			\item El resto de la placa no usada se rellenar\'a con la capa ''F.Cu'' con la finalidad de  ser el plano de masa que ir\'a unido a los pines tierra. Debemos dejar un espacio sin rellenar, que ser\'a donde estar\'a la antena del dispositivo bluetooth, para evitar que se apantalle y se reduzca de forma considerable el alcance de dicha antena.
+			
+			\item Una vez ha sido creado y unido todo debemos realizar un chequeo de la PCB dise\~nada, lo que en nuestra herramienta se reconoce como ''Comenzar DRC''. Realizado dicho chequeo debemos comprobar que la ''Lista No Conectados'' se encuentra vac\'ia.
+			
+		\end{itemize}
+		
+		\
+		\\
+		\
+		
+		Realizado todo esto podemos ver el resultado de la placa que hemos diseñado con PCBnew en la siguiente imagen.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[8cm,0cm][9cm,14cm]{imagenes/DisenoPCB.jpg}
+			\caption{Dise\~no PCB en PCBnew}
+			\label{contexto:figura}
+		\end{figure}
+		
+		Adem\'as si lo deseamos podemos ver el resultado en 3D, accediendo a la pesta\~na Ver y pinchando sobre Visualizaci\'on 3D. Obteniendo el siguiente resultado.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[10cm,0cm][8cm,14cm]{imagenes/3D.jpg}
+			\caption{Modelo 3D PCB}
+			\label{contexto:figura}
+		\end{figure}
+		
+		Adem\'as se nos ofrece la posibilidad de generar los ficheros Gerbers. Si queremos generarlos debemos seguir los siguientes pasos.
+		
+		\begin{itemize}	
+			
+			\item Desde PCBnew accedemos a Archivo y despues Plot.
+			
+			\item Elegimos ''Gerber'' en el desplagable de ''Plot Format'' y elegimos el directorio donde deseamos guardar los archivos.
+			
+			\item Elegimos las capas que deseamos dibujar para una placa de una sola capa.
+			
+			\item Hacemos click sobre ''Trazar'' para generar los Gerbers y sobre ''Generate Drill File'' para generar el archivo de drills.
+			
+			\item Podemos acceder a ver los archivos generados pulsando sobre el icono del GerbView.
+			
+		\end{itemize}
+
 	
 	\newpage
 	$\ $

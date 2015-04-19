@@ -1,0 +1,46 @@
+	\chapter*{Anexo 3 Instalaci\'on Eclipse ADT} % si no queremos que añada la palabra "Capitulo"
+	\addcontentsline{toc}{chapter}{Anexo 3} % si queremos que aparezca en el índice
+	\markboth{Anexo 3}{Anexo 3} % encabezado
+	
+		En este anexo voy a explicar como se debe instalar Eclipse ADT con SDK de Android en la versi\'on r20, versi\'on que he usado para el desarrollo de la aplicaci\'on m\'ovil MotoSafe.
+		
+		Los tres pasos fundamentales a seguir para tener el entorno de desarrollo instalado en nuestro ordenador son los siguientes:
+		
+		\begin{itemize}	
+			
+			\item Descargar Android SDK.
+			
+			\item Descargar las \'ultimas herramientas del SDK y plataformas desde el Manager del SDK.
+			
+			\item Instalar el plugin ADT para Eclipse.
+			
+		\end{itemize}
+		
+		Para descargar la \'ultima versi\'on disponible solo tenemos que acceder a la p\'agina web de Android Developer para descargar Eclipse ADT y seleccionar la version que queramos para nuestro ordenador.
+		
+		Realmente Eclipse no se instala, sino que se descarga, se descomprime y ya lo tenemos listo para hacerlo funcionar. Podemos descargarlo a trav\'es del siguiente enlace http://www.eclipse.org/downloads/.
+		
+		Una vez realizado este proceso debemos proceder a añadir plataformas y paquetes al Android SDK. Para ello nos iremos al directorio de Android SDK, y en la carpeta tools ejecutamos el archivo android.
+		
+		Cuando haya terminado de buscar, se nos dar\'an algunas opciones ya marcadas para instalar. Por defecto, se instalar\'an los dirvers de USB para poder probar las aplicaciones en alg\'un dispositivo f\'isico con Android que tengamos y la \'ultima versi\'on de Android hasta la fecha. Opci\'on no muy aconsejable ya que suele ser la versi\'on que mas problemas nos presentar\'a.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[6cm,0cm][7cm,13cm]{imagenes/SDK.jpg}
+			\caption{SDK Manager}
+			\label{contexto:figura}
+		\end{figure}
+		
+		A partir de aqu\'i podremos escoger la versi\'on API que deseamos instalar y con la cual trabajaremos para desarrollar nuestra aplicaci\'on. Debemos aceptar todo lo que contenga el paquete para que pueda ser instalado.
+		
+		Hay que destacar que SDK de Android y Eclipse son dos programas individuales, nada vinculados. SDK de Androis es la ventana que he mostrado en la imagen anterior y que como puede verse es un asistente de descargas. Mientras que Eclipse es la interfaz sobre la cual programaremos. Debemos vincularlos para poder programar en Android.
+		
+		Ahora trabajaremos con Eclipse, hay que vincular el SDK a nuestro entorno de desarrollo. Esto se realiza mediante la instalaci\'on de un plugin para Eclipse denominado ADT (Android Developent Tools). Tiene l\'ogica que el plugin sean las herramientas de desarrollo de Android, ya que Eclipse como entorno de trabajo requiere de estas herramientas que no tiene para programar en Android.
+		
+		Este modo es un muy entretenido, por lo que recomiendo descargarse Eclipse ADT desde la p\'agina de Android Developers y evitar un trabajo extra.
+		
+		He de destacar que en este caso instal\'e la API de Android 4.4, ya que el dispositivo m\'ovil en el que iba a probar la aplicaci\'on desarrollada dispone de dicha versi\'on de Kernel de Android. Con ello evitaremos diferentes problemas de versi\'on, adem\'as al no isntalar una de las \'ultimas versiones de API de Android evitamos que surjan m\'ultiples fallos a la hora de compilaci\'on o de versiones de Kernel.
+		
+		
+	\newpage
+	$\ $

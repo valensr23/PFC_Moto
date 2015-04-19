@@ -1,14 +1,57 @@
 	\chapter{Estado del arte}\label{cap.estadoDelArte}
 	
-	En este cap\'itulo vamos a realizar un estudio de la situaci\'on tecnol\'ologica actual en todo lo referente a la comunicaci\'on inal\'ambrica, sensor utilizado, plataforma electr\'onica de c\'odigo abierto, dispositivo para el que se desarrollar\'a la app, sistemas de seguridad actuales en vehiculos de dos ruedas y las tendencias futuras.
+	En este cap\'itulo vamos a realizar un estudio de la situaci\'on tecnol\'ologica actual en todo lo referente a la comunicaci\'on inal\'ambrica existente y nuestra decisi\'on, sensor utilizado, plataforma electr\'onica de c\'odigo abierto utilizada, dispositivo para el que se desarrollar\'a la aplicaci\'on, sistemas de seguridad actuales en vehiculos de dos ruedas y las tendencias futuras.
+	
+	Se acord\'o trabajar con la plataforma hardware Arduino, debido a las innumerables ventajas con las que cuenta, plataforma absolutamente desconocida, por lo que necesitar\'ia una amplia labor previa de búsqueda de informaci\'on, lectura de documentos, descarga de nuevos entornos de desarrollo y familiarizaci\'on con dicha plataforma electr\'onica.
 	
 	\section{Comparaci\'on de m\'odulos inal\'ambricos}
 	
-		Buscamos un protocolo inal\'ambrico de comunicaci\'on que nos permita enviar los datos con la mayor exactitud posible, con un consumo de energ\'ia razonable y de forma segura. Para ello estudiaremos los m\'odulos Bluetooth RN-42 y HC-05.
+		Buscamos un protocolo inal\'ambrico de comunicaci\'on que nos permita enviar los datos con la mayor exactitud posible, con un consumo de energ\'ia razonable y de forma segura. Para ello estudiaremos Infrarrojos, m\'odulo Wi-fi, ZigBee y los m\'odulos Bluetooth RN-42 y HC-05.
 		
-		\subsection{Bluetooth RN-42}
+		\subsection{Infrarrojos}
+		
+			De forma general podemos definir la comunicaci\'on v\'ia infrarrojos como un haz enfocado de luz en el espectro de frecuencia infrarrojo, donde se modula la informaci\'on y se env\'ia de un transmisor a un receptor a una distancia
+			relativamente corta.
 			
+			Sus caracter\'isticas son:
+		
+			\begin{itemize}	
+				\item Bajo coste.
+				\item Bajos requirimientos de potencia.
+				\item Alta inmunidad al ruido.
+				\item Conectividad direccional.
+			\end{itemize}
 			
+			Su principal desventaja frente a otros m\'odulos de comunicaci\'on es su modo punto a punto, que requiere que transmisor y receptor est\'en alineados, lo m\'as
+			cerca posible y con una l\'inea de visi\'on directa.
+		
+		\subsection{Wi-Fi}
+		
+			Es la tecnolog\'ia usada en una red o conexi\'on inal\'ambrica para la comunicaci\'on de datos entre equipos situados dentro de una misma \'area, interior o exterior,
+			de cobertura.
+			
+			Sus ventajas son:
+			
+			\begin{itemize}	
+				\item Movilidad desde cualquier sitio dentro de su cobertura.
+				\item F\'acil instalaci\'on.
+				\item Flexibilidad, permite el acceso a una red en entornos de dif\'icil cableado.
+				\item Permite incorporar redes sin la necesidad de cables.
+			\end{itemize}
+		
+		\subsection{ZigBee}
+		
+			ZigBee es una alianza, sin \'animo de lucro, de 25 empresas, la mayor\'ia de ellas fabricantes de semiconductores, con el objetivo de auspiciar el desarrollo e implantaci\'on de una tecnolog\'ia inal\'ambrica de bajo coste. Los miembros de
+			tal alianza justifican el desarrollo de este estándar para cubrir el vac\'io que se produce por debajo del Bluetooth.
+			
+			Sus propiedades m\'as destacadas son:
+			
+			\begin{itemize}	
+				\item Velocidad entre 20 kB por segundo y 250 kB por segundo, con un rango entre 10 y 75 metros de alcance.
+				\item Bajo consumo.
+			\end{itemize}
+		
+		\subsection{Bluetooth RN-42}	
 			
 			Este m\'odulo Bluetooth \cite{RN42} est\'a dise\~nado para reemplazar los cables de serie. Est\'a completamente encapsulado, el usuario solo ve los caracteres de serie se transmiten hacia atr\'as y adelante. Este dispositivo es usado para corto alcance, con un consumo de 26 uA en reposo. F\'acil de integrar en sistemas embebidos y de conectar a dispotivos ya existentes 
 			
@@ -42,10 +85,12 @@
 				\caption{M\'odulo Bluetooth HC-05}
 				\label{contexto:figura}
 			\end{figure}
-
-			Estudiados ambos m\'odulos se decidi\'o usar el m\'odulo Bluetooth HC-05 no solo por ser mas econ\'onico sino porque es un dispositivo que puede seguir trabajando en un rango de temperaturas de -$20^{\circ}$C hasta $75^{\circ}$C y teniendo en cuenta que este sistema estar\'a ubicado en el interior de la moto es posible alcanzar dichas temperaturas. Adem\'as las caracter\'isticas del m\'odulo HC-05 son sufientes para la realizaci\'on de este proyecto.
 			
-					
+		\subsection{Conclusi\'on}
+
+			Estudiados estos m\'odulos se decidi\'o usar el m\'odulo Bluetooth HC-05 no solo por ser mas econ\'onico sino porque es un dispositivo que puede seguir trabajando en un rango de temperaturas de -$20^{\circ}$C hasta $75^{\circ}$C y teniendo en cuenta que este sistema estar\'a ubicado en el interior de la moto es posible alcanzar dichas temperaturas. Adem\'as las caracter\'isticas del m\'odulo HC-05 son sufientes para la realizaci\'on de este proyecto.
+			
+								
 	\section{Mota Sensora}
 	
 		La Mota que se va a usar para la realizaci\'on de este proyecto es el Pololu minimu-9 v2 \cite{Pololu}, la cual es una unidad de medici\'on inercial (IMU), que viene equipada con un L3GD20 giroscopio de 3 ejes y un LSM303DLHC con 3 ejes para el aceler\'ometro y 3 ejes para el magnet\'ometro. El m\'odulo incluye un regulador de voltaje y un circuito de desplazamiento que permite el funcionamiento de 2,5 a 5,5 V.
@@ -64,12 +109,18 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[1cm,0cm][5cm,5cm]{imagenes/pololu.jpg}
+			\includegraphics[1cm,0cm][5cm,6cm]{imagenes/pololu.jpg}
 			\caption{Pololu minimu-9 v2}
 			\label{contexto:figura}
 		\end{figure}
 		
 	\section{Plataforma electr\'onica de c\'odigo abierto}
+	
+		Arduino es una plataforma de electrónica que realiza prototipado de circuitos, de software libre, basada en hardware y software flexible y f\'acil de usar. De manera m\'as concreta, en lo que respecta, es la combinaci\'on de un microcontrolador y placa base asociada con un entorno de desarrollo que simplifica la programaci\'on de este controlador, la cual es en un lenguaje muy parecido a C y que por tanto permite la comunicaci\'on con un gran n\'umero de dispositivosde forma c\'omoda y asequible.
+		
+		Arduino no es la \'unica plataforma basada en microcontroladores, pero si es una plataforma libre, econ\'omica  y con una gran comunidad creciendo detr\'as de ella. Adem\'as posee una filosof\'ia multidisciplinar, combinado con la facilidad de tomar informaci\'on del entorno a trav\'es de sus diferentes entradas anal\'ogicas y digitales.
+		
+		Existen diferentes placas oficiales de Arduino, entre ellas Arduino Mega, Y\'un, Leonardo, Uno, Esplora, Due, Micro, Robot, etc\'etera.
 	
 		La plataforma electr\'onica de c\'odigo abierto que vamos a utilizar es Arduino Uno R3 \cite{ArduinoUno}, placa electr\'onica basada en el ATmega 328. Cuenta con 14 pines digitales de entrada/salida, 6 entradas anal\'ogicas, un resonador cer\'amico de 16 MHz, una conexi\'on USB, un conector de alimentaci\'on, una cabecera ICSP y un bot\'on de reinicio. Basta con conectarlo a un ordenador con un cable USB o a una bateria para empezar.
 		
@@ -83,6 +134,14 @@
 		Arduino Uno puede ser alimentado con 6 hasta 20 voltios. Si se alimenta con menos de 7 voltios, el pin encargado de suministrar 5 voltios es muy probable que suministre menos. En caso de suministrar mas de 12 voltios, el regulador de voltaje se puede sobrecalentar y da\~nar la placa. El rango de alimentaci\'on recomendado es de 7 a 12 voltios.
 		
 		Para programar Arduino Uno se puede usar el software de Arduino. Software desde el que podremos cargar nuestros programas en la placa Arduino a trav\'es de un cable USB, Arduino Uno cuenta con una memoria de 2KB de SRAM y 1 KB de EEPROM.
+		
+		Una de las ventajas que ofrece Arduino es:
+		
+		\begin{itemize}
+			\item Su bajo coste.
+			\item La facilidad para leer los datos suministrados por sensores.
+			\item La facilidad para construir el sistema electr\'onico que deseamos.
+		\end{itemize}
 	
 	
 	\section{Dispositivo para la app}
@@ -148,9 +207,29 @@
 		
 		Un accidente puede ocurrir en un lugar concurrido y cualquier viandante que se encuentre all\'i puede realizar dicha llamada a emergencias, el inconveniente ser\'ia que el accidente ocurra en una via poco transitada y el conductor no pueda realizar dicha llamada, esperar a que otro conductor circule por esa misma via puede llevar demasiado tiempo.
 		
-		Como consecuencia nace la realizaci\'on de este proyecto, cuya app he llamado MotoSafe. Consiste en que el propio smartphone del conductor pueda avisar a emergencias indic\'andoles nuestra posici\'on en caso que la app haya detectado que se ha producido un accidente a partir de los datos suministrados por el sistema electr\'onico que ubicaremos en la moto.
+		Como consecuencia nace la realizaci\'on de este proyecto, cuya aplicaci\'on he llamado MotoSafe. Consiste en que el propio smartphone del conductor pueda avisar a emergencias indic\'andoles nuestra posici\'on en caso que la app haya detectado que se ha producido un accidente a partir de los datos suministrados por el sistema electr\'onico que ubicaremos en la moto.
 		
 		En el pr\'oximo cap\'itulo se proporcionar\'an mas detalles acerca del desarrollo de este proyecto.
+		
+		A continuaci\'on detallar\'e algunos sistemas actuales de alerta m\'ovil en caso de accidentes de tr\'afico.
+		
+		\subsection{MY-ALARMME!}
+		
+			MyAlarmMe! \cite{MyAlamMe} es un sistema de alarma y emergencia para moteros que funciona a trav\'es del tel\'efono m\'ovil.
+			
+			Ofrece un servicio personalizado que permite al usuario avisar, en tiempo real y de forma manual, a todas que personas que el desee con el env\'io de un SMS que ha sufrido un accidente.
+			
+			Los sms se enviar\'an de forma autom\'atica al acticar tu alarma, el mensaje enviado ser\'a prefijado por el usuario incluyendo el nombre de dicho usuario y las coordenadas de su ubicaci\'on.
+			
+			El funcionamiento es simple, una vez la aplicaci\'on ha sido configurada, en caso de sufrir un accidente el usuario solo tiene que abrir la aplicaci\'on y pulsar sobre el icono de exclamaci\'on, en ese momento se enviar\'an los sms a los contactos o n\'umeros previamente indicados.
+		
+		\subsection{MEC –- Mobile Emergency Call}
+		
+			MEC -- Mobile Emergency Call \cite{MEC} es una aplicaci\'on que env\'ia mensaje de alarma automaticamente si detecta que hemos tenido un accidente de tr\'afico. Los mensajes de alerta que env\'ia son por medio de email, SMS y llamada de voz con locuci\'on incorporada.
+			
+			Este sistema se puede usar en coches, motos y bicicletas, teniendo en cuenta las particularidades din\'amicas y de conducci\'on de cada veh\'iculo. Si el algoritmo detecta un accidente se inicia una cuenta atr\'as para enviar los mensajes de alerta, cuenta atr\'as que puede ser cancelada si el usuario as\'i lo indica.
+			
+			En esos mensajes de alerta se incluyen la posici\'on GPS del accidente, adem\'as de los datos de usuario previamente insertados, como son el modelo de veh\'iculo, alergias conocidas, etc\'etera. El usuario puede escoger a quien desea enviar dichos mensajes de alerta.
 	
 	
 

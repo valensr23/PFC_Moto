@@ -3,37 +3,46 @@
 	
 		En este cap\'itulo pretendemos situar al lector en el contexto del proyecto, en que campo vamos a trabajar, motivaci\'on y los objetivos del proyecto para que se pueda entender con mayor facilidad el trabajo realizado y los objetivos a conseguir.
 		
+		Se busca, por tanto, que con la lectura de este cap\'itulo pueda entenderse el resto de esta memoria.
+		
 	\section{Motivaci\'on}
-	
+		
 		Desde la invenci\'on de la motocicleta por Sylvester Howard Roper en 1867, el mundo del motor ha evolucionado desde el motor de cilindros a vapor hasta los motores actuales. Diferentes tipos de motocicletas con distintas cilindradas inundan nuestras calles a d\'ia de hoy.
 		
-		Como podemos ver al salir a la calle las motocicletas no son el \'unico veh\'iculo que nos encontramos, tambi\'en podemos encontrar coches, camiones y sus variantes en forma, motor, tama\~no y n\'umero de rudas. Lo que si podemos observar es que la moticleta es el veh\'iculo menos seguro frente a los mencionados, no solo por dimensiones sino porque en caso de accidente es el cuerpo del motorista quien sufre el impacto y no la carrocer\'ia como en los otros veh\'iculos.
+		Como podemos ver al salir a la calle las motocicletas no son el \'unico veh\'iculo que nos encontramos, tambi\'en podemos encontrar coches, camiones y sus variantes en forma, motor, tama\~no y n\'umero de ruedas. Lo que si podemos observar es que la moticleta es el veh\'iculo menos seguro frente a los mencionados, no solo por dimensiones sino porque en caso de accidente es el cuerpo del motorista quien sufre el impacto y no la carrocer\'ia como en los otros veh\'iculos.
 		
 		Con el paso de los a\~nos la seguridad en veh\'iculos con motor ha aumentado progresivamente. Este crecimiento ha sido mayor con la introducci\'on de nuevas tecnolog\'ias, tales como sensores, dotan al veh\'iculo de cierta inteligencia.
 		
-		Hoy en d\'ia es dif\'icil encontrar una persona que no posea un smartphone, una herramienta que no solo sirve para llamar, leer la prensa o encontrar una ubicaci\'on, sino que con la posibilidad del desarrollo de apps podemos convertir nuestro smartphone en una herramienta que nos ayude en cualquier tarea, circunstancia o incluso que nos salve la vida.
+		A la hora de usar un veh\'iculo de dos ruedas lo mas importante es nuestra seguridad, prueba de ello son los sistemas que se est\'an implantando tanto en el propio veh\'iculo como en cascos o chaquetas. En el caso de sufrir un accidente el tiempo juega en nuestra contra, una r\'apida actuación de los servicios sanitarios puede salvarnos la vida en caso de que lo necesitemos.
 		
-		La combinaci\'on de un veh\'iculo con sensores y comunicacion Bluetooth con un smartphone es el punto clave para que este proyecto pueda ser llevado a cabo.
+		Al a\~no se producen mas de 2000 accidentes de moto, el 72\% de esos accidentes precisa atenci\'on m\'edica. Algunos veh\'iculos de alta gama ya poseen un sistema de seguridad en caso de sufrir en accidente, sistema que ser\'a obligatorio en Espa\~na a partir del 31 de Marzo de 2018 en coches. Quedando disponible realizar un sistema parecido para motos, el cual podr\'ia llegar a ser obligatorio en un futuro.
 		
-		Por ello podemos decir que los elementos clave para aumentar la seguridad en un veh\'iculo de dos ruedas en este proyecto ser\'ian:
+		Hoy en d\'ia es dif\'icil encontrar una persona que no posea un smartphone, una herramienta que no solo sirve para llamar, leer la prensa o encontrar una ubicaci\'on, sino que con la posibilidad del desarrollo de aplicaciones podemos convertir nuestro smartphone en una herramienta que nos ayude en cualquier tarea, circunstancia o incluso que nos salve la vida.
+		
+		Si combinamos la tecnolog\'ia de nuestro smartphone con un sistema electr\'onico que pueda ser integrado en una moto, ya sea desde el momento de su fabricaci\'on o un extra, aumentariamos la seguridad de todo motorista.
+		
+		Es cierto que no disminuiriamos el números de accidentes que puedan ocurrir en carretera, pero si disminuir\'iamos el tiempo de reacci\'on de los servicios sanitarios, aumentando las probabilidades de atender a una persona en el menor tiempo posible.
+		
+	\section{Descripci\'on del proyecto}
+	
+		Como se ha indicado, es muy importante el tiempo de reacci\'on de los servicios de emergencias, facilitando ademas nuestra ubicaci\'on ayudamos a que nos encuentren con facilidad en caso de estar en alg\'un lugar de dif\'icil acceso, que no hayamos podidos llamar por nuestros medios o que no hubiera testigos de dicho accidente que pudieran llamar a emergencias para informar de la gravedad de lo ocurrido.
+		
+		Adem\'as debemos tener en cuenta que este sistema funciona solo, no necesita de la intervenci\'on del motorista una vez el sistema ha sido iniciado en caso de accidente.
+		
+		Para que este sistema sea efectivo es preciso que el motorista circule con un smartphone encendido, conectado v\'ia bluetooth al sistema electr\'onico integrado en la motocicleta y con la aplicaci\'on iniciada.
+		
+		Este proyecto pretende ser un sistema completo y aut\'onomo que se componga de un sistema electr\'onico, compuesto por un gir\'oscopo, magnet\'ometro y aceler\'ometro, capaz de transmitir v\'ia bluetooth a un smartphone todos los par\'ametros necesarios para que la aplicaci\'on desarrollada ejecute el algoritmo implementado.
+				
+		Por ello podemos decir que los elementos clave para aumentar la seguridad en un veh\'iculo de dos ruedas y reducir el tiempo de intervenci\'on de los servios de emergencias en este proyecto ser\'ian:
 
 		\begin{itemize}
 			\item Sensores.
 			\item Bluetooth.
 			\item Smartphone.
 		\end{itemize}
-	
-	\section{Sensores}
-	
-		En este proyecto se usar\'a una mota sensora Pololu MinIMU-9 v2 que se compone de tres sensores:
 		
-		\begin{itemize}
-			\item Aceler\'ometro: es el encargado de medir aceleraciones, mide la aceleraci\'on asociada con el fen\'omeno de peso experimentado por una masa de prueba que se encuentra en el marco de referencia del dispositivo.
-			
-			\item Gir\'oscopo: es el encargado de medir, mantener o cambiar la orientaci\'on en el espacio de algún aparato o veh\'iculo. Est\'a formado por un cuerpo con simetr\'ia de rotaci\'on que gira alrededor del eje de dicha simetr\'ia.
-			
-			\item Magnet\'ometro: es el encargado de medir en fuerza o direcci\'on la señal magn\'etica de una muestra. 
-		\end{itemize}
+		Adem\'as, es necesario que el smartphone posea GPS, para una vez los datos han sido recibidos y almacenados, podamos operar con ellos en nuestro algoritmo, el cual nos comprobar\'a si hemos sufrido un accidente en base a nuestro \'angulo de inclinaci\'on y la velocidad a la que circulamos. En caso que el algoritmo detecte haber sufrido un accidente enviar\'a un SMS a los servicios de emergencias indic\'andoles la ubicaci\'on recogida por el GPS.
+	
 	
 	\section{Objetivos}
 	
@@ -50,15 +59,32 @@
 			
 			\item Estudio de las bibliograf\'ia acerca de la calibrac\'on de los sensores y de los algoritmos de c\'alculo de Pitch, Roll y Yaw. Se estudiar\'a el funcionamiento de las motas y como deben ser programadas.
 			
-			\item Montaje de la mota sensora y HC-05. Montar la mota sensora y el m\'odulo HC-05 y tenerlos listos para su uso, realizaci\'on de programas b\'asicos de prueba y verificaci\'on de que funcionan correctamente.
+			\item Montaje de la mota sensora y HC-05. Montar la mota sensora y el m\'odulo HC-05 y tenerlos listos para su uso, realizaci\'on de programas b\'asicos de prueba y verificaci\'on de que funcionan correctamente. Se dispondr\'a de una protoboax para las pruebas pertinentes hasta el desarrollo de una placa en PCB para posterior implementaci\'on.
 			
 			\item Estudio de programaci\'on Android en Eclipse. Con la correspondiente app que ejecute nuestro algoritmo de detecci\'on de accidente y en caso necesario enviar la ubicaci\'on actual a Emergencias 112 via SMS.
 			
-			\item Pruebas del sistema en diferentes condiciones. Realizaci\'on de las pertinentes pruebas para comprobar el correcto funcionamiento del sistema desarrollado.
+			\item Pruebas del sistema en diferentes condiciones. Realizaci\'on de las pertinentes pruebas para comprobar el correcto funcionamiento del sistema desarrollado. Pruebas a diferentes velocidades, diferentes \'angulos de inclicaci\'on del sistema electr\'onico que ir\'a integrado en la moto. Adem\'as de pruebas del sistema en diferentes circunstancias meteorol\'ogicas para comprobar el alcande del dispositivo bluetooth.
 			
 			\item Desarrollo de PCB's. Desarrollo de una placa PCB para evitar el uso de cables en el proyecto y hacerlo mas compacto.
+			
 		\end{itemize}
 		
+		Adem\'as los objetivos que debemos cumplir de cara a la comercializaci\'on de este proyecto ser\'ian los siguientes:
+		
+		\begin{itemize}
+			\item Acabado sistema electr\'onico: debe ser un sistema de tamaño reducido, de facil ingraci\'on a una moto y con una entrada de alimentaci\'on desde la bater\'ia.
+			
+			\item Comodidad de uso de cara al usuario: el individuo que disponga de dicho proyecto, solo debe preocuparse de emparejar el bluetooth de su smartphone con el bluetooth del sistema electr\'onico, despues de ello, solo debe encender la aplicaci\'on antes de circular con su moto y apagarla una vez haya llegado a su destino. 
+			
+			\item Monitorizaci\'on en tiempo real: se requiere de una comunicaci\'on en tiempo real entre smartphone y sistema electr\'onico, para que se pueda actuar en la mayor brevedad posible.
+			
+			\item Movilidad: la aplicaci\'on puede ser instalada en cualquier dispositivo portatil Android que posea bluetooth, GPS y pueda enviar SMS, por lo que debe poseer una tarjeta SIM que posibilite el uso de la red telef\'onica.
+			
+			\item Disponibilidad, robustez y eficiencia: el sistema debe ser tolerante y recuperable a fallos. Por un ejemplo un fallo puede ser la p\'erdida de comunicaci\'on bluetooth momentanea, por lo que se reconoce como un fallo puntual y no como un accidente. La transmisi\'on de datos debe diseñarse con una estructura lo mas eficiente posible, con una buena sincronizaci\'on. Adem\'as se debe desarrollar una interfaz de la aplicaci\'on intuitiva.
+			
+			\item Interpretabilidad de los datos: no solo la monitorizaci\'on en tiempo real es necesaria para el correcto funcionamiento del algoritmo implementado. Una buena y r\'apida interpretabilidad de los datos es fundamental. En esta versi\'on de prueba los datos se mostrar\'an en diferentes TextView, posibilitando as\'i la interpretaci\'on de los datos y poder ver el comportamiento del algoritmo en funci\'on de los datos recibidos.
+			
+		\end{itemize}
 		
 	\newpage
 	$\ $
