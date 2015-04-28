@@ -1,8 +1,8 @@
 \select@language {spanish}
 \contentsline {chapter}{\'Indice de figuras}{V}
-\contentsline {chapter}{\'Indice de tablas}{VIII}
-\contentsline {chapter}{Resumen}{X}
-\contentsline {chapter}{Abstract}{XII}
+\contentsline {chapter}{\'Indice de tablas}{VII}
+\contentsline {chapter}{Resumen}{IX}
+\contentsline {chapter}{Abstract}{XI}
 \contentsline {chapter}{\numberline {1}Introducci\'on}{1}
 \contentsline {section}{\numberline {1.1}Motivaci\'on}{1}
 \contentsline {section}{\numberline {1.2}Descripci\'on del proyecto}{2}
@@ -17,35 +17,34 @@
 \contentsline {subsection}{\numberline {2.1.6}Conclusi\'on}{9}
 \contentsline {section}{\numberline {2.2}Mota Sensora}{10}
 \contentsline {section}{\numberline {2.3}Plataforma electr\'onica de c\'odigo abierto}{11}
-\contentsline {section}{\numberline {2.4}Dispositivo para la app}{12}
+\contentsline {section}{\numberline {2.4}Dispositivo para la aplicaci\'on}{12}
 \contentsline {section}{\numberline {2.5}Sistemas de seguridad actuales y tendencias futuras}{13}
 \contentsline {subsection}{\numberline {2.5.1}MY-ALARMME!}{15}
 \contentsline {subsection}{\numberline {2.5.2}MEC \IeC {\textendash }- Mobile Emergency Call}{15}
 \contentsline {chapter}{\numberline {3}Dise\~no}{18}
-\contentsline {section}{\numberline {3.1}Hardware}{18}
-\contentsline {subsection}{\numberline {3.1.1}Arduino Uno R3}{18}
-\contentsline {subsection}{\numberline {3.1.2}Pololu minimu 9 v.2}{19}
-\contentsline {subsection}{\numberline {3.1.3}Bluetooth HC-05}{20}
-\contentsline {section}{\numberline {3.2}Firmware}{22}
-\contentsline {subsection}{\numberline {3.2.1}Configuraci\'on Arduino Uno y Pololu Minimu 9 V.2}{22}
-\contentsline {subsection}{\numberline {3.2.2}Configuraci\'on Arduino Uno y Bluetooth HC-05}{22}
-\contentsline {subsection}{\numberline {3.2.3}Schematic conexi\'on m\'odulos y placa Arduino}{24}
-\contentsline {section}{\numberline {3.3}Software}{25}
-\contentsline {subsection}{\numberline {3.3.1}Android}{25}
-\contentsline {subsection}{\numberline {3.3.2}Diagrama estados}{26}
-\contentsline {subsection}{\numberline {3.3.3}Interfaz App}{28}
-\contentsline {chapter}{\numberline {4}Resultados}{32}
-\contentsline {section}{\numberline {4.1}Resultados Hardware}{32}
-\contentsline {section}{\numberline {4.2}Resultados App Android}{33}
-\contentsline {subsection}{\numberline {4.2.1}GPS desactivado}{33}
-\contentsline {subsection}{\numberline {4.2.2}No se detecta accidente}{34}
-\contentsline {subsection}{\numberline {4.2.3}Posibilidad de accidente por p\'erdida de se\~nal}{35}
-\contentsline {subsection}{\numberline {4.2.4}Accidente y aviso a emergencias}{35}
-\contentsline {section}{\numberline {4.3}Prototipo}{35}
-\contentsline {chapter}{\numberline {5}Conclusiones}{43}
-\contentsline {section}{\numberline {5.1}Conclusiones}{43}
-\contentsline {section}{\numberline {5.2}L\'ineas de trabajo futuras}{44}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{46}
-\contentsline {chapter}{Anexo 1}{48}
-\contentsline {chapter}{Anexo 2}{53}
-\contentsline {chapter}{Anexo 3}{56}
+\contentsline {section}{\numberline {3.1}Diagrama estados}{18}
+\contentsline {section}{\numberline {3.2}Hardware}{20}
+\contentsline {subsection}{\numberline {3.2.1}Arduino Uno R3}{20}
+\contentsline {subsection}{\numberline {3.2.2}Pololu minimu 9 v.2}{22}
+\contentsline {subsection}{\numberline {3.2.3}Bluetooth HC-05}{23}
+\contentsline {section}{\numberline {3.3}Firmware}{23}
+\contentsline {subsection}{\numberline {3.3.1}Configuraci\'on Arduino Uno y Pololu Minimu 9 V.2}{24}
+\contentsline {subsection}{\numberline {3.3.2}Configuraci\'on Arduino Uno y Bluetooth HC-05}{25}
+\contentsline {section}{\numberline {3.4}Aplicaci\'on M\'ovil}{26}
+\contentsline {subsection}{\numberline {3.4.1}Android}{26}
+\contentsline {subsection}{\numberline {3.4.2}Interfaz Aplicaci\'on}{27}
+\contentsline {chapter}{\numberline {4}Resultados}{31}
+\contentsline {section}{\numberline {4.1}Resultados Hardware}{31}
+\contentsline {section}{\numberline {4.2}Resultados Aplicaci\'on Android}{32}
+\contentsline {subsection}{\numberline {4.2.1}GPS desactivado}{32}
+\contentsline {subsection}{\numberline {4.2.2}No se detecta accidente}{33}
+\contentsline {subsection}{\numberline {4.2.3}Posibilidad de accidente por p\'erdida de se\~nal}{34}
+\contentsline {subsection}{\numberline {4.2.4}Accidente y aviso a emergencias}{34}
+\contentsline {section}{\numberline {4.3}Prototipo}{34}
+\contentsline {chapter}{\numberline {5}Conclusiones}{42}
+\contentsline {section}{\numberline {5.1}Conclusiones}{42}
+\contentsline {section}{\numberline {5.2}L\'ineas de trabajo futuras}{43}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{45}
+\contentsline {chapter}{Anexo 1}{47}
+\contentsline {chapter}{Anexo 2}{52}
+\contentsline {chapter}{Anexo 3}{55}

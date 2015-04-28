@@ -8,26 +8,23 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Comparativa Sistema Operativos en uso}}{13}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Airbag en casco y cazadora}}{14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces ATmega328 en Arduino Uno R3}}{19}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematic Pololu Minimu 9 V.2}}{20}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic Bluetooth HC-05}}{21}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Conexiones Motasonra y Arduino}}{23}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Schematic m\'odulos y Arduino conectados}}{24}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Resultado conexi\'on todos los componentes}}{25}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Estructura app Android}}{26}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de Estados}}{28}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Interfaz app Android}}{29}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama de Estados}}{19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces ATmega328 en Arduino Uno R3}}{21}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Conexiones Motasonra y Arduino}}{24}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Resultado conexi\'on todos los componentes}}{26}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Estructura aplicaci\'on Android}}{27}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Interfaz aplicaci\'on Android}}{30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Theta te\'orico 0}}{33}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Theta te\'orico 90}}{34}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Interfaz app Android si el GPS no est\'a activado}}{37}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Interfaz app Android reconociendo \'angulo de inclinaci\'on}}{38}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Interfaz app Android con p\'erdida de se\~nal bluetooth}}{39}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Interfaz app Android cuando he sufrido un accidente}}{40}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Dise\~no PCB}}{41}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Prototipo proyecto}}{42}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Theta te\'orico 0}}{32}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Theta te\'orico 90}}{33}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Interfaz aplicaci\'on Android si el GPS no est\'a activado}}{36}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Interfaz aplicaci\'on Android reconociendo \'angulo de inclinaci\'on}}{37}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Interfaz aplicaci\'on Android con p\'erdida de se\~nal bluetooth}}{38}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Interfaz aplicaci\'on Android cuando he sufrido un accidente}}{39}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Dise\~no PCB}}{40}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Prototipo proyecto}}{41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Esquem\'atico dise\~no PCB}}{49}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Dise\~no PCB en PCBnew}}{50}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Modelo 3D PCB}}{51}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces SDK Manager}}{57}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Esquem\'atico dise\~no PCB}}{48}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Dise\~no PCB en PCBnew}}{49}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Modelo 3D PCB}}{50}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces SDK Manager}}{56}

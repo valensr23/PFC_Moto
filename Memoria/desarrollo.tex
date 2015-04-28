@@ -2,6 +2,33 @@
 	
 	En este cap\'itulo se va a explicar de forma m\'as detallada las caracter\'isticas y el funcionamiento de todos los elementos de los que se har\'a uso para llevar a cabo el desarrollo de este proyecto. Adem\'as se detallar\'a el desarrollo hardware, firmware y software, explicando con detalle la configuraci\'on electr\'onica y se presentar\'a la soluci\'on software implementada.
 	
+	\section{Diagrama estados}
+	
+	En este subapartado se va a explicar el funcionamiento de la aplicaci\'on adem\'as de un diagrama de estados representativo.
+	
+	A la hora de empezar a usar la aplicaci\'on MotoSafe debemos entrar en la configuraci\'on del bluetooth de nuestro smartphone y emparejarlo con el dispositivo HC-05, la clave por defecto para su emparejamiento es ''1234''. Para poder realizar dicha emparejamiento debemos tener en cuenta que el m\'odulo bluetooth se debe encontrar encendido, para ello la motocicleta se debe encontrar arrancada o con el contacto encendido. Una vez hemos realizado dicho proceso ya podemos abrir esta aplicaci\'on y comenzar a usarla.
+	
+	Al abrir la aplicaci\'on MotoSafe encontraremos la interfaz que mostramos en la figura 3.9. Si pulsamos sobre el bot\'on OFF la aplicaci\'on se cerrar\'a y no continuar\'a ejecut\'andose en segundo plano, es decir, mata este proceso. Si por el contrario pulsamos el bot\'on ON, se iniciar\'an una serie de procesos que har\'an funcionar correctamente la aplicaci\'on.
+	
+	Lo primero que har\'a ser\'a comprobar el estado del bluetooth de nuestro smartphone, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la aplicaci\'on se cerrar\'a autom\'aticamente. El siguiente paso es comprobar el estado del GPS, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la aplicaci\'on se cerrar\'a autom\'aticamente.
+	
+	Posteriormente y de forma autom\'atica se crear\'a un Handler que ser\'a el encargado de conectar la aplicaci\'on con el bluetooth y poder interpretar todos los datos que recibe. En el caso de no estar emparejado el dispositivo no recibiremos datos y por tanto la aplicaci\'on no ejecutar\'a el algoritmo implementado.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[8cm,0cm][10cm,16cm]{imagenes/DiagramaEstados.png}
+		\caption{Diagrama de Estados}
+		\label{contexto:figura}
+	\end{figure}
+	
+	Una vez todo est\'a activado, la aplicaci\'on est\'a lista para funcionar, para ello lo primero que har\'a ser\'a leer los datos recibidos por el Handler e interpretarlos. Nuestro algoritmo recibir\'a los datos ya interpretados, con ellos proceder\'a a calcular el \'angulo de inclinaci\'on de la motocicleta. Si este \'angulo es inferior a 55 grados volvemos a hacer los c\'alculos con los siguientes datos recibidos. Este proceso se realiza de forma peri\'odica cada 550 milisegundos. En el caso de que \'este \'angulo sea superior a 55 grados procedemos a comprobar la velocidad de la motocicleta.
+	
+	Para comprobar la velocidad de la motocicleta se usar\'a el GPS del smartphone, por lo que en este momento se proceder\'a al uso del GPS, para ahorrar bater\'ia no lo tendremos encendido durante todo el transcurso del desplazamiento. Si la velocidad medida es mayor a 3 metros por segundo, volvemos al principio del algoritmo y volvemos a calcular el \'angulo de inclinaci\'on de la motocicleta, en caso de que la velicidad sea menor a 3 metros por segundo procedemos a tomar a la ubicaci\'on seg\'un las coordenadas de latitud, longitud y precisi\'on.
+	
+	Estos datos obtenidos por el GPS ser\'an los que enviemos via SMS al n\'umero de emergencias, indic\'andoles la posici\'on actual en latitud, longitud y la precisi\'on con que mide el GPS del smartphone.
+	
+	En el caso de perder la se\~nal y no recibir datos, el sistema entrar\'a en un proceso de espera temporal, si no se recupera la recepci\'on de datos transcurriendo este tiempo se proceder\'a a calcular la velocidad y seguir con el disgrama de estados seg\'un la velocidad. Si durante el transcurso de ese tiempo de espera se pulta el bot\'on OFF la aplicaci\'on se cerrar\'a completamente.
+	
 	\section{Hardware}
 	
 		Los dispositivos hardware que vamos a usar y sus configuraciones son los siguientes.
@@ -21,20 +48,67 @@
 			
 			Para programar Arduino Uno se puede usar el software de Arduino. Software desde el que podremos cargar nuestros programas en la placa Arduino a trav\'es de un cable USB, Arduino Uno cuenta con una memoria de 2KB de SRAM y 1 KB de EEPROM.
 			
-			ATmega328 \cite{ATmega328} es un microcontrolador creado por Atmel y que pertenece a la serie megaAVR. ATmega328 es un circuito integrado de alto rendimiento que est\'a basado en un microcontrolador RISC, combinando 32 KB ISP flash de memoria con la capacidad de leer y escribir, 1 KB de memoria EEPROM, 2 KB de SRAM, 23 l\'ineas de E/S de prop\'osito general, 32 registros de proceso general, tres temporizadores contadores con modo de comparaci\'on, interrupciones internas y externas, programador de modo USART, una interfaz serial orientada a byte de 2 cables, SPI puerto serial, 6 canales 10 bit conversor A/D y cinco modos de ahorro de energ\'ia seleccionables por software. Opera entre 1,8 y 5,5 voltios. Este dispositivo alcanza una respuesta de 1 MIPS, balanceando consumo de energ\'ia y velocidad de proceso.
+			ATmega328 \cite{ATmega328} es un microcontrolador creado por Atmel y que pertenece a la serie megaAVR. Cabe destacar:   
+			
+			\begin{itemize}	
+				
+				\item Es un circuito integrado de alto rendimiento que est\'a basado en un microcontrolador RISC.
+				
+				\item Combina 32 KB ISP flash de memoria con la capacidad de leer y escribir.
+				
+				\item 1 KB de memoria EEPROM.
+				
+				\item 2 KB de SRAM.
+				
+				\item 23 l\'ineas de E/S de prop\'osito general.
+				
+				\item 32 registros de proceso general.
+				
+				\item  Tres temporizadores contadores con modo de comparaci\'on.
+				
+				\item Interrupciones internas y externas.
+				
+				\item Programador de modo USART.
+				
+				\item Interfaz serial orientada a byte de 2 cables.
+				
+				\item SPI puerto serial.
+				
+				\item 6 canales 10 bit conversor A/D y cinco modos de ahorro de energ\'ia seleccionables por software.
+				
+				\item Opera entre 1,8 y 5,5 voltios.
+				
+				\item Alcanza una respuesta de 1 MIPS.
+				
+				\item Consumo balanceando de energ\'ia y velocidad de proceso
+				
+			\end{itemize}
 		
 		\subsection{Pololu minimu 9 v.2}
 		
 			Pololu minimu-9 v2 \cite{Pololu}, la cual es una unidad de medici\'on inercial (IMU), que viene equipada con un L3GD20 giroscopio de 3 ejes y un LSM303DLHC con 3 ejes para el aceler\'ometro y 3 ejes para el magnet\'ometro. El m\'odulo incluye un regulador de voltaje y un circuito de desplazamiento que permite el funcionamiento de 2,5 a 5,5 V.
 			
-			Cuyo Schematic se puede ver la figura 3.2.
+			A continuaci\'on proceder\'e a explicar con detalle cada uno de los integrados pertenecientes a dicho Pololu.
 			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[6cm,0cm][11cm,17cm]{imagenes/pololuSchematic.png}
-				\caption{Schematic Pololu Minimu 9 V.2}
-				\label{contexto:figura}
-			\end{figure}
+			El L3GD20 es un sensor de tres ejes para medir velocidad angular a baja potencia.
+			
+			Incluye un elemento de detecci\'on y una interfaz IC capaz de proporcionar la velocidad angular medida con el exterior a trav\'es de una interfaz digital (I2C / SPI).
+			
+			El sensor est\'a fabricado usando un proceso de micro-mecanizado dedicado al desarrollado por STMicroelectronics para producir sensores inerciales y actuadores de silicio.
+			
+			La interfaz IC se fabrica utilizando un proceso CMOS que permite un alto nivel de integraci\'on para dise\~nar un circuito dedicado que se recorta para adaptarse mejor a las caracter\'isticas del elemento de detecci\'on. El L3GD20 tiene una escala de 250 - 2.000 dps y es capaz de medir las tasas con un ancho de banda seleccionable por el usuario.
+			
+			El L3GD20 est\'a disponible en un paquete de pl\'astico y puede operar dentro de un rango de temperatura de -40 a 85 grados cent\'igrados.
+			
+			El LSM303DLHC es un sistema empaquetado con un sensor lineal digital en 3 ejes de aceleraci\'on y un sensor magn\'etico digital en 3 ejes.
+			
+			El LSM303DLHC tiene escalas lineales llenos de aceleración de 2, 4, 8 y 16 g y un campo magn\'etico a gran escala de 1,3, 1,9, 2,5, 4,0, 4,7, 5,6 y 8,1 gauss.
+			
+			El LSM303DLHC incluye una interfaz de bus serie I2C que soporta el modo est\'andar y r\'apido a 100 kHz y 400 kHz. El sistema puede ser configurado para generar se\~nales de interrupci\'on por eventos, as\'i como por la posici\'on del propio dispositivo. Los umbrales y tiempos de generadores de interrupci\'on son programables por el usuario final. Los bloques magn\'etico y aceler\'ometro se pueden activar o poner en modo de apagado por separado.
+
+			El LSM303DLHC est\'a disponible en un paquete de pl\'astico y puede operar dentro de un rango de temperatura de -40 a 85 grados cent\'igrados.
+			
+			
 			
 		\subsection{Bluetooth HC-05}
 		
@@ -47,15 +121,7 @@
 			\end{itemize}
 			
 			El alcance te\'orico es de 10 metros, pero el alcance pr\'actico es de 8,5 metros aproximadamente, medidos en un espacio abierto sin inclemencias meteorol\'ogicas.
-			
-			El Schematic del dispositivo HC-05 podemos verlo en la figura 3.3.
-			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[3cm,0cm][11cm,17cm]{imagenes/HC05Schematic.jpg}
-				\caption{Schematic Bluetooth HC-05}
-				\label{contexto:figura}
-			\end{figure}
+
 			
 		
 	\section{Firmware}
@@ -68,18 +134,14 @@
 			
 			Las dos librer\'ias usadas son:
 			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{p{4cm} p{4cm}}
-					\hline
-					\#include & L3G.h \\
-					\hline
-					\#include & LSM303.h \\
-					\hline
-				\end{tabular}
-				\caption{Liberias cargadas en Arduino para usar la motasensora}
-				\label{tabla:LibreriasMota}
-			\end{table}
+			\begin{itemize}	
+				
+				\item include L3G.h
+				
+				\item include LSM303.h
+				
+			\end{itemize}
+			
 			
 			Adem\'as hemos usado la librer\'ia \#include SoftwareSerial.h, que permite la comunicaci\'on entre los pines de la motasensora y de la placa Arduino.
 			
@@ -104,18 +166,13 @@
 			
 			Las librer\'ias usadas son:
 			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{p{4cm} p{4cm}}
-					\hline
-					\#include & SoftwareSerial.h \\
-					\hline 
-					\#include & wire.h \\
-					\hline 
-				\end{tabular}
-				\caption{Liberias cargadas en Arduino para usar Bluetooth HC-05}
-				\label{tabla:LibreriasMota}
-			\end{table}
+			\begin{itemize}	
+				
+				\item include SoftwareSerial.h
+				
+				\item include wire.h
+				
+			\end{itemize}
 			
 			En nuestro c\'odigo Arduino debemos dejar indicado que el pin RXD es el 10 y el pin TDX es el 11 con el siguiente comando:
 			
@@ -129,20 +186,6 @@
 			
 			Dichos datos ser\'an enviados cada 500 milisegundos, periodo de env\'io que he establecido para no saturar al receptor.
 			
-		\subsection{Schematic conexi\'on m\'odulos y placa Arduino}
-		
-			En el Schematic que se mostrar\'a a continuaci\'on podemos ver de forma f\'acil y r\'apida todas las conexiones que se han implementado.
-			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[6cm,0cm][7cm,9cm]{imagenes/Schematic.jpg}
-				\caption{Schematic m\'odulos y Arduino conectados}
-				\label{contexto:figura}
-			\end{figure}
-			
-			El m\'odulo del centro representa a la placa Arduino, mientras que el m\'odulo a la izquiera de la imagen representa la morasensora y el m\'odulo de la derecha al dispositivo bluetooth HC-05.
-			
-			Una vez esto ha sido implemetado y conectado en la placa Arduino con la ayuda de una protoboax, obtenemos el siguiente resultado mostrado en la figura 3.6.
 			
 			\begin{figure}[h]
 				\centering
@@ -151,13 +194,13 @@
 				\label{contexto:figura}
 			\end{figure}
 		
-	\section{Software}
+	\section{Aplicaci\'on M\'ovil}
 	
-		En esta secci\'on proceder\'e a explicar en detalle el desarrollo de la app Android, as\'i como el diagrama de estados del algoritmo implementado y la interfaz eventual para comprobar el funcionamiento correcto de la app.
+		En esta secci\'on proceder\'e a explicar en detalle el desarrollo de la aplicaci\'on Android, as\'i como el diagrama de estados del algoritmo implementado y la interfaz eventual para comprobar el funcionamiento correcto de la aplicaci\'on.
 		
 		\subsection{Android}
 		
-			Para el desarrollo de \'esta app hemos descargado el programa Eclipse ADT de Android Developer. Programa que he usado para el desarrollo \'integro de la app MotoSafe. Se debe prestar atenci\'on a partir de que versi\'on de Android deseamos implementar la app, escog\'i la versi\'on Android 4.4 ya que es la que actualmente posee mi smartphone, para una posterior comercializaci\'on debo hacer \'esta app disponible a partir de la version Android 2.3 ya que la mayor\'ia de los smartphones poseen \'esta versi\'on.
+			Para el desarrollo de \'esta aplicaci\'on hemos descargado el programa Eclipse ADT de Android Developer. Programa que he usado para el desarrollo \'integro de la aplicaci\'on MotoSafe. Se debe prestar atenci\'on a partir de que versi\'on de Android deseamos implementar la aplicaci\'on, escog\'i la versi\'on Android 4.4 ya que es la que actualmente posee mi smartphone, para una posterior comercializaci\'on debo hacer \'esta aplicaci\'on disponible a partir de la version Android 2.3 ya que la mayor\'ia de los smartphones poseen \'esta versi\'on.
 			
 			En su implementaci\'on se ha usado una \'unica clase, que es la clase main, por defecto invocada al ejecutarse el programa y que contiene el bucle que realiza todas las acciones necesarias para que el programa funcione correctamente,  tal y como se muestra en la figura 3.7. 
 			
@@ -166,57 +209,30 @@
 			\begin{figure}[h]
 				\centering
 				\includegraphics[5cm,0cm][4cm,10cm]{imagenes/main.JPG}
-				\caption{Estructura app Android}
+				\caption{Estructura aplicaci\'on Android}
 				\label{contexto:figura}
 			\end{figure}
 			
 			En resumen, la clase main ser\'a la encargada de gestionar todos los datos recibidos por el Handler, comprobar el estado del GPS, Bluetooth y si ambos dispositivos se encuentran conectados o se pierde la conexi\'on. Adem\'as ser\'a la clase encargada de ejecutar el algoritmo y en caso necesario registrar la ubicaci\'on para posteriormente enviarsela v\'ia SMS a emergencias.
 			
-			En los pr\'oximos apartados se explicar\'a con mas detalle el funcionamiento de la app y se mostrar\'a el diagrama de estados.
-		
-		\subsection{Diagrama estados}
-		
-			En este subapartado se va a explicar el funcionamiento de la app adem\'as de un diagrama de estados representativo.
-			
-			A la hora de empezar a usar la app MotoSafe debemos entrar en la configuraci\'on del bluetooth de nuestro smartphone y emparejarlo con el dispositivo HC-05, la clave por defecto para su emparejamiento es ''1234''. Para poder realizar dicha emparejamiento debemos tener en cuenta que el m\'odulo bluetooth se debe encontrar encendido, para ello la motocicleta se debe encontrar arrancada o con el contacto encendido. Una vez hemos realizado dicho proceso ya podemos abrir esta app y comenzar a usarla.
-			
-			Al abrir la app MotoSafe encontraremos la interfaz que mostramos en la figura 3.9. Si pulsamos sobre el bot\'on OFF la aplicaci\'on se cerrar\'a y no continuar\'a ejecut\'andose en segundo plano, es decir, mata este proceso. Si por el contrario pulsamos el bot\'on ON, se iniciar\'an una serie de procesos que har\'an funcionar correctamente la app.
-			
-			Lo primero que har\'a ser\'a comprobar el estado del bluetooth de nuestro smartphone, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la app se cerrar\'a autom\'aticamente. El siguiente paso es comprobar el estado del GPS, en el caso de tenerlo desactivado un alert nos informa de esto y nos ofrece de posibilidad de activarlo, en caso de negarnos, la app se cerrar\'a autom\'aticamente.
-			
-			Posteriormente y de forma autom\'atica se crear\'a un Handler que ser\'a el encargado de conectar la app con el bluetooth y poder interpretar todos los datos que recibe. En el caso de no estar emparejado el dispositivo no recibiremos datos y por tanto la app no ejecutar\'a el algoritmo implementado.
-		
-			\begin{figure}[h]
-				\centering
-				\includegraphics[8cm,0cm][10cm,15cm]{imagenes/DiagramaEstados.png}
-				\caption{Diagrama de Estados}
-				\label{contexto:figura}
-			\end{figure}
-			
-			Una vez todo est\'a activado, la app est\'a lista para funcionar, para ello lo primero que har\'a ser\'a leer los datos recibidos por el Handler e interpretarlos. Nuestro algoritmo recibir\'a los datos ya interpretados, con ellos proceder\'a a calcular el \'angulo de inclinaci\'on de la motocicleta. Si este \'angulo es inferior a 55 grados volvemos a hacer los c\'alculos con los siguientes datos recibidos. Este proceso se realiza de forma peri\'odica cada 550 milisegundos. En el caso de que \'este \'angulo sea superior a 55 grados procedemos a comprobar la velocidad de la motocicleta.
-			
-			Para comprobar la velocidad de la motocicleta se usar\'a el GPS del smartphone, por lo que en este momento se proceder\'a al uso del GPS, para ahorrar bater\'ia no lo tendremos encendido durante todo el transcurso del desplazamiento. Si la velocidad medida es mayor a 3 metros por segundo, volvemos al principio del algoritmo y volvemos a calcular el \'angulo de inclinaci\'on de la motocicleta, en caso de que la velicidad sea menor a 3 metros por segundo procedemos a tomar a la ubicaci\'on seg\'un las coordenadas de latitud, longitud y precisi\'on.
-			
-			Estos datos obtenidos por el GPS ser\'an los que enviemos via SMS al n\'umero de emergencias, indic\'andoles la posici\'on actual en latitud, longitud y la precisi\'on con que mide el GPS del smartphone.
-			
-			En el caso de perder la se\~nal y no recibir datos, el sistema entrar\'a en un proceso de espera temporal, si no se recupera la recepci\'on de datos transcurriendo este tiempo se proceder\'a a calcular la velocidad y seguir con el disgrama de estados seg\'un la velocidad. Si durante el transcurso de ese tiempo de espera se pulta el bot\'on OFF la aplicaci\'on se cerrar\'a completamente.
+			En los pr\'oximos apartados se explicar\'a con mas detalle el funcionamiento de la aplicaci\'on y se mostrar\'a el diagrama de estados.
 				
 		
-		\subsection{Interfaz App}
+		\subsection{Interfaz Aplicaci\'on}
 		
-			La interfaz eventual de nuestra app es la mostrada en la figura 3.9. En la cual se pueden apreciar dos botones, uno de encendido ON y otro de apagado OFF. Adem\'as disponemos de 4 TextView, los cuales usaremos para comprobar el estado actual de la app.
+			La interfaz eventual de nuestra aplicaci\'on es la mostrada en la figura 3.9. En la cual se pueden apreciar dos botones, uno de encendido ON y otro de apagado OFF. Adem\'as disponemos de 4 TextView, los cuales usaremos para comprobar el estado actual de la aplicaci\'on.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[5cm,0cm][7cm,18cm]{imagenes/interfaz.png}
+				\caption{Interfaz aplicaci\'on Android}
+				\label{contexto:figura}
+			\end{figure}
 			
 			El primer TextView muestra el \'angulo theta de inclinaci\'on, siendo su valor entre -90 y 90 grados con respecto a la vertical, dependiendo si estamos inclinados hacia la derecha o hacia la izquierda. El segundo TextView mostrar\'a dos mensajes, uno de ellos ''no me he caido'' y el otro ''es posible que me haya caido'', si el mensaje mostrado es el segundo el tercer TextView mostrar\'a ''comprobando velocidad''. Bas\'andose en el algoritmo implementado, si se ha sufrido un accidente el cuarto y \'ultimo TextView mostrar\'a el siguiente mensaje ''He sufrido un accidente y mi ubicaci\'on es: latitud 'x' longitud 'y' precisi\'on 'z' '' \'este ser\'a el mensaje que se enviar\'a v\'ia SMS a emergencias, mostrando las coordenadas calculadas con el GPS. En caso de no haber sufrido accidente no se mostrar\'a nada en este \'ultimo TextView. 
 			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[5cm,0cm][7cm,17cm]{imagenes/interfaz.png}
-				\caption{Interfaz app Android}
-				\label{contexto:figura}
-			\end{figure}
+			
 
 	\newpage
 	$\ $
 	
-	\newpage
-	$\ $

@@ -32,9 +32,9 @@
 	
 	
 	
-	\section{Resultados App Android}
+	\section{Resultados Aplicaci\'on Android}
 	
-		En lo que respecta a los resultados de la app Android vamos a detallar algunas de las situaciones ya explicadas en el cap\'itulo desarrollo sobre como se comporta nuestra app en diferentes circunstancias, mostrando una captura de pantalla de la interfaz en ese instante.
+		En lo que respecta a los resultados de la aplicaci\'on Android vamos a detallar algunas de las situaciones ya explicadas en el cap\'itulo desarrollo sobre como se comporta nuestra aplicaci\'on en diferentes circunstancias, mostrando una captura de pantalla de la interfaz en ese instante.
 		
 		Veremos los siguientes casos:
 		
@@ -44,7 +44,7 @@
 		
 		- Posibilidad de accidente por p\'erdida de señal.
 		
-		- En caso de sufrir un accidente, como se comporta la app.	
+		- En caso de sufrir un accidente, como se comporta la aplicaci\'on.	
 		
 		\subsection{GPS desactivado}
 		
@@ -53,28 +53,28 @@
 			\begin{figure}[h]
 				\centering
 				\includegraphics[5cm,0cm][7cm,18cm]{imagenes/GPSOff.png}
-				\caption{Interfaz app Android si el GPS no est\'a activado}
+				\caption{Interfaz aplicaci\'on Android si el GPS no est\'a activado}
 				\label{contexto:figura}
 			\end{figure}
 			
-			Si pulsamos sobre ''No'' la app se cerrar\'a autom\'aticamente, en caso de pulsar sobre '' Menu de opciones GPS'' accdemos a la secci\'on de ajustes del smartphone para poder encenderlo y continuar usando la app.
+			Si pulsamos sobre ''No'' la aplicaci\'on se cerrar\'a autom\'aticamente, en caso de pulsar sobre '' Menu de opciones GPS'' accdemos a la secci\'on de ajustes del smartphone para poder encenderlo y continuar usando la aplicaci\'on.
 			
-			Hemos de tener en cuenta que si no activamos el GPS, ya sea desde esta opci\'on o previamente no podremos usar la app MotoSafe.
+			Hemos de tener en cuenta que si no activamos el GPS, ya sea desde esta opci\'on o previamente no podremos usar la aplicaci\'on MotoSafe.
 		
 		\subsection{No se detecta accidente}
 		
-			Una vez nuestra app comienza a funcionar, mide el \'angulo de inclinaci\'on de la motocicleta. Ver figura 4.4.
+			Una vez nuestra aplicaci\'on comienza a funcionar, mide el \'angulo de inclinaci\'on de la motocicleta. Ver figura 4.4.
 		
 			\begin{figure}[h]
 				\centering
 				\includegraphics[5cm,0cm][7cm,18cm]{imagenes/NoAccidente.png}
-				\caption{Interfaz app Android reconociendo \'angulo de inclinaci\'on}
+				\caption{Interfaz aplicaci\'on Android reconociendo \'angulo de inclinaci\'on}
 				\label{contexto:figura}
 			\end{figure}
 			
 			Tal y como se puede observar en la figura 4.4, en el primer TextView, el \'angulo de inclinaci\'on medido es 0,1217 grados, lo cual indica que permanecemos sobre la vertical y nuestra inclinaci\'on es pr\'acticamente nula.
 			
-			Adem\'as el segundo TextView reconoce que no se ha sufrido una caida y nos muestra dicho mensaje para poder ver el funcionamiento de la app.
+			Adem\'as el segundo TextView reconoce que no se ha sufrido una caida y nos muestra dicho mensaje para poder ver el funcionamiento de la aplicaci\'on.
 		
 		\subsection{Posibilidad de accidente por p\'erdida de se\~nal}
 		
@@ -83,11 +83,11 @@
 			\begin{figure}[h]
 			\centering
 			\includegraphics[5cm,0cm][7cm,15cm]{imagenes/perdidaBT.png}
-			\caption{Interfaz app Android con p\'erdida de se\~nal bluetooth}
+			\caption{Interfaz aplicaci\'on Android con p\'erdida de se\~nal bluetooth}
 			\label{contexto:figura}
 			\end{figure}
 			
-			Como se puede apreciar en \'esta figura, la app reconoce la p\'erdida de comunicaci\'on, mostrando el mensaje ''perdida de BT'', adem\'as seg\'un el algoritmo que he implementado reconoce como que a\'un no se ha caido como se puede apreciar en el segundo TextView, pero tal y como se pudo ver en el diagrama de estados del cap\'itulo desarrollo, el algoritmo pasa a comprobar la velocidad a la que circulamos, muestra de ello es el mensaje ''mido velocidad'' que se encuentra en el tercer TextView.
+			Como se puede apreciar en \'esta figura, la aplicaci\'on reconoce la p\'erdida de comunicaci\'on, mostrando el mensaje ''perdida de BT'', adem\'as seg\'un el algoritmo que he implementado reconoce como que a\'un no se ha caido como se puede apreciar en el segundo TextView, pero tal y como se pudo ver en el diagrama de estados del cap\'itulo desarrollo, el algoritmo pasa a comprobar la velocidad a la que circulamos, muestra de ello es el mensaje ''mido velocidad'' que se encuentra en el tercer TextView.
 		
 		\subsection{Accidente y aviso a emergencias}
 		
@@ -96,7 +96,7 @@
 			\begin{figure}[h]
 				\centering
 				\includegraphics[5cm,0cm][7cm,15cm]{imagenes/accidente.png}
-				\caption{Interfaz app Android cuando he sufrido un accidente}
+				\caption{Interfaz aplicaci\'on Android cuando he sufrido un accidente}
 				\label{contexto:figura}
 			\end{figure}
 			
