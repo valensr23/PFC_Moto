@@ -1,4 +1,5 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: memoria.aux
+A level-1 auxiliary file: portada.aux
 A level-1 auxiliary file: indice.aux
 A level-1 auxiliary file: resumen.aux
 A level-1 auxiliary file: abstract.aux
@@ -11,6 +12,7 @@ A level-1 auxiliary file: bibliografia.aux
 The style file: acm.bst
 A level-1 auxiliary file: anexo1.aux
 A level-1 auxiliary file: anexo2.aux
+A level-1 auxiliary file: anexo3.aux
 Database file #1: biblio.bib
 Warning--entry type for "RN42" isn't style-file defined
 --line 1 of file biblio.bib
@@ -30,4 +32,22 @@ Warning--entry type for "MyAlamMe" isn't style-file defined
 --line 41 of file biblio.bib
 Warning--entry type for "MEC" isn't style-file defined
 --line 47 of file biblio.bib
-(There were 9 warnings)
+Warning--entry type for "ESP8266" isn't style-file defined
+--line 53 of file biblio.bib
+Warning--entry type for "RNXV" isn't style-file defined
+--line 59 of file biblio.bib
+Warning--entry type for "FLAT" isn't style-file defined
+--line 65 of file biblio.bib
+Warning--entry type for "RaspBerryPi" isn't style-file defined
+--line 71 of file biblio.bib
+Warning--entry type for "Bosch" isn't style-file defined
+--line 77 of file biblio.bib
+Warning--entry type for "Cohete" isn't style-file defined
+--line 83 of file biblio.bib
+Warning--entry type for "robots" isn't style-file defined
+--line 89 of file biblio.bib
+Warning--entry type for "xbeeZD" isn't style-file defined
+--line 95 of file biblio.bib
+Warning--entry type for "zigbee" isn't style-file defined
+--line 101 of file biblio.bib
+(There were 18 warnings)

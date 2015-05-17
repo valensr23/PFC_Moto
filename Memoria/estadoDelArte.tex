@@ -1,237 +1,153 @@
 	\chapter{Estado del arte}\label{cap.estadoDelArte}
 	
-	En este cap\'itulo vamos a realizar un estudio de la situaci\'on tecnol\'ologica actual en todo lo referente a la comunicaci\'on inal\'ambrica existente y nuestra decisi\'on, sensor utilizado, plataforma electr\'onica de c\'odigo abierto utilizada, dispositivo para el que se desarrollar\'a la aplicaci\'on, sistemas de seguridad actuales en vehiculos de dos ruedas y las tendencias futuras.
+	En este capítulo vamos a realizar un estudio de la situación tecnolólogica actual en todo lo referente a la comunicación inalámbrica existente y los sistemas de seguridad actuales. Además veremos los distintos sistemas que trabajan con unidades inerciales para el cálculo de ángulos, a parte de una comparación entre giróscopos manuales y digitales.
 	
-	Se acord\'o trabajar con la plataforma hardware Arduino, debido a las innumerables ventajas con las que cuenta, plataforma absolutamente desconocida, por lo que necesitar\'ia una amplia labor previa de búsqueda de informaci\'on, lectura de documentos, descarga de nuevos entornos de desarrollo y familiarizaci\'on con dicha plataforma electr\'onica.
+	\section{¿Qué es una IMU?}
 	
-	\section{Comparaci\'on de m\'odulos inal\'ambricos}
+		Una Unidad de Medidas Inerciales (IMU o UMI en español) es en general un sistema cerrado que es usado para detectar la orientación, localización y movimiento. Este dispositivo normalemente usa una combinación de acelerómetros y sensores de velocidad angular (giroscopos) para conocer como se está moviendo éste y en que posición se encuentra.
+		
+		Una IMU detecta la aceleración y los cambios de orientación instantáneamente (ángulos roll, pitch and yaw), además los intregra para averiguar el cambio total sobre la posición inicial. Esto contrasta con el sistema GPS, el cual utiliza los satélites para detectar la posición.
+		
+		Las IMUs por tanto suelen tener un error acumulado o deriva. Porque una IMU esta sumando continuamente los cambios detectados en la posición, cualquier error en esta medida es acumulado. Esto da lugar a la “deriva”, o un error creciente entre la posición hallada por la IMU y la posición real de ésta.
+		
+		Las IMUs son normalmente un componente de un sistema de navegación. Otros sistemas tales como los GPS (usados para corregir el término de deriva en la posición), un sistema barométrico (para la corrección de la altitud), o un compás magnético (para la corrección de la orientación) compensan las limitaciones de una IMU. Hay que notar que la mayoría de los otros sistemas tienen sus propios defectos los cuales son compensados entre ellos.
+		
+		El término IMU esta ampliamente extendido para referirse a una caja, la cual contiene 3 acelerómetros. Estos están situados de tal forma que sus ejes de medida son mutuamente ortogonales. Miden las llamadas “fuerzas específicas” (aceleración inercial – gravedad). 
+		
+		Tres giróscopos están situados de forma que sus ejes de medidas sean ortogonales entre sí midiendo las velocidades de rotación.
+		
+		La integración de la estimación de la velocidad angular en los giróscopos causará el error de deriva, pero la observación del vector gravedad mediante acelerómetros sirve como una observación externa de la vertical en un punto (local). Esto corrige la mayoría de los errores de deriva. Se incluyen también uno o más sensores de temperatura, pueden estar incorporados en cada acelerómetro o giróscopos, o como un sensor adicional usado para calibrar los datos de lectura/escritura de los otros sensores.
+		
+		Para conseguir una precisión superior, la caja debe ser diseñada de forma que la temperatura sea controlada y se mantenga constante. Las paredes de la caja están hechas de materiales que minimicen la interferencia electromagnética. Si las señales de salida son analógicas, el ruido eléctrico debe ser minimizado en los cables y en el conversor analógico-digital. Si la señal de salida esta ya en formato digital, el retraso temporal se convierte en la principal preocupación.
+		
+		Los datos suministrados por una caja de IMU es todo lo que se necesita para llevar a cabo la estimación de la navegación. El primer uso de tal caja fue en un barco, y todavía casi todos los barcos tienen una. Los satélites también tienen una. Casi cualquier cosa que debe usar de alguna manera la electrónica para saber su aceleración, orientación y/o velocidad tiene una IMU. 
+		
+		Dada la variedad de situaciones en las que se hace necesaria una IMU, y las peculiaridades que presentan cada una de ellas, el concepto de IMU no está claramente definido. Suele estar englobado en un sistema de navegación inercial, pero su papel en éste puede variar sustancialmente. La caja de sensores de aceleración y velocidad angular ya constituye una IMU. Si modificamos las ecuaciones cinemáticas y aplicando los datos a un filtro de Kalman, dichos datos de la IMU pueden ser transformados para obtener el roll, el pitch y el yaw. A esto también se le llama sistema ARS (Sistema de referencia para orientación). En ambientes dinámicos tales como un jet de combate, la gravedad será enmascarada por la aceleración del cuerpo del avión. En estos casos la IMU está normalmente acoplada con un GPS u otros sensores. Esto nos conduce un poco más cerca de los sistemas de navegación y de dirección y nos aleja de las IMU. Este es el motivo de por qué la mayoría de los ingenieros no hacen diferencia entre una IMU y un sistema de dirección inercial.
+		
+		En nuestro caso, la IMU se encargará de proveer al sistema de una referencia de orientación, y será la propia aplicación del smartphone la encargada de estimar el ángulo de inclinación y la velocidad de circulación, en función de los datos del GPS. 
+
+
+
+	\section{Sistemas actuales que trabajan con IMUs}	
 	
-		Buscamos un protocolo inal\'ambrico de comunicaci\'on que nos permita enviar los datos con la mayor exactitud posible, con un consumo de energ\'ia razonable y de forma segura. Para ello estudiaremos Infrarrojos, m\'odulo Wi-fi, ZigBee y los m\'odulos Bluetooth RN-42 y HC-05.
+		\subsection{Plataforma giroestabilizada en tres ejes}
+	
+		Algunos sistemas sitúan los acelerómetros en una plataforma giroestabilizada. Los giroestabilizadores son un conjunto de tres anillos, cada uno de los cuales lleva un par de cojinetes. Estos permiten a la plataforma rotar sobre cualquier eje en el espacio. Normalmente hay dos giroscopios en la plataforma.
+
+		Estos dos giroscopios se usan para cancelar la precesión giroscópica, la tendencia de un giroscopio a girar perpendicularmente a una fuerza sufrida. Montando un par de giroscopios (con la misma inercia rotacional y giro, a la misma velocidad) en ángulo recto las precesiones se cancelan, y la plataforma se mantendrá.
 		
-		\subsection{Infrarrojos}
+		Este sistema permite que los ángulos de roll, pitch y yaw de un vehículo sean medidos directamente. Se pueden usar circuitos electrónicos relativamente simples para obtener las aceleraciones lineales, esto es porque las direcciones de medida de los acelerómetros lineales no cambian.
 		
-			De forma general podemos definir la comunicaci\'on v\'ia infrarrojos como un haz enfocado de luz en el espectro de frecuencia infrarrojo, donde se modula la informaci\'on y se env\'ia de un transmisor a un receptor a una distancia
-			relativamente corta.
-			
-			Sus caracter\'isticas son:
+		El inconveniente de este tipo de sistema es que usa muchas partes mecánicas de precisión que son muy caras. Además tiene partes móviles que se pueden estropear, y es vulnerable a que un giroestabilizador se bloquee. El sistema de guiado primario del cohete Apollo usaba una plataforma giro estabilizada de tres ejes, la cual suministraban datos al ordenador de guiado del Apollo.
 		
-			\begin{itemize}	
-				\item Bajo coste.
-				\item Bajos requirimientos de potencia.
-				\item Alta inmunidad al ruido.
-				\item Conectividad direccional.
-			\end{itemize}
-			
-			Su principal desventaja frente a otros m\'odulos de comunicaci\'on es su modo punto a punto, que requiere que transmisor y receptor est\'en alineados, lo m\'as
-			cerca posible y con una l\'inea de visi\'on directa.
-		
-		\subsection{Wi-Fi}
-		
-			Es la tecnolog\'ia usada en una red o conexi\'on inal\'ambrica para la comunicaci\'on de datos entre equipos situados dentro de una misma \'area, interior o exterior,
-			de cobertura.
-			
-			Sus ventajas son:
-			
-			\begin{itemize}	
-				\item Movilidad desde cualquier sitio dentro de su cobertura.
-				\item F\'acil instalaci\'on.
-				\item Flexibilidad, permite el acceso a una red en entornos de dif\'icil cableado.
-				\item Permite incorporar redes sin la necesidad de cables.
-			\end{itemize}
-		
-		\subsection{ZigBee}
-		
-			ZigBee es una alianza, sin \'animo de lucro, de 25 empresas, la mayor\'ia de ellas fabricantes de semiconductores, con el objetivo de auspiciar el desarrollo e implantaci\'on de una tecnolog\'ia inal\'ambrica de bajo coste. Los miembros de
-			tal alianza justifican el desarrollo de este estándar para cubrir el vac\'io que se produce por debajo del Bluetooth.
-			
-			Sus propiedades m\'as destacadas son:
-			
-			\begin{itemize}	
-				\item Velocidad entre 20 kB por segundo y 250 kB por segundo, con un rango entre 10 y 75 metros de alcance.
-				\item Bajo consumo.
-			\end{itemize}
-		
-		\subsection{Bluetooth RN-42}	
-			
-			Este m\'odulo Bluetooth \cite{RN42} est\'a dise\~nado para reemplazar los cables de serie. Est\'a completamente encapsulado, el usuario solo ve los caracteres de serie se transmiten hacia atr\'as y adelante. Este dispositivo es usado para corto alcance, con un consumo de 26 uA en reposo. F\'acil de integrar en sistemas embebidos y de conectar a dispotivos ya existentes 
-			
-			\begin{itemize}
-				\item Soporte para: BCSP, LAN, GAP, SDP, RFCOMM y L2CAP
-				\item Velocidad UART: hasta 3 Mbps
-				\item Alcance: 15-18 m 
-			\end{itemize}
-			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[0cm,0cm][4cm,4cm]{imagenes/RN42.jpg}
-				\caption{M\'odulo Bluetooth RN-42}
-				\label{contexto:figura}
-			\end{figure}
 
 	
-		\subsection{Bluetooth HC-05}
+	\section{Investigaciones actuales con IMUs}
 	
-			Este m\'odulo Bluetooth \cite{HC05} ofrece una mejor relaci\'on precio frente a prestaciones, es un m\'odulo maestro esclavo, no solo recibe conexiones sino que tambi\'en las genera hacia otros dispositivos Bluetooth. Posee la versi\'on V2.0+EDR, trabajando a una frecuencia de 2,4 GHz en la banda ISM, con una modulaci\'on GFSK.
-			
-			\begin{itemize}
-				\item Soporta comando AT para ser configurado
-				\item Velocidad: hasta 2,1 Mbps y S\'incrono 1Mbps/1Mbps
-				\item Alcance: 10 m 
-			\end{itemize}
-			
-			\begin{figure}[h]
-				\centering
-				\includegraphics[0cm,0cm][4cm,4cm]{imagenes/HC05}
-				\caption{M\'odulo Bluetooth HC-05}
-				\label{contexto:figura}
-			\end{figure}
-			
-		\subsection{Conclusi\'on}
+		\subsection{Unidad de medida inercial inalámbrica para cohetes} 
+		
+		Normalmente tomar el rango de un cohete es un proceso costoso, ya que no proporcionan unas medidas precisas de su posición, velocidad y altitud. De ahí que se usen actualmente sistemas radar en tierra que si proporcionan una información mas precisa en el lo referente al tiempo, posición y velocidad, mientras que para calcular la altitud se basan en las imagenes tomadas en un video a camara lenta, por lo que resulta dificil calcular con precisión su altura. 
+		
+		La miniaturización lograda por las nuevas técnicas de fabricación hace que sean dispositivos atractivos para ser implementados en un sistema de seguimiento y medición de las dinámicas del movimiento de un pequeño cohete, estos sistemas se conocen como Strapdown, término que se refiere a que el sistema de medida se encuentra ajustado al marco de referencia del objeto en prueba, es decir, se mueve de la misma forma que lo hace dicho objeto.
+		
+		Como ejemplo de ello, se tiene el Intersense, que es un sistema de seguimiento inercial-acústico, que aprovecha las nuevas características de los sensores inerciales y que logra su difusión comercial en aplicaciones de seguimiento. El IMU desarrollado está basado en el concepto Strapdown. \cite{Cohete}
+		
+		
+		\subsection{Desarrollo de un sistema de giroscopios digitales usando tecnología fpga para monitoreo de la orientación de robots}
 
-			Estudiados estos m\'odulos se decidi\'o usar el m\'odulo Bluetooth HC-05 no solo por ser mas econ\'onico sino porque es un dispositivo que puede seguir trabajando en un rango de temperaturas de -$20^{\circ}$C hasta $75^{\circ}$C y teniendo en cuenta que este sistema estar\'a ubicado en el interior de la moto es posible alcanzar dichas temperaturas. Adem\'as las caracter\'isticas del m\'odulo HC-05 son sufientes para la realizaci\'on de este proyecto.
-			
-								
-	\section{Mota Sensora}
-	
-		La Mota que se va a usar para la realizaci\'on de este proyecto es el Pololu minimu-9 v2 \cite{Pololu}, la cual es una unidad de medici\'on inercial (IMU), que viene equipada con un L3GD20 giroscopio de 3 ejes y un LSM303DLHC con 3 ejes para el aceler\'ometro y 3 ejes para el magnet\'ometro. El m\'odulo incluye un regulador de voltaje y un circuito de desplazamiento que permite el funcionamiento de 2,5 a 5,5 V.
-				
-		Las especificaciones de la mota son las siguientes:
+		El objetivo de este trabajo es la descripción en VHDL e implementación en FPGA de una unidad de pre-procesamiento digital capaz de disminuir el error en las mediciones realizadas por un giroscopio digital de tres ejes tipo MEMS aumentando la exactitud de éstas para posteriormente obtener la orientación del sensor que al ser montado en un robot se obtendrá la orientación de éste. 
 		
-		\begin{itemize}
-			\item Dimensiones: 20 x 13 x 3 mm
-			\item Peso: 0,7 g
-			\item Alimentaci\'on: 10 mA 
-			\item Gir\'oscocopo: lectura de 16 bits por eje
-			\item Aceler\'ometro: lectura de 12 bits por eje
-			\item Magnet\'ometro: lectura de 12 bits por eje
-			\item Rango de sensibilidad configurable
-		\end{itemize}
-		
-		\begin{figure}[h]
-			\centering
-			\includegraphics[1cm,0cm][5cm,6cm]{imagenes/pololu.jpg}
-			\caption{Pololu minimu-9 v2}
-			\label{contexto:figura}
-		\end{figure}
-		
-	\section{Plataforma electr\'onica de c\'odigo abierto}
-	
-		Arduino es una plataforma de electrónica que realiza prototipado de circuitos, de software libre, basada en hardware y software flexible y f\'acil de usar. De manera m\'as concreta, en lo que respecta, es la combinaci\'on de un microcontrolador y placa base asociada con un entorno de desarrollo que simplifica la programaci\'on de este controlador, la cual es en un lenguaje muy parecido a C y que por tanto permite la comunicaci\'on con un gran n\'umero de dispositivosde forma c\'omoda y asequible.
-		
-		Arduino no es la \'unica plataforma basada en microcontroladores, pero si es una plataforma libre, econ\'omica  y con una gran comunidad creciendo detr\'as de ella. Adem\'as posee una filosof\'ia multidisciplinar, combinado con la facilidad de tomar informaci\'on del entorno a trav\'es de sus diferentes entradas anal\'ogicas y digitales.
-		
-		Existen diferentes placas oficiales de Arduino, entre ellas Arduino Mega, Y\'un, Leonardo, Uno, Esplora, Due, Micro, Robot, etc\'etera.
-	
-		La plataforma electr\'onica de c\'odigo abierto que vamos a utilizar es Arduino Uno R3 \cite{ArduinoUno}, placa electr\'onica basada en el ATmega 328. Cuenta con 14 pines digitales de entrada/salida, 6 entradas anal\'ogicas, un resonador cer\'amico de 16 MHz, una conexi\'on USB, un conector de alimentaci\'on, una cabecera ICSP y un bot\'on de reinicio. Basta con conectarlo a un ordenador con un cable USB o a una bateria para empezar.
-		
-		\begin{figure}[h]
-			\centering
-			\includegraphics[5cm,0cm][11cm,11cm]{imagenes/ArduinoUno.jpg}
-			\caption{Arduino Uno R3}
-			\label{contexto:figura}
-		\end{figure}
-		
-		Arduino Uno puede ser alimentado con 6 hasta 20 voltios. Si se alimenta con menos de 7 voltios, el pin encargado de suministrar 5 voltios es muy probable que suministre menos. En caso de suministrar mas de 12 voltios, el regulador de voltaje se puede sobrecalentar y da\~nar la placa. El rango de alimentaci\'on recomendado es de 7 a 12 voltios.
-		
-		Para programar Arduino Uno se puede usar el software de Arduino. Software desde el que podremos cargar nuestros programas en la placa Arduino a trav\'es de un cable USB, Arduino Uno cuenta con una memoria de 2KB de SRAM y 1 KB de EEPROM.
-		
-		Una de las ventajas que ofrece Arduino es:
-		
-		\begin{itemize}
-			\item Su bajo coste.
-			\item La facilidad para leer los datos suministrados por sensores.
-			\item La facilidad para construir el sistema electr\'onico que deseamos.
-		\end{itemize}
+		Se emplearon métodos estadísticos para calcular y eliminar el nivel de offset en cada una de los ejes del giroscopio, así como las técnicas de Diezmado, filtro Butterwoth y filtro Kalman para eliminar el ruido eléctrico en las señales., Para la validación del sistema el giroscopio se montó en la flecha de un motor de CD con encoder con el que se realizaron pruebas de velocidad y se compararon los resultados donde se obtuvo como resultado una considerable reducción en la variación de alta frecuencia (ruido) en las medidas del giroscopio así como un nivel de referencia de cero en la señal gracias a la eliminación del offset. Con esta unidad de procesamiento se obtiene un acondicionamiento de la señal listo para ser utilizadas por algún sistema digital que requiera la aplicación del giroscopio, en el caso de este trabajo las señales son integradas por in sistema digital para obtener la orientación de un robot manipulador en los ejes Roll, Pitch y Yaw en un marco de referencia. \cite{robots}		
 	
 	
-	\section{Dispositivo para la aplicaci\'on}
-	
-		A la hora de realizar la aplicaci\'on que procesar\'a los datos recibidos por el Bluetooth y ejecutar\'a el algoritmo de accidente estudiamos cual es la situaci\'on del mercado en lo que respecta al sistema operativo de los dispositivos en uso. 
-		
-		Seg\'un una noticia publicada por xataka en 2014 \cite{AndroidVsiOS} podemos ver los datos proporcionados por la consultora IDC, resultados que se muestran a continuaci\'on.
-		
-		\begin{figure}[h]
-			\centering
-			\includegraphics[5cm,0cm][8cm,8cm]{imagenes/ArduinoVsiOS.jpg}
-			\caption{Comparativa Sistema Operativos en uso}
-			\label{contexto:figura}
-		\end{figure}
-		
-		En la siguiente tabla mostramos los porcentajes de los dispositivos que usan cada uno de los sistemas operativos disponibles en el mercado.
-		
-		 \begin{table}[H]
-		 	\centering
-		 	\begin{tabular}{p{4cm} p{4cm}}
-		 		\hline
-		 		Sistema Operativo & \% Uso mundial \\
-		 		\hline \hline
-		 		Android & 84.7 \\
-		 		\hline
-		 		iOS & 11.7 \\
-		 		\hline
-		 		Windows Phone & 2.5 \\
-		 		\hline
-		 		BlackBerry & 0.5 \\
-		 		\hline
-		 		Otros & 0.6 \\
-		 		\hline
-		 	\end{tabular}
-		 	\caption{Porcentaje mundial de sistemas operativos en Smartphones}
-		 	\label{tabla:AndroidVsiOS}
-		 \end{table}
-		 
-		 Viendo estos datos se decidi\'o realizar la aplicaci\'on para un dispositivo Android.
+
 	
 	\section{Sistemas de seguridad actuales y tendencias futuras}
 	
-		La tecnolog\'ia comienza a subirse a la moto, la comunicaci\'on entre veh\'iculos y carreteras contribuir\'a a la prevenci\'on de accidentes y disminuci\'on de la siniestralidad de uno de los colectivos m\'as vulnerables.
+		La tecnología comienza a subirse a la moto, la comunicación entre vehículos y carreteras contribuirá a la prevención de accidentes y disminución de la siniestralidad de uno de los colectivos más vulnerables.
 		
-		La implantaci\'on de sistemas de seguridad como el cintur\'on de seguridad, airbag, ABS, entre otros muchos han sido incorporados de forma tard\'ia en la moto. La d\'ecada en la que nos encontramos se centrar\'a en la moto, los sistemas inteligentes van a tener un papel especial.
+		La implantación de sistemas de seguridad como el cinturón de seguridad, airbag, ABS, entre otros muchos han sido incorporados de forma tardía en la moto. La década en la que nos encontramos se centrará en la moto, los sistemas inteligentes van a tener un papel especial.
 		
-		En materia de seguridad activa, la que ayuda a evitar accidentes hay que destacar los sistemas de ayuda en la frenada, adem\'as de la implantaci\'on de mejoras en materia de iluminaci\'on, amortiguaci\'on, estabilidad, sistemas de cambios, neum\'aticos... En prueba se encuentran algunos sistemas novedosos basados en la comunicaci\'on entre veh\'iculos y con las infraestructuras para advertir sobre situaciones peligrosas como tr\'afico, climatolog\'ia adversa...
+		En materia de seguridad activa, la que ayuda a evitar accidentes hay que destacar los sistemas de ayuda en la frenada, además de la implantación de mejoras en materia de iluminación, amortiguación, estabilidad, sistemas de cambios, neumáticos... En prueba se encuentran algunos sistemas novedosos basados en la comunicación entre vehículos y con las infraestructuras para advertir sobre situaciones peligrosas como tráfico, climatología adversa...
 		
-		En los \'ultimos dos años se ha iniciado una revoluci\'on electr\'onica en la motocicleta, aportando una gran seguridad como es el ABS, control de tracci\'on. En 2017 la UE (Union Europea) trabaja para que las motos salgan con el ABS de f\'abrica.
+		En los últimos dos años se ha iniciado una revolución electrónica en la motocicleta, aportando una gran seguridad como es el ABS, control de tracción. En 2017 la UE (Union Europea) trabaja para que las motos salgan con el ABS de fábrica.
 		
 		En materia de seguridad pasiva nos encontramos elementos como el casco, la cabeza sufre traumatismos en el 50\% de los accidentes. Un casco adecuado puede reducir estas lesiones en un 69\% y la mortalidad en un 42\%. Ademas de ropa ligera que protege en las caidas o incluso cazadoras, chalecos y cascos con airbag en caso de caida.
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[3cm,0cm][7cm,7cm]{imagenes/airbag.jpg}
+			\includegraphics{imagenes/airbag.jpg}
 			\caption{Airbag en casco y cazadora}
 			\label{contexto:figura}
 		\end{figure}
 		
-		Toda esta informaci\'on ha sido recopilada de un reportaje de la DGT \cite{Dgt}.
+		Toda esta información ha sido recopilada de un reportaje de la DGT \cite{Dgt}.
 		
-		Tal y como hemos podido leer todos estos sistemas en materia de seguridad activa y pasiva son para preveer accidentes o reducir los da\~nos sufridos en caso de accidente. Si el motorista ha sufrido un accidente el tiempo juega en su contra, por lo que se requiere una r\'apida intervenci\'on de los servicios sanitarios. 
+		Tal y como hemos podido leer todos estos sistemas en materia de seguridad activa y pasiva son para preveer accidentes o reducir los da\~nos sufridos en caso de accidente. Si el motorista ha sufrido un accidente el tiempo juega en su contra, por lo que se requiere una rápida intervención de los servicios sanitarios. 
 		
-		Un accidente puede ocurrir en un lugar concurrido y cualquier viandante que se encuentre all\'i puede realizar dicha llamada a emergencias, el inconveniente ser\'ia que el accidente ocurra en una via poco transitada y el conductor no pueda realizar dicha llamada, esperar a que otro conductor circule por esa misma via puede llevar demasiado tiempo.
+		Un accidente puede ocurrir en un lugar concurrido y cualquier viandante que se encuentre allí puede realizar dicha llamada a emergencias, el inconveniente sería que el accidente ocurra en una via poco transitada y el conductor no pueda realizar dicha llamada, esperar a que otro conductor circule por esa misma via puede llevar demasiado tiempo.
 		
-		Como consecuencia nace la realizaci\'on de este proyecto, cuya aplicaci\'on he llamado MotoSafe. Consiste en que el propio smartphone del conductor pueda avisar a emergencias indic\'andoles nuestra posici\'on en caso que la aplicaci\'on haya detectado que se ha producido un accidente a partir de los datos suministrados por el sistema electr\'onico que ubicaremos en la moto.
+		Como consecuencia nace la realización de este proyecto, cuya aplicación he llamado MotoSafe. Consiste en que el propio smartphone del conductor pueda avisar a emergencias indicándoles nuestra posición en caso que la aplicación haya detectado que se ha producido un accidente a partir de los datos suministrados por el sistema electrónico que ubicaremos en la moto.
 		
-		En el pr\'oximo cap\'itulo se proporcionar\'an mas detalles acerca del desarrollo de este proyecto.
+		En el próximo capítulo se proporcionarán mas detalles acerca del desarrollo de este proyecto.
 		
-		A continuaci\'on detallar\'e algunos sistemas actuales de alerta m\'ovil en caso de accidentes de tr\'afico.
+		A continuación detallaré algunos sistemas actuales de alerta móvil en caso de accidentes de tráfico.
 		
-		\subsection{MY-ALARMME!}
+		\subsection{My-AlarmMe!}
 		
-			MyAlarmMe! \cite{MyAlamMe} es un sistema de alarma y emergencia para moteros que funciona a trav\'es del tel\'efono m\'ovil.
+			MyAlarmMe! \cite{MyAlamMe} es un sistema de alarma y emergencia para moteros que funciona a través del teléfono móvil.
 			
-			Ofrece un servicio personalizado que permite al usuario avisar, en tiempo real y de forma manual, a todas que personas que el desee con el env\'io de un SMS que ha sufrido un accidente.
+			\begin{figure}[h]
+				\centering
+				\includegraphics{imagenes/alarm.JPG}
+				\caption{Interfaz de My-AlarmMe}
+				\label{contexto:figura}
+			\end{figure}
 			
-			Los sms se enviar\'an de forma autom\'atica al acticar tu alarma, el mensaje enviado ser\'a prefijado por el usuario incluyendo el nombre de dicho usuario y las coordenadas de su ubicaci\'on.
+			Ofrece un servicio personalizado que permite al usuario avisar, en tiempo real y de forma manual, a todas que personas que el desee con el envío de un SMS que ha sufrido un accidente.
 			
-			El funcionamiento es simple, una vez la aplicaci\'on ha sido configurada, en caso de sufrir un accidente el usuario solo tiene que abrir la aplicaci\'on y pulsar sobre el icono de exclamaci\'on, en ese momento se enviar\'an los sms a los contactos o n\'umeros previamente indicados.
+			Los sms se enviarán de forma automática al acticar tu alarma, el mensaje enviado será prefijado por el usuario incluyendo el nombre de dicho usuario y las coordenadas de su ubicación.
+			
+			El funcionamiento es simple, una vez la aplicación ha sido configurada, en caso de sufrir un accidente el usuario solo tiene que abrir la aplicación y pulsar sobre el icono de exclamación, en ese momento se enviarán los sms a los contactos o números previamente indicados.
+			
+			
 		
 		\subsection{MEC –- Mobile Emergency Call}
 		
-			MEC -- Mobile Emergency Call \cite{MEC} es una aplicaci\'on que env\'ia mensaje de alarma automaticamente si detecta que hemos tenido un accidente de tr\'afico. Los mensajes de alerta que env\'ia son por medio de email, SMS y llamada de voz con locuci\'on incorporada.
+			MEC -- Mobile Emergency Call \cite{MEC} es una aplicación que envía mensaje de alarma automaticamente si detecta que hemos tenido un accidente de tráfico. Los mensajes de alerta que envía son por medio de email, SMS y llamada de voz con locución incorporada.
 			
-			Este sistema se puede usar en coches, motos y bicicletas, teniendo en cuenta las particularidades din\'amicas y de conducci\'on de cada veh\'iculo. Si el algoritmo detecta un accidente se inicia una cuenta atr\'as para enviar los mensajes de alerta, cuenta atr\'as que puede ser cancelada si el usuario as\'i lo indica.
+			Este sistema se puede usar en coches, motos y bicicletas, teniendo en cuenta las particularidades dinámicas y de conducción de cada vehículo. Si el algoritmo detecta un accidente se inicia una cuenta atrás para enviar los mensajes de alerta, cuenta atrás que puede ser cancelada si el usuario así lo indica.
 			
-			En esos mensajes de alerta se incluyen la posici\'on GPS del accidente, adem\'as de los datos de usuario previamente insertados, como son el modelo de veh\'iculo, alergias conocidas, etc\'etera. El usuario puede escoger a quien desea enviar dichos mensajes de alerta.
-	
-	
+			En esos mensajes de alerta se incluyen la posición GPS del accidente, además de los datos de usuario previamente insertados, como son el modelo de vehículo, alergias conocidas, etcétera. El usuario puede escoger a quien desea enviar dichos mensajes de alerta.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics{imagenes/mec.JPG}
+				\caption{Interfaz MEC - Mobile Emergency Call}
+				\label{contexto:figura}
+			\end{figure}
+			
+		
+		
+		\subsection{Bosch Media Service}
+		
+			Bosch \cite{Bosch} ofrece la primera unidad de medición inercial para motocicletas fabricadas en serie. Este sensor proporciona la información necesaria para ofrecer un nivel significativamente mayor de seguridad y comodidad, así como un mayor rendimiento.
+			
+			Para proporcionar esta información, la unidad de medición inercial MM5.10 mide las señales inerciales 5D, la velocidad de balanceo, la velocidad de viraje, la aceleración longitudinal, la aceleración transversal y la aceleración vertical de la motocicleta. El ángulo de inclinación y el ángulo de cabeceo también se pueden calcular mediante un microcontrolador. La información sobre las velocidades de las ruedas y otros parámetros específicos de la motocicleta (tamaño y forma de los neumáticos y la ubicación de la instalación geométrica del sensor) son necesarios para este cálculo. Todas las señales se transmiten a través de CAN.
+			
+			Gracias a esta información, es posible obtener y mejorar un gran conjunto de funciones:
+				
+				\begin{itemize}
+					\item Control de tracción
+					\item ABS en curvas
+					\item Ajuste de wheelie
+					\item Ajuste de puesta en marcha
+					\item Distribución de la fuerza de frenado en inclinación
+					\item Luces de giro
+					\item Ajuste del chasis semiactivo
+					\item Control en pendientes
+					\item Detección de caídas
+			    \end{itemize}
 
 	\newpage
 	$\ $

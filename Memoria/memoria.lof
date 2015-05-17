@@ -1,30 +1,38 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces M\'odulo Bluetooth RN-42}}{9}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces M\'odulo Bluetooth HC-05}}{10}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Pololu minimu-9 v2}}{11}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Arduino Uno R3}}{12}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Comparativa Sistema Operativos en uso}}{13}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Airbag en casco y cazadora}}{14}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Airbag en casco y cazadora}}{11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Interfaz de My-AlarmMe}}{12}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Interfaz MEC - Mobile Emergency Call}}{13}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama de Estados}}{19}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces ATmega328 en Arduino Uno R3}}{21}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Conexiones Motasonra y Arduino}}{24}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Resultado conexi\'on todos los componentes}}{26}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Estructura aplicaci\'on Android}}{27}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Interfaz aplicaci\'on Android}}{30}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama Bloques}}{16}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces M\IeC {\'o}dulo WiFi ESP8266}}{18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces M\IeC {\'o}dulo WiFi RN-XV}}{18}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces M\IeC {\'o}dulo XBee-PRO ZB}}{20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces M\IeC {\'o}dulo CC2530 F256 Wireless ZigBee}}{21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces M\IeC {\'o}dulo Bluetooth RN-42}}{22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces M\IeC {\'o}dulo Bluetooth HC-05}}{22}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Unidad de medici\IeC {\'o}n inercial ARDUINO+V2 (FLAT)}}{24}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Mota sensora}}{25}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces ATmega328 en Arduino Uno R3}}{26}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Raspberry Pi Modelo A}}{28}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Conexiones Motasonra y Arduino}}{30}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Resultado conexi\IeC {\'o}n todos los componentes}}{31}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Diagrama de Estados}}{33}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Comparativa Sistema Operativos en uso}}{34}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Estructura aplicaci\IeC {\'o}n Android}}{36}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Interfaz aplicaci\IeC {\'o}n Android}}{37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Theta te\'orico 0}}{32}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Theta te\'orico 90}}{33}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Interfaz aplicaci\'on Android si el GPS no est\'a activado}}{36}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Interfaz aplicaci\'on Android reconociendo \'angulo de inclinaci\'on}}{37}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Interfaz aplicaci\'on Android con p\'erdida de se\~nal bluetooth}}{38}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Interfaz aplicaci\'on Android cuando he sufrido un accidente}}{39}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Dise\~no PCB}}{40}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Prototipo proyecto}}{41}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Theta te\IeC {\'o}rico 0}}{39}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Theta te\IeC {\'o}rico 90}}{39}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Interfaz aplicaci\IeC {\'o}n Android si el GPS no est\IeC {\'a} activado}}{40}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Interfaz aplicaci\IeC {\'o}n Android reconociendo \IeC {\'a}ngulo de inclinaci\IeC {\'o}n}}{41}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Interfaz aplicaci\IeC {\'o}n Android con p\IeC {\'e}rdida de se\~nal bluetooth}}{42}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Interfaz aplicaci\IeC {\'o}n Android cuando he sufrido un accidente}}{43}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Dise\~no PCB}}{44}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Prototipo proyecto}}{45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Esquem\'atico dise\~no PCB}}{48}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Dise\~no PCB en PCBnew}}{49}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Modelo 3D PCB}}{50}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces SDK Manager}}{56}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Esquem\IeC {\'a}tico dise\~no PCB}}{54}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Dise\~no PCB en PCBnew}}{55}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Modelo 3D PCB}}{56}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces SDK Manager}}{62}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{MEC}
 {\sc {App Circus}}.
@@ -12,6 +12,10 @@
 {\sc {ATMEL}}.
 \newblock \texttt{http://www.atmel.com/images/doc8161.pdf}.
 
+\bibitem{Bosch}
+{\sc {Bosch motorcycle}}.
+\newblock \texttt{http://www.bosch-motorcycle.es}, 2013.
+
 \bibitem{Dgt}
 {\sc {DGT}}.
 \newblock
@@ -23,6 +27,12 @@
 \newblock
   \texttt{http://www.electronica60norte.com/mwfls/pdf/newBluetooth.pdf}.
 
+\bibitem{Cohete}
+{\sc {Luis Eduardo Ardila Pérez, Johan Sebastián Eslava Garzón}}.
+\newblock
+  \texttt{http://revistas.usbbog.edu.co/index.php/ingenium/article/view/332/253},
+  2012.
+
 \bibitem{MyAlamMe}
 {\sc {Mutua Motera}}.
 \newblock
@@ -33,16 +43,50 @@
 {\sc {Pololu Robotic and Electronics}}.
 \newblock \texttt{https://www.pololu.com/product/1268}.
 
+\bibitem{RaspBerryPi}
+{\sc {Raspberry Pi}}.
+\newblock \texttt{https://www.raspberrypi.org/}, 2012.
+
 \bibitem{RN42}
 {\sc {Roving Networks}}.
 \newblock
   \texttt{https://www.sparkfun.com/datasheets/Wireless/Bluetooth/rn-42-ds.pdf},
   12 de {J}unio de 2010.
 
+\bibitem{RNXV}
+{\sc {Roving Networks}}.
+\newblock \texttt{https://www.sparkfun.com/products/10822}, 2014.
+
+\bibitem{ESP8266}
+{\sc {SparkFun}}.
+\newblock \texttt{https://www.sparkfun.com/products/13252}, 2012.
+
+\bibitem{FLAT}
+{\sc {Todoelectronica}}.
+\newblock
+  \texttt{http://www.todoelectronica.com/robotica-sensor-de-posicion-unidad-de-medicion-inercial-arduinov2-flat-p-14201.html},
+  2014.
+
+\bibitem{robots}
+{\sc {Uriel Lomelí Hernández}}.
+\newblock \texttt{http://hdl.handle.net/123456789/1298}, 2012.
+
+\bibitem{zigbee}
+{\sc {Wireless ZigBee}}.
+\newblock
+  \texttt{https://lsesdxlelwgadgets.wordpress.com/2014/08/08/cc2530-f256-zigbee-wireless-module-w-sma-antenna-deep-blue-331469/},
+  2014.
+
 \bibitem{AndroidVsiOS}
 {\sc {Xataka}}.
 \newblock
   \texttt{http://www.xataka.com/moviles/idc-android-e-ios-ya-estan-en-el-96-4-de-los-smartphones},
   15 de {A}gosto de 2014.
+
+\bibitem{xbeeZD}
+{\sc {ZigBee PRO Feature Set}}.
+\newblock
+  \texttt{http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/zigbee-mesh-module/xbee-zb-module},
+  2013.
 
 \end{thebibliography}
